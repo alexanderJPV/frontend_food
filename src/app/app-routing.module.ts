@@ -1,3 +1,4 @@
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { BodywebComponent } from './components/home_web/bodyweb/bodyweb.component';
@@ -29,6 +30,14 @@ const routes: Routes = [
   {
     path: 'user/login',
     component: LoginComponent
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent
+    // children: [{
+    //   path: '',
+    //   loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+    // }]
   }
 ];
 

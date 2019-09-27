@@ -12,6 +12,11 @@ import { BodywebComponent } from './components/home_web/bodyweb/bodyweb.componen
 
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminNavbarComponent } from './components/items_admin/admin-navbar/admin-navbar.component';
+import { AdminSidebarComponent } from './components/items_admin/admin-sidebar/admin-sidebar.component';
+import { AdminFooterComponent } from './components/items_admin/admin-footer/admin-footer.component';
+import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    BodywebComponent
+    BodywebComponent,
+    AdminNavbarComponent,
+    AdminSidebarComponent,
+    AdminFooterComponent,
+    AdminLayoutComponent,
+    DashboardAdminComponent
   ],
   imports: [
     BrowserModule,
