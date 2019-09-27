@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="d-flex justify-content-start">Login</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-google-plus-square"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
+          </div>
+        </div>
+        <div class="card-body">
+          <form name="form">
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input name="username" type="text" class="form-control" placeholder="username*" formControlName="username" [ngClass]="{ 'is-invalid': (submitted && formControls.username.errors && formControls.username.errors.required) || (formControls.username.errors?.required && formControls.username.touched && !submitted) || (submitted && formControls.username.errors && formControls.username.errors.email) || (formControls.username.errors?.email && formControls.username.touched && !submitted) }">
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+              </div>
+              <input name="password" type="password" class="form-control" placeholder="password*" formControlName="password" [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }"/>
+            </div>
+            <div class="input-group form-group row aling-items-center remember">
+              <input name="rememberMe" type="checkbox" formControlNamew="rememberMe"> Remember Me
+            </div>
+            <div class="input-group form-group">
+              <button class="form-control color-button" type="submit">LOGIN</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?
+            <a routerLink="/signup">Sign Up</a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="#" class="color-text">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
