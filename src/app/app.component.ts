@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend-restaurante';
+  constructor(private router: Router){}
+  public hideNavbarOutlet() {
+    return ((this.router.url !== '/user/login') &&
+            (this.router.url !== '/user/register') &&
+            (this.router.url.includes('/admin') !== true)
+            );
+  }
 }

@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  onPres(){
+    this.router.navigate(['/admin']);
   }
 
 }
