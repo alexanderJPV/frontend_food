@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  // onPres(){
+  //   this.router.navigate(['/admin']);
+  // }
 
   get formControls() {
     return this.userFromGroup.controls;
