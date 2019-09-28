@@ -16,17 +16,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.initialFroms();
   }
 
   ngOnInit() {
   }
-  
-  // onPres(){
-  //   this.router.navigate(['/admin']);
-  // }
 
   get formControls() {
     return this.userFromGroup.controls;
@@ -40,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.userFromGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      // authorities: [[]]
+      rememberMe: [true]
     });
   }
 
@@ -49,19 +46,37 @@ export class LoginComponent implements OnInit {
     if (this.userFromGroup.invalid) {
       return;
     }
-    console.log('Estos son los datos que pasan ---> ', this.formValue);
+    // console.log('Estos son los datos que pasan ---> ', this.formValue);
     this.login();
   }
 
   login() {
-    this.authService.login(this.formValue).subscribe(
+    const user = Object.assign({}, this.formValue);
+    this.authService.login(user).subscribe(
       (res) => {
-        console.log('El logeo fue exitoso', res);
+        if (this.formValue.rememberMe) {
+          localStorage.setItem('food-token', res.token);
+        } else {
+          sessionStorage.setItem('food-token', res.token);
+        }
+        this.authService.getAccount().subscribe(
+          (res) => {
+            const data = res.rol.includes('ADMIN');
+            if (data) {
+              this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/home_web/bodyweb']);
+            }
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
       },
-      (error) => {
+      (err) => {
         console.log('Hay un error');
       }
-    )
+    );
   }
 
 }

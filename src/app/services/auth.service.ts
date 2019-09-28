@@ -22,12 +22,12 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('mfx-token');
-    sessionStorage.removeItem('mfx-token');
+    localStorage.removeItem('food-token');
+    sessionStorage.removeItem('food-token');
   }
 
   getToken() {
-    return sessionStorage.getItem('mfx-token') ? sessionStorage.getItem('mfx-token') : (localStorage.getItem('mfx-token') ? localStorage.getItem('mfx-token') : '');
+    return sessionStorage.getItem('food-token') ? sessionStorage.getItem('food-token') : (localStorage.getItem('food-token') ? localStorage.getItem('food-token') : '');
   }
 
   // getTokenExpirationDate(token: string): Date {
