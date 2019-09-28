@@ -18,6 +18,7 @@ import { AdminFooterComponent } from './components/items_admin/admin-footer/admi
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminSidebarComponent,
     AdminFooterComponent,
     AdminLayoutComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
