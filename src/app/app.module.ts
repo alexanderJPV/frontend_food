@@ -12,14 +12,10 @@ import { BodywebComponent } from './components/home_web/bodyweb/bodyweb.componen
 
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminNavbarComponent } from './components/items_admin/admin-navbar/admin-navbar.component';
-import { AdminSidebarComponent } from './components/items_admin/admin-sidebar/admin-sidebar.component';
-import { AdminFooterComponent } from './components/items_admin/admin-footer/admin-footer.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './components/user-list/user-list.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +23,6 @@ import { UserListComponent } from './components/user-list/user-list.component';
     RegisterComponent,
     LoginComponent,
     BodywebComponent,
-    AdminNavbarComponent,
-    AdminSidebarComponent,
-    AdminFooterComponent,
     AdminLayoutComponent,
     DashboardAdminComponent,
     UserListComponent
