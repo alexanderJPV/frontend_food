@@ -4,7 +4,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.component';
 import { UserListComponent } from '../../user-list/user-list.component';
-import { MatButtonModule} from '@angular/material';
+import {
+        MatButtonModule,
+        MatInputModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatTooltipModule,
+        MatSelectModule
+      } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -12,9 +19,15 @@ import { MatButtonModule} from '@angular/material';
     UserListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule
   ]
 })
-
-
 export class AdminLayoutModule { }
