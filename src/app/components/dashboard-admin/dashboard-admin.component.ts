@@ -10,6 +10,7 @@ export class DashboardAdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('el dashboard asmin');
   }
 
 }

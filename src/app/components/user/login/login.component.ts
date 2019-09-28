@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           (res) => {
             const data = res.rol.includes('ADMIN');
             if (data) {
-              this.router.navigate(['/admin']);
+              this.router.navigate(['/admin/dashboard']);
             } else {
               this.router.navigate(['/home_web/bodyweb']);
             }

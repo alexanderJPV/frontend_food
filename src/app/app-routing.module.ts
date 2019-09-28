@@ -33,11 +33,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminLayoutComponent
-    // children: [{
-    //   path: '',
-    //   loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-    // }]
+    component: AdminLayoutComponent,
+    children: [{
+      path: '',
+      loadChildren: () => import('./components/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+    }]
   }
 ];
 

@@ -10,6 +10,7 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('Este es el component eque se muestra el useer list');
   }
 
 }
