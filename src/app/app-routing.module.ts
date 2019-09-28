@@ -11,13 +11,13 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: NavbarComponent,
-    outlet: 'navbar'
+    redirectTo: 'home_web/bodyweb',
+    pathMatch: 'full'
   },
   {
     path: '',
-    redirectTo: 'home_web/bodyweb',
-    pathMatch: 'full'
+    component: NavbarComponent,
+    outlet: 'navbar'
   },
   {
     path: 'home_web/bodyweb',

@@ -17,6 +17,7 @@ import { AdminSidebarComponent } from './components/items_admin/admin-sidebar/ad
 import { AdminFooterComponent } from './components/items_admin/admin-footer/admin-footer.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
