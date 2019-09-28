@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    margin-top: 5% !important;
+    margin-bottom: auto;
+    width: 500px;
+}
+.card-header {
+    background-color: #E8E2E7 !important;
+}
+
+.card-footer {
+    background-color: #E8E2E7 !important;
+    display: block;
+}
+
+.card-body {
+    background-color: #EFEDF1 !important;
+}
+
+.card .card-footer {
+    padding: 0;
+    padding-top: 10px;
+    margin: 0px 0px -1px;
+    border-radius: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #998995;
+}
+
+.move-left {
+    float: left;
+}
+
+.social_icon span:hover{
+    color: #493C46;
+    cursor: pointer;
+}
+    
+.apply-color {
+    background-color: #EFEDF1;
+    color: #493C46;
+}
+.color-button {
+    background-color: #493C46 !important;
+    border: 0;
+    color: #EFEDF1 !important;
+}
+.color-text {
+    color: #493C46;
+}
+.color-text:hover {
+    text-decoration: none;
+    color: #998995;
+}
+
+.remember input {
+    width: 19px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.input-group-prepend span{
+    /* width: 50px; */
+    background-color: #493C46;
+    color: #EFEDF1;
+    border:0 !important;
+}
+
+.error-message {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+    width: 100%;
+}
+.card {
+    margin-top: 10%;
+    margin-bottom: auto;
+    width: 500px;
+}
+
+.social-icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #998995;
+}
+
+.social-icon span:hover {
+    color: #493C46;
+    cursor: pointer;
+}
+
+.color-button {
+    background-color: #493C46 !important;
+    border: 0;
+    color: #EFEDF1 !important;
+}
+
+.error-message {
+    width: 100%;
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    margin: 5px 0 0;
+}

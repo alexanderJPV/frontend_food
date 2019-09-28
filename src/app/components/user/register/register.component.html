@@ -1,1 +1,66 @@
-<p>register works!</p>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="d-flex justify-content-start">Signup</h3>
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="fab fa-facebook-square"></i></span>
+                    <span><i class="fab fa-google-plus-square"></i></span>
+                    <span><i class="fab fa-twitter-square"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form name="form" [formGroup]="userFromGroup" (ngSubmit)="onSubmit()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="username*"
+                            formControlName="email">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="firstName*"
+                            formControlName="email">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="lastName*"
+                            formControlName="email">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="email*"
+                            formControlName="email">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                        </div>
+                        <input name="password" type="password" class="form-control" placeholder="password*"
+                            formControlName="password" />
+                    </div>
+
+                    <div class="input-group form-group">
+                        <button class="form-control color-button" type="submit">SIGNUP</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account?
+                    <a routerLink="/signup">Sign Up</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="color-text">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

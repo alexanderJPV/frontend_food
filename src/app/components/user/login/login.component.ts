@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
     if (this.userFromGroup.invalid) {
       return;
     }
-    // console.log('Estos son los datos que pasan ---> ', this.formValue);
     this.login();
   }
 
@@ -54,6 +53,7 @@ export class LoginComponent implements OnInit {
     const user = Object.assign({}, this.formValue);
     this.authService.login(user).subscribe(
       (res) => {
+        this.logout();
         if (this.formValue.rememberMe) {
           localStorage.setItem('food-token', res.token);
         } else {
@@ -77,6 +77,10 @@ export class LoginComponent implements OnInit {
         console.log('Hay un error');
       }
     );
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
