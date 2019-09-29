@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsAdminModule } from './components/items_admin/items-admin.module';
+import { FavoriteFoodComponent } from './components/home_web/favorite-food/favorite-food.component';
+import { PromotionsComponent } from './components/home_web/promotions/promotions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { ItemsAdminModule } from './components/items_admin/items-admin.module';
     RegisterComponent,
     LoginComponent,
     BodywebComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    FavoriteFoodComponent,
+    PromotionsComponent
   ],
   imports: [
     BrowserModule,
