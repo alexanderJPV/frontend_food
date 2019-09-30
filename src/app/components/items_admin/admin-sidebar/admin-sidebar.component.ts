@@ -14,6 +14,12 @@ export const ROUTES: RouteInfo[] = [
     class: ''
   },
   {
+    path: '/admin/user-profile',
+    title: 'User Profile',
+    icon: 'person',
+    class: ''
+  },
+  {
     path: '/admin/user-list',
     title: 'User List',
     icon: 'content_paste',

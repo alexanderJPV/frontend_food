@@ -13,11 +13,13 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { AdminLayoutRoutes } from './admin-layout.router';
+import { UserProfileComponent } from '../../user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     DashboardAdminComponent,
-    UserListComponent
+    UserListComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

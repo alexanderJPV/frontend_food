@@ -8,7 +8,7 @@ export const SERVER = (function () {
     const ACTIVATE = 'activate?key=';
     const RESET_PASSWORD_INIT = 'reset-password/init';
     const RESET_PASSWORD_FINISH = 'reset-password/finish';
-    const USERS = 'users';
+    const USERS = 'usuarios';
     const COURSES = 'courses';
     return {
         URL_BASE: URL.BASE,

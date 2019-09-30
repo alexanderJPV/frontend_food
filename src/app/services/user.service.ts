@@ -42,5 +42,4 @@ export class UserService {
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.delete(URL, headers);
   }
-
 }
