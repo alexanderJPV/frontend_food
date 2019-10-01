@@ -8,14 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  public users: any[];
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    console.log('Este es el component eque se muestra el useer list');
+    this.getListUser();
+  }
+  getListUser(){
     this.userService.getAll().subscribe(users => {
-        console.log(users);
+      this.users=users.usuario.rows;
     });
-    console
+  }
+  onDeleteUser(id: number): void {
+     if (confirm('Are you sure to delete?')) {
+    //   this.dataApiService.deleteBook(id).subscribe();
+         this.userService.delete(id).subscribe( user =>{
+           console.log("correcto");
+         });
+     }
   }
 }

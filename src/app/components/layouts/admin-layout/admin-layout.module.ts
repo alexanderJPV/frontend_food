@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.component';
 import { UserListComponent } from '../../user-list/user-list.component';
+import { ModalsModule } from  '../../modals/modals.module';
 import {
   MatButtonModule,
   MatInputModule,
@@ -32,6 +33,7 @@ import { UserProfileComponent } from '../../user-profile/user-profile.component'
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    ModalsModule
   ]
 })
 export class AdminLayoutModule { }

@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   }
 
   showDropDown() {
-    if (this.authService.getToken()) {
+    if (!this.authService.getToken()) {
       this.validateUser = true;
     } else {
       this.validateUser = false;
