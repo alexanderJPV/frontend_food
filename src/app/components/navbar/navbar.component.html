@@ -1,39 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">School Control</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fondo">
+    <div class="row">
+        <div class="col-3">
+            <a class="navbar-brand logo" href="#">FOR HUNGER</a>
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-    </ul>
-    <div *ngIf="validateUser">
-      <div class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><span class="texto-boton-navbar">Home</span> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="texto-boton-navbar">About Us</span></a>
+            </li>
+        </ul>
+        <div *ngIf="validateUser">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Link
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Logout</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                </div>
+            </div>
         </div>
-      </div>
+        <div *ngIf="!validateUser">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-1 color_boton" type="submit" routerLink="/user/register"><span class="texto-boton-navbar">Register</span></button>
+        </div>
+        <div *ngIf="!validateUser">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-2 color_boton" type="submit" routerLink="/user/login"><span class="texto-boton-navbar">Login</span></button>
+        </div>
     </div>
-    <div *ngIf="!validateUser">
-      <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit"
-        routerLink="/user/register">Register</button>
-    </div>
-    <div *ngIf="!validateUser">
-      <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit" routerLink="/user/login">Login</button>
-    </div>
-  </div>
 </nav>

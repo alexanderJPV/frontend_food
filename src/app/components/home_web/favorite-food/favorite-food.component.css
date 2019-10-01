@@ -1,12 +1,15 @@
 .primero {
     display: none;
-    padding: 5px;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    position: relative;
-    width: 200px;
 }
 
 #primero:hover .primero {
     display: flex;
+}
+
+.card {
+    height: 160px;
+}
+
+.titulo_favorite {
+    font-family: 'Vibes', cursive;
 }
