@@ -1,0 +1,13 @@
+.fondo-card {
+    background-image: url(https://besthqwallpapers.com/Uploads/5-4-2019/86246/thumb2-apple-logo-cheese-texture-apple-cheese-background-apple-cheese-logo.jpg) !important;
+}
+
+.font-card-title {
+    font-family: 'Courgette', cursive;
+    color: #0B173B;
+    box-shadow: inset 0 0 15px 0 maroon;
+}
+
+.font-card-body {
+    font-family: 'Vollkorn', serif;
+}
