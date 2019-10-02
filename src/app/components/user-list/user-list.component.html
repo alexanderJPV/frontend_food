@@ -8,7 +8,8 @@
                             <h4 class="card-title ">Tabla Usuarios</h4>
                             <p class="card-category"> Informacion Usuarios</p>
                         </div>
-                        <button class="ordena btn btn-success float-right mb-3" type="button" data-toggle="modal" data-target="#modalUser">Nuevo</button>
+                        <button class="ordena btn btn-success float-right mb-3" type="button" data-toggle="modal"
+                            data-target="#modalUser">Nuevo</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -59,7 +60,9 @@
                                         <td>
                                             <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->
                                             <a href="#" class="btn btn-info"><span><i class="fa fa-pen"></i></span></a>
-                                            <a routerLink="/admin/user-list" routerLinkActive="router-link-active" class="btn btn-danger" (click)="onDeleteUser(user.id)"><span><i class="fa fa-trash"></i></span></a>
+                                            <a routerLink="/admin/user-list" routerLinkActive="router-link-active"
+                                                class="btn btn-danger" (click)="onDeleteUser(user.id)"><span><i
+                                                        class="fa fa-trash"></i></span></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -70,5 +73,5 @@
             </div>
         </div>
     </div>
-  </div>
-  <app-user-modal></app-user-modal>
+</div>
+<app-user-modal (messageToEmit)="getMessage($event)"></app-user-modal>
