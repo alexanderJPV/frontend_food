@@ -42,5 +42,5 @@ export class DashboardAdminComponent implements OnInit {
           '<a href="{3}" target="{4}" data-notify="url"></a>' +
         '</div>'
     });
-}
+  }
 }
