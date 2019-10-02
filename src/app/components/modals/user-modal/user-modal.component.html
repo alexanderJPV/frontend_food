@@ -14,28 +14,28 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="autor">Nombre</label>
-              <input type="text" name="autor" class="form-control" placeholder="nombres" formControlName="nombres">
+              <input type="text" name="autor" class="form-control" placeholder="Nombres" formControlName="nombres">
             </div>
             <div class="form-group col-md-6">
               <label for="autor">Apellidos</label>
-              <input type="text" name="autor" class="form-control" placeholder="nombres" formControlName="apellidos">
+              <input type="text" name="autor" class="form-control" placeholder="Apellidos" formControlName="apellidos">
             </div>
-            <!-- <div class="form-group col-md-6">
-              <label for="oferta">Oferta</label>
+            <div class="form-group col-md-6">
+              <label for="oferta">Genero</label>
               <select name="oferta" class="form-control">
-                <option value="1">SI</option>
-                <option value="0">NO</option>
+                <option value="1">Femenino</option>
+                <option value="0">Masculino</option>
               </select>
-            </div> -->
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="portada">Nombre de usuario</label>
-              <input type="text" name="portada" class="form-control" placeholder="Portada" formControlName="userName">
+              <input type="text" name="portada" class="form-control" placeholder="Username" formControlName="userName">
             </div>
             <div class="form-group col-md-6">
               <label for="link_amazon">email</label>
-              <input type="email" name="link_amazon" class="form-control" placeholder="email@example.com"
+              <input type="email" name="email" class="form-control" placeholder="email@example.com"
                 formControlName="email">
             </div>
           </div>
@@ -43,7 +43,8 @@
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" class="form-control" cols="50" rows="4"></textarea>
           </div> -->
-          <button type="submit" class="btn btn-primary float-right">Guardar Usario</button>
+          <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
+          <button type="submit" class="btn btn-danger float-right">Cancelar</button>
         </form>
       </div>
     </div>
