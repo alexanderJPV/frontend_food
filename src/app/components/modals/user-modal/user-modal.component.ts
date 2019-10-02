@@ -44,6 +44,7 @@ export class UserModalComponent implements OnInit {
       password: ['2923929283'],
       imagen: '',
       rol: [['USER']],
+      genero: '',
       estado: [true]
     });
   }

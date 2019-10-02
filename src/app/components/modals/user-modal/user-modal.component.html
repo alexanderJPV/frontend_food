@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div id="modalUser" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
@@ -12,20 +12,13 @@
       <div class="modal-body">
         <form class="form-book" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
               <label for="autor">Nombre</label>
               <input type="text" name="autor" class="form-control" placeholder="Nombres" formControlName="nombres">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
               <label for="autor">Apellidos</label>
               <input type="text" name="autor" class="form-control" placeholder="Apellidos" formControlName="apellidos">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="oferta">Genero</label>
-              <select name="oferta" class="form-control">
-                <option value="1">Femenino</option>
-                <option value="0">Masculino</option>
-              </select>
             </div>
           </div>
           <div class="form-row">
@@ -37,6 +30,16 @@
               <label for="link_amazon">email</label>
               <input type="email" name="email" class="form-control" placeholder="email@example.com"
                 formControlName="email">
+            </div>
+            <div class="form-group col-md-12">
+
+            </div>
+            <div class="form-group col-md-6">
+                <label for="oferta">Genero</label>
+                <select name="oferta" class="form-control">
+                  <option value="1">Femenino</option>
+                  <option value="0">Masculino</option>
+                </select>
             </div>
           </div>
           <!-- <div class="form-group">
