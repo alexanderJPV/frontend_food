@@ -7,17 +7,14 @@
 }
 
 .card {
-    height: 80px;
+    height: 120px;
 }
 
 .titulo_favorite {
-    font-family: 'Courgette', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
 }
 
 .font-text {
     font-family: 'Courgette', cursive;
-}
-
-.background-titulo {
-    background-image: url('http://larkingarcia.com/wp-content/themes/id-theme/_/img/Separador4.png') !important;
 }
