@@ -42,9 +42,9 @@ export class UserModalComponent implements OnInit {
       apellidos: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['2923929283'],
+      imagen: '',
       rol: [['USER']],
-      estado: [true],
-      imagen: ''
+      estado: [true]
     });
   }
 

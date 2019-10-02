@@ -10,33 +10,29 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
   public users: any[];
   receivedChildMessage: any;
-
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.getListUser();
   }
-  getListUser() {
+  getListUser(){
     this.userService.getAll().subscribe(users => {
-      console.log('--? ', users);
-      this.users = users.usuario.rows;
+      this.users=users.usuario.rows;
     });
   }
   onDeleteUser(id: number): void {
-    if (confirm('Are you sure to delete?')) {
-      //   this.dataApiService.deleteBook(id).subscribe();
-      this.userService.delete(id).subscribe(user => {
-        console.log("correcto");
-      });
-    }
+     if (confirm('Esta seguro que quiere eliminar?')) {
+    //   this.dataApiService.deleteBook(id).subscribe();
+         this.userService.delete(id).subscribe( user =>{
+           this.getListUser();
+         });
+     }
   }
-
   getMessage(message: any) {
-    this.receivedChildMessage = message;
-    console.log('----------------------------->>>>>>>>>>>>>>>> ', this.receivedChildMessage);
-    if (this.receivedChildMessage) {
-      this.getListUser();
-    }
+        this.receivedChildMessage = message;
+       console.log('----------------------------->>>>>>>>>>>>>>>> ', this.receivedChildMessage);
+        if (this.receivedChildMessage) {
+          this.getListUser();
+        }
   }
-
 }
