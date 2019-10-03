@@ -34,6 +34,9 @@
                                         Rol
                                     </th>
                                     <th>
+                                        Imagen
+                                    </th>
+                                    <th>
                                         Operaciones
                                     </th>
                                 </thead>
@@ -57,6 +60,11 @@
                                         <td class="text-primary">
                                             {{user.rol}}
                                         </td>
+                                        <th>
+                                            <img *ngIf="user.imagen" [src]="user.imagen" alt="" height="50" width="50">
+                                            <img *ngIf="!user.imagen" src="/assets/img/cover.jpeg" alt="" height="50"
+                                                width="50">
+                                        </th>
                                         <td>
                                             <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->
                                             <a href="#" class="btn btn-info"><span><i class="fa fa-pen"></i></span></a>
