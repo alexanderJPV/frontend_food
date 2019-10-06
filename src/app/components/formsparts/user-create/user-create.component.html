@@ -1,0 +1,109 @@
+<div class="main-content">
+    <div class="container-fluid align-content-center">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Profile</h4>
+                        <p class="card-category">Complete your profile</p>
+                    </div>
+                    <div class="card-body">
+
+<!--         <form class="form-book" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+-->
+          <form>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="nombres">Nombre</label>
+                <input type="text" name="autor" class="form-control" placeholder="Nombres" formControlName="nombres">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="autor" class="form-control" placeholder="Apellidos" formControlName="apellidos">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" name="portada" class="form-control" placeholder="Username" formControlName="userName">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">email</label>
+                <input type="email" name="email" class="form-control" placeholder="email@example.com"
+                  formControlName="email">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" placeholder="*****"
+                    formControlName="password">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="link_amazon">Imagen</label>
+                  <input type="text" name="imagen" class="form-control" placeholder="imagen.jpg"
+                    formControlName="imagen">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="rol">Rol</label>
+                  <select name="rol" class="form-control">
+                    <option value="1">Administrador</option>
+                    <option value="0">Propietario</option>
+                    <option value="0">Cliente</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="genero">Genero</label>
+                  <select name="oferta" class="form-control">
+                    <option value="1">Femenino</option>
+                    <option value="0">Masculino</option>
+                  </select>
+              </div>
+            </div>
+  <!--
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="portada">Subir imagen</label>
+                <input type="file" name="portada" class="form-control" placeholder="Portada" accept=".png, .jpg, .jpeg" formControlName="imagen"
+                  #fileInput (change)="fileProgress($event)">
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-center">
+                  <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea name="descripcion" class="form-control" cols="50" rows="4"></textarea>
+            </div> -->
+            <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
+            <button type="submit" class="btn btn-danger float-right">Cancelar</button>
+          </form>
+
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+  </div>
