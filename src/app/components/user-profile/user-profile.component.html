@@ -1,5 +1,5 @@
 <div class="main-content">
-    <div class="container-fluid">
+    <div class="container-fluid align-content-center">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
@@ -8,81 +8,84 @@
                         <p class="card-category">Complete your profile</p>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-5">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Company (disabled)" disabled>
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Username">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Email address" type="email">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Fist Name" type="text">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Last Name" type="text">
-                                  </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Adress" type="text">
-                                  </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="City" type="text">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Country" type="text">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Postal Code" type="text">
-                                  </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <label>About Me</label>
-                                  <mat-form-field class="example-full-width">
-                                     <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                   </mat-form-field>
-                                    <!-- <div class="form-group">
 
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                            <textarea class="form-control" rows="5"></textarea>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                            <div class="clearfix"></div>
-                        </form>
+<!--         <form class="form-book" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+-->
+          <form>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="nombres">Nombre</label>
+                <input type="text" name="autor" class="form-control" placeholder="Nombres" formControlName="nombres">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="autor" class="form-control" placeholder="Apellidos" formControlName="apellidos">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" name="portada" class="form-control" placeholder="Username" formControlName="userName">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">email</label>
+                <input type="email" name="email" class="form-control" placeholder="email@example.com"
+                  formControlName="email">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" placeholder="*****"
+                    formControlName="password">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="link_amazon">Imagen</label>
+                  <input type="text" name="imagen" class="form-control" placeholder="imagen.jpg"
+                    formControlName="imagen">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="rol">Rol</label>
+                  <select name="rol" class="form-control">
+                    <option value="1">Administrador</option>
+                    <option value="0">Propietario</option>
+                    <option value="0">Cliente</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="genero">Genero</label>
+                  <select name="oferta" class="form-control">
+                    <option value="1">Femenino</option>
+                    <option value="0">Masculino</option>
+                  </select>
+              </div>
+            </div>
+  <!-- 
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="portada">Subir imagen</label>
+                <input type="file" name="portada" class="form-control" placeholder="Portada" accept=".png, .jpg, .jpeg" formControlName="imagen"
+                  #fileInput (change)="fileProgress($event)">
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-center">
+                  <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea name="descripcion" class="form-control" cols="50" rows="4"></textarea>
+            </div> -->
+            <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
+            <button type="submit" class="btn btn-danger float-right">Cancelar</button>
+          </form>
+
                     </div>
                 </div>
             </div>
+            <!--
             <div class="col-md-4">
                 <div class="card card-profile">
                     <div class="card-avatar">
@@ -99,8 +102,8 @@
                         <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </div>
   </div>
-  

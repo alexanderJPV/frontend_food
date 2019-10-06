@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.component';
 import { UserListComponent } from '../../user-list/user-list.component';
 import { ModalsModule } from  '../../modals/modals.module';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -15,7 +16,7 @@ import {
 } from '@angular/material';
 import { AdminLayoutRoutes } from './admin-layout.router';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-
+import { FormspartsModule } from '../../formsparts/formsparts.module';
 @NgModule({
   declarations: [
     DashboardAdminComponent,
@@ -33,7 +34,8 @@ import { UserProfileComponent } from '../../user-profile/user-profile.component'
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    ModalsModule
+    ModalsModule,
+    FormspartsModule
   ]
 })
 export class AdminLayoutModule { }

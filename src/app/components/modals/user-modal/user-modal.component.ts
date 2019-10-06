@@ -17,11 +17,11 @@ export class UserModalComponent implements OnInit {
   @Output() messageToEmit = new EventEmitter<string>();
 
   constructor(
-    private userService: UserService,
-    private location: Location,
-    private formBuilder: FormBuilder,
-    private cd: ChangeDetectorRef
-  ) {
+              private userService: UserService,
+              private location: Location,
+              private formBuilder: FormBuilder,
+              private cd: ChangeDetectorRef
+            ){
     this.initialData();
   }
 

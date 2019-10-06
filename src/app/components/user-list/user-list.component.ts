@@ -2,6 +2,7 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UserCreateComponent } from '../formsparts/user-create/user-create.component';
 declare var $: any;
 @Component({
   selector: 'app-user-list',
