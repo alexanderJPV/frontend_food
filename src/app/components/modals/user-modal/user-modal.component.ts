@@ -17,11 +17,11 @@ export class UserModalComponent implements OnInit {
   @Output() messageToEmit = new EventEmitter<string>();
 
   constructor(
-              private userService: UserService,
-              private location: Location,
-              private formBuilder: FormBuilder,
-              private cd: ChangeDetectorRef
-            ){
+    private userService: UserService,
+    private location: Location,
+    private formBuilder: FormBuilder,
+    private cd: ChangeDetectorRef
+  ) {
     this.initialData();
   }
 
@@ -55,8 +55,9 @@ export class UserModalComponent implements OnInit {
     formData.append('email', this.formValue.email);
     formData.append('nombres', this.formValue.nombres);
     formData.append('apellidos', this.formValue.apellidos);
-    formData.append('rol', this.formValue.rol);
+    formData.append('rol', JSON.stringify(this.formValue.rol));
     formData.append('estado', this.formValue.estado);
+    formData.append('password', this.formValue.password);
     this.createUser(formData);
   }
 
@@ -70,7 +71,7 @@ export class UserModalComponent implements OnInit {
       password: ['2923929283'],
       imagen: '',
       rol: [['USER']],
-//      genero: '',
+      //      genero: '',
       estado: [true]
     });
   }

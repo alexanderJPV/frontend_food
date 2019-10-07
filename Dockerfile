@@ -5,4 +5,4 @@ RUN npm install
 RUN npm run build -- --prod
 
 FROM nginx:alpine
-COPY --from=node /app/dist/frontend-restaurante /user/share/nginx/html
+COPY --from=node /app/dist/frontend-restaurante /user/share/nginx/html && rm -r /frontend-restaurante/

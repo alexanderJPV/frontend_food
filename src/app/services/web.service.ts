@@ -79,7 +79,8 @@ export class WebService {
   imageFileHeaders(token) {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', 'Bearer ' + token);
-    return { headers: headers, responseType: 'blob' };
+    // return { headers: headers, responseType: 'blob' };
+    return { headers: headers };
   }
 
 }

@@ -18,7 +18,11 @@ export const AdminLayoutRoutes: Routes = [
         component: UserProfileComponent
     },
     {
-        path: 'user-createform',
+        path: 'create-user',
+        component: UserCreateComponent
+    },
+    {
+        path: 'edit-user/:id',
         component: UserCreateComponent
     }
 ];

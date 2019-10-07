@@ -27,7 +27,7 @@ export class UserService {
 
   update(user: any) {
     const URL = SERVER.USERS;
-    const headers = this.webService.JSONOptions(this.authService.getToken());
+    const headers = this.webService.imageFileHeaders(this.authService.getToken());
     return this.webService.put(URL, user, headers);
   }
 
@@ -41,5 +41,11 @@ export class UserService {
     const URL = SERVER.USERS + '/' + id;
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.delete(URL, headers);
+  }
+
+  roles() {
+    const URL = SERVER.ROLES;
+    const headers = this.webService.JSONOptions(this.authService.getToken());
+    return this.webService.get(URL, headers);
   }
 }
