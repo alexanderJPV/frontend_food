@@ -18,7 +18,7 @@ import { ItemsAdminModule } from './components/items_admin/items-admin.module';
 
 import { FavoriteFoodComponent } from './components/home_web/favorite-food/favorite-food.component';
 import { PromotionsComponent } from './components/home_web/promotions/promotions.component';
-
+import { PaginationModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import { PromotionsComponent } from './components/home_web/promotions/promotions
     FormsModule,
     ReactiveFormsModule,
     ItemsAdminModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

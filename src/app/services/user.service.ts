@@ -13,8 +13,9 @@ export class UserService {
     private authService: AuthService
   ) { }
 
-  getAll() {
-    const URL = SERVER.USERS;
+  getAll(page?: any, pageSize?: any) {
+    const URL = SERVER.USERS + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc`;
+    // const URL = SERVER.USERS;
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.get(URL, headers);
   }

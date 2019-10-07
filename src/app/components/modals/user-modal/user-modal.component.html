@@ -33,39 +33,38 @@
                 formControlName="email">
             </div>
             <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="*****"
-                  formControlName="password">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="*****"
+                formControlName="password">
             </div>
             <div class="form-group col-md-6">
-                <label for="link_amazon">Imagen</label>
-                <input type="text" name="imagen" class="form-control" placeholder="imagen.jpg"
-                  formControlName="imagen">
+              <label for="link_amazon">Imagen</label>
+              <input type="text" name="imagen" class="form-control" placeholder="imagen.jpg" formControlName="imagen">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="rol">Rol</label>
-                <select name="rol" class="form-control">
-                  <option value="1">Administrador</option>
-                  <option value="0">Propietario</option>
-                  <option value="0">Cliente</option>
-                </select>
+              <label for="rol">Rol</label>
+              <select name="rol" class="form-control">
+                <option value="1">Administrador</option>
+                <option value="0">Propietario</option>
+                <option value="0">Cliente</option>
+              </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="genero">Genero</label>
-                <select name="oferta" class="form-control">
-                  <option value="1">Femenino</option>
-                  <option value="0">Masculino</option>
-                </select>
+              <label for="genero">Genero</label>
+              <select name="oferta" class="form-control">
+                <option value="1">Femenino</option>
+                <option value="0">Masculino</option>
+              </select>
             </div>
           </div>
 
           <div class="form-row">
             <div class="col-md-6">
               <label for="portada">Subir imagen</label>
-              <input type="file" name="portada" class="form-control" placeholder="Portada" accept=".png, .jpg, .jpeg" formControlName="imagen"
-                #fileInput (change)="fileProgress($event)">
+              <input type="file" name="portada" class="form-control" placeholder="Portada" accept=".png, .jpg, .jpeg"
+                formControlName="imagen" #fileInput (change)="fileProgress($event)">
             </div>
             <div class="col-md-6">
               <div class="d-flex justify-content-center">

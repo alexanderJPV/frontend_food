@@ -17,6 +17,7 @@ import {
 import { AdminLayoutRoutes } from './admin-layout.router';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { FormspartsModule } from '../../formsparts/formsparts.module';
+import { PaginationModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     DashboardAdminComponent,
@@ -35,7 +36,8 @@ import { FormspartsModule } from '../../formsparts/formsparts.module';
     MatSelectModule,
     MatTooltipModule,
     ModalsModule,
-    FormspartsModule
+    FormspartsModule,
+    PaginationModule.forRoot()
   ]
 })
 export class AdminLayoutModule { }
