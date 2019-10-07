@@ -96,7 +96,7 @@ export class UserCreateComponent implements OnInit {
       nombres: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      password: [Validators.required],
+      password: ['',[Validators.required]],
       imagen: [''],
       rol: ['', [Validators.required]],
       genero: ['', [Validators.required]],

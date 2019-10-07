@@ -46,7 +46,7 @@
     color: #493C46;
     cursor: pointer;
 }
-    
+
 .apply-color {
     background-color: #EFEDF1;
     color: #493C46;
@@ -89,7 +89,7 @@
 .card {
     margin-top: 10%;
     margin-bottom: auto;
-    width: 500px;
+    width: 800px;
 }
 
 .social-icon span {
