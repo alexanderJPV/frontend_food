@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">{{ id?  'Editar Usuario' : 'Nuevo Usuario'}}</h4>
+            <h4 class="card-title">{{ id?  'Editar Usuario' : 'Nuevo Usuario'}} <strong>{{ formValue.nombres+" "+formValue.apellidos }} </strong></h4>
             <p class="card-category">Complete los campos</p>
           </div>
           <div class="card-body">
@@ -125,7 +125,7 @@
                   </div>
               </div>
               <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
-              <button type="submit" class="btn btn-danger float-right">Cancelar</button>
+              <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
             </form>
 
           </div>

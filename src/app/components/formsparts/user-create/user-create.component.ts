@@ -123,7 +123,7 @@ export class UserCreateComponent implements OnInit {
   createUser(valueFormData: any) {
     this.userService.create(valueFormData).subscribe(
       (res) => {
-        this.showNotification('top', 'center');
+        this.showNotification('top', 'center',"Usuario añadido exitosamente!!!",2);
         this.router.navigate(['/admin/user-list']);
       },
       (err) => {
@@ -135,7 +135,9 @@ export class UserCreateComponent implements OnInit {
   updateUser(valueFormData: any) {
     this.userService.update(valueFormData).subscribe(
       (res) => {
+        this.showNotification('top','center',"Usuario editado exitosamente!!!",2);
         console.log('Actualizado con exito');
+        this.router.navigate(['/admin/user-list']);
       },
       (err) => {
         console.log('Error');
@@ -152,17 +154,17 @@ export class UserCreateComponent implements OnInit {
   }
 
 
-  showNotification(from, align) {
+  showNotification(from, align, mensaje, colores) {
     const type = ['', 'info', 'success', 'warning', 'danger'];
     //1 => color azul
     //2 => color verde
     //3 => color anaranjado
     //4 => color rojo
-    const color = 2;
+    const color = colores;
 
     $.notify({
       icon: "notifications",
-      message: "Usuario añadido exitosamente!!!"
+      message: mensaje
 
     }, {
       type: type[color],
@@ -182,6 +184,9 @@ export class UserCreateComponent implements OnInit {
         '<a href="{3}" target="{4}" data-notify="url"></a>' +
         '</div>'
     });
+  }
+  cancelar(){
+    this.router.navigate(['/admin/user-list']);
   }
 
 }

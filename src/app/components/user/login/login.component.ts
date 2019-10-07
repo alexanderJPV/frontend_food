@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         }
         this.authService.getAccount().subscribe(
           (res) => {
-            const data = res.rol.includes('ADMIN');
+            const data = res.rol.includes('ROL_ADMIN');
             if (data) {
               this.router.navigate(['/admin/dashboard']);
             } else {
