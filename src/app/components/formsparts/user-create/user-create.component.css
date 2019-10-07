@@ -2,3 +2,7 @@
     color: red;
     position: absolute;
 }
+
+.is-invalid {
+    border-color: red;
+}
