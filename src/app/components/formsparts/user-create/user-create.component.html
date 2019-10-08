@@ -4,26 +4,24 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">{{ id?  'Editar Usuario' : 'Nuevo Usuario'}} <strong>{{ formValue.nombres+" "+formValue.apellidos }} </strong></h4>
-            <p class="card-category">Complete los campos</p>
+            <h4 class="card-title">{{ id?  'Editar Usuario' : 'Nuevo Usuario'}}</h4>
+            <h4 class="card-title">{{ formValue.nombre }}</h4>
+            <p class="card-category">Complete los campos</p>  
           </div>
           <div class="card-body">
             <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
               <div class="form-row">
-
                 <div class="form-group col-md-6">
-                  <label for="nombres">Nombres*</label>
-                  <input type="text" name="autor" class="form-control" placeholder="Nombres" formControlName="nombres"
+                  <label for="nombres">Nombre*</label>
+                  <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres"
                     [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
                   <div
                     *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)"
-                    class="validate-error">El campo es requerido
-                  </div>
+                    class="validate-error">El campo es requerido</div>
                 </div>
-
                 <div class="form-group col-md-6">
                   <label for="apellidos">Apellidos*</label>
-                  <input type="text" name="autor" class="form-control" placeholder="Apellidos"
+                  <input type="text" name="apellidos" class="form-control" placeholder="Apellidos"
                     formControlName="apellidos"
                     [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
                   <div
@@ -34,14 +32,13 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="username">Nombre de usuario*</label>
-                  <input type="text" name="portada" class="form-control" placeholder="Username"
+                  <input type="text" name="username" class="form-control" placeholder="Username"
                     formControlName="userName"
                     [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
                   <div
                     *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)"
                     class="validate-error">El campo es requerido</div>
                 </div>
-
                 <div class="form-group col-md-6">
                   <label for="email">email*</label>
                   <input type="email" name="email" class="form-control" placeholder="email@example.com"
@@ -51,37 +48,25 @@
                     *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)"
                     class="validate-error">El campo es requerido</div>
                 </div>
-
                 <div class="form-group col-md-6">
                   <label for="password">Password</label>
-                  <input type="password" name="password" class="form-control" placeholder="*******"
-                    formControlName="password">
+                  <input type="password" name="password" class="form-control" placeholder="" formControlName="password">
                 </div>
-
                 <div class="form-group col-md-6">
-
-                    <label for="rol">Rol</label>
-                    <select name="rol" class="custom-select" formControlName="rol" id="rol"
-                      [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
-                      <option value="0" disabled="true">- Selecionar rol -</option>
-                      <option *ngFor="let rols of roles; let i = index" [value]="rols">
-                        {{rols}}
-                      </option>
-                      <!--<option value="0">Cliente</option> -->
-                    </select>
-                    <div
-                      *ngIf="(submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted)"
-                      class="validate-error">El campo es requerido
-                    </div>
-
+                  <label for="password">Telefono*</label>
+                  <input type="text" name="telefono" class="form-control" placeholder="75478976"
+                    formControlName="telefono"
+                    [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
+                  <div
+                    *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)"
+                    class="validate-error">El campo es requerido</div>
                 </div>
               </div>
-
               <div class="form-row">
                 <div class="col-md-6">
-                  <label for="imagen">Imagen</label>
-                  <input type="file" name="imagen" class="form-control-file"
-                    accept=".png, .jpg, .jpeg" #fileInput (change)="fileProgress($event)">
+                  <label for="link_amazon">Imagen</label>
+                  <input type="file" name="imagen" class="form-control" placeholder="imagen" accept=".png, .jpg, .jpeg"
+                    #fileInput (change)="fileProgress($event)">
                 </div>
 
                 <div class="col-md-6">
@@ -91,41 +76,33 @@
                 </div>
               </div>
               <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label for="genero">Genero</label>
-                      <select name="oferta" class="custom-select" formControlName="genero"
-                        [ngClass]="{ 'is-invalid': (submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted) }">
-                        <option value="0" disabled="true">- Selecionar genero -</option>
-                        <option value="FEMENINO">Femenino</option>
-                        <option value="MASCULINO">Masculino</option>
-                      </select>
-                      <div
-                        *ngIf="(submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted)"
-                        class="validate-error">El campo es requerido</div>
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="fechaNacimiento">Fecha Nacimiento*</label>
-                      <input type="date" name="fechaNacimiento" class="form-control"
-                            formControlName="fechaNacimiento"
-                            [ngClass]="{ 'is-invalid': (submitted && formControls.fechaNacimiento.errors && formControls.fechaNacimiento.errors.required) || (formControls.fechaNacimiento.errors?.required && formControls.fechaNacimiento.touched && !submitted) }">
-                      <div
-                        *ngIf="(submitted && formControls.fechaNacimiento.errors && formControls.fechaNacimiento.errors.required) || (formControls.fechaNacimiento.errors?.required && formControls.fechaNacimiento.touched && !submitted)"
-                        class="validate-error">El campo es requerido</div>
-                  </div>
-              </div>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label for="password">Telefono*</label>
-                      <input type="text" name="telefono" class="form-control" placeholder="75478976"
-                        formControlName="telefono"
-                        [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
-                      <div
-                        *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)"
-                        class="validate-error">El campo es requerido</div>
-                  </div>
+                <div class="form-group col-md-6">
+                  <label for="rol">Rol</label>
+                  <select name="rol" class="form-control" formControlName="rol" id="rol"
+                    [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
+                    <option value="0" disabled="true">- Selecionar rol -</option>
+                    <option *ngFor="let rols of roles; let i = index" [value]="rols">{{rols}}</option>
+                    <!--<option value="0">Cliente</option> -->
+                  </select>
+                  <div
+                    *ngIf="(submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted)"
+                    class="validate-error">El campo es requerido</div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="genero">Genero</label>
+                  <select name="genero" class="form-control" formControlName="genero"
+                    [ngClass]="{ 'is-invalid': (submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted) }">
+                    <option value="0" disabled="true">- Selecionar genero -</option>
+                    <option value="FEMENINO">Femenino</option>
+                    <option value="MASCULINO">Masculino</option>
+                  </select>
+                  <div
+                    *ngIf="(submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted)"
+                    class="validate-error">El campo es requerido</div>
+                </div>
               </div>
               <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
-              <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
+              <button type="button" class="btn btn-danger float-right">Cancelar</button>
             </form>
 
           </div>

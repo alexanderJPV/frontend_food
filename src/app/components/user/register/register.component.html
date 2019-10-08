@@ -10,28 +10,28 @@
                 </div>
             </div>
             <div class="card-body">
-                <!--  <form name="form" [formGroup]="userFromGroup" (ngSubmit)="onSubmit()">--> 
-                <form name="form">
+                <!--  <form name="form" [formGroup]="userFromGroup" (ngSubmit)="onSubmit()">-->
+                <form name="form" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="email" type="email" class="form-control" placeholder="username*"
-                            formControlName="email">
+                        <input name="userName" type="text" class="form-control" placeholder="username*"
+                            formControlName="userName">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="email" type="email" class="form-control" placeholder="firstName*"
-                            formControlName="email">
+                        <input name="nombres" type="text" class="form-control" placeholder="nombres*"
+                            formControlName="nombres">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="email" type="email" class="form-control" placeholder="lastName*"
-                            formControlName="email">
+                        <input name="apelidos" type="text" class="form-control" placeholder="apellidos*"
+                            formControlName="apellidos">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

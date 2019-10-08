@@ -16,6 +16,10 @@ export class AuthService {
   login(user: any) {
     return this.webService.post(SERVER.AUTHENTICATE, user, this.webService.defaultOptions());
   }
+  
+  register(user: any) {
+    return this.webService.post(SERVER.REGISTER, user, this.webService.defaultOptions());
+  }
 
   getAccount() {
     return this.webService.get(SERVER.ACCOUNT, this.webService.JSONOptions(this.getToken()));

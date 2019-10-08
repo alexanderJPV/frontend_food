@@ -96,7 +96,7 @@ export class UserCreateComponent implements OnInit {
       nombres: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      password: ['',[Validators.required]],
+      password: ['', [Validators.required]],
       imagen: [''],
       rol: ['', [Validators.required]],
       genero: ['', [Validators.required]],
@@ -123,7 +123,7 @@ export class UserCreateComponent implements OnInit {
   createUser(valueFormData: any) {
     this.userService.create(valueFormData).subscribe(
       (res) => {
-        this.showNotification('top', 'center',"Usuario añadido exitosamente!!!",2);
+        this.showNotification('top', 'center', "Usuario añadido exitosamente!!!", 2);
         this.router.navigate(['/admin/user-list']);
       },
       (err) => {
@@ -135,7 +135,7 @@ export class UserCreateComponent implements OnInit {
   updateUser(valueFormData: any) {
     this.userService.update(valueFormData).subscribe(
       (res) => {
-        this.showNotification('top','center',"Usuario editado exitosamente!!!",2);
+        this.showNotification('top', 'center', "Usuario editado exitosamente!!!", 2);
         console.log('Actualizado con exito');
         this.router.navigate(['/admin/user-list']);
       },
@@ -185,7 +185,7 @@ export class UserCreateComponent implements OnInit {
         '</div>'
     });
   }
-  cancelar(){
+  cancelar() {
     this.router.navigate(['/admin/user-list']);
   }
 
