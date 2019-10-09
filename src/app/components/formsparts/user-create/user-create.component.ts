@@ -88,14 +88,21 @@ export class UserCreateComponent implements OnInit {
       this.createUser(formData);
     }
   }
-
   initialData() {
+   /*  Validators.compose([
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(10),
+      Validators.pattern('/^[1-9]\d{6,10}$/')
+  ]) */
+
+    /* La validacion */
     this.userFormGroup = this.formBuilder.group({
       id: [null],
-      userName: ['', [Validators.required]],
-      nombres: ['', [Validators.required]],
-      apellidos: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
+      userName: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['',[Validators.required]],
       imagen: [''],
       rol: ['', [Validators.required]],
@@ -153,7 +160,6 @@ export class UserCreateComponent implements OnInit {
     );
   }
 
-
   showNotification(from, align, mensaje, colores) {
     const type = ['', 'info', 'success', 'warning', 'danger'];
     //1 => color azul
@@ -188,5 +194,4 @@ export class UserCreateComponent implements OnInit {
   cancelar(){
     this.router.navigate(['/admin/user-list']);
   }
-
 }
