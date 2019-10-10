@@ -60,6 +60,7 @@ export class UserCreateComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.userFormGroup.invalid) {
+      console.log("error de validacion.............................");
       return;
     }
     const formData = new FormData();
@@ -101,9 +102,9 @@ export class UserCreateComponent implements OnInit {
       id: [null],
       nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
       apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      userName: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      userName: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required]],
+      password: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]],
       imagen: [''],
       rol: ['', [Validators.required]],
       genero: ['', [Validators.required]],
@@ -111,7 +112,7 @@ export class UserCreateComponent implements OnInit {
       type: [''],
       name: [''],
       fechaNacimiento: [null],
-      telefono: ['', [Validators.required]],
+      telefono: ['', [Validators.required,Validators.minLength(7),Validators.maxLength(8),Validators.pattern('[0-9]*')]],
       activate_key: [''],
       reset_key: [''],
       createdAt: [null],
@@ -134,7 +135,7 @@ export class UserCreateComponent implements OnInit {
         this.router.navigate(['/admin/user-list']);
       },
       (err) => {
-        console.log('Error............................................');
+        console.log('Create Error............................................');
       }
     );
   }
@@ -147,7 +148,7 @@ export class UserCreateComponent implements OnInit {
         this.router.navigate(['/admin/user-list']);
       },
       (err) => {
-        console.log('Error.....................................');
+        console.log('Update Error.....................................');
       }
     );
   }

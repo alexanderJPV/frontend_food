@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../admin-sidebar/admin-sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
@@ -15,7 +16,7 @@ export class AdminNavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router, private authService: AuthService) {
     this.location = location;
         this.sidebarVisible = false;
   }
@@ -122,5 +123,13 @@ export class AdminNavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home_web/bodyweb']);
+  }
+  changeaccount() {
+    this.authService.logout();
+    this.router.navigate(['/user/login']);
   }
 }

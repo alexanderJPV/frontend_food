@@ -10,22 +10,21 @@
             <div class="card-body">
               <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
                 <div class="form-row">
-
                   <div class="form-group col-md-6">
                     <label for="nombres">Nombres*</label>
                     <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres"
                       [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
                     <div *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
-                      <strong class="validate-error">El campo requerido</strong>
+                      <p class="validate-error">El campo requerido</p>
                     </div>
                     <div *ngIf="formControls.nombres.errors?.minlength">
-                        <strong class="validate-error" >Minimo 5 caracteres</strong>
+                        <p class="validate-error" >Minimo 5 caracteres</p>
                     </div>
                     <div *ngIf="formControls.nombres.errors?.maxlength">
-                        <strong class="validate-error" >Maximo 30 caracteres</strong>
+                        <p class="validate-error" >Maximo 30 caracteres</p>
                     </div>
                     <div *ngIf="formControls.nombres.errors?.pattern && !formControls.nombres.errors?.minlength">
-                        <strong class="validate-error">Caracteres no validos</strong>
+                        <p class="validate-error">Caracteres no validos</p>
                     </div>
                   </div>
                   <div class="form-group col-md-6">
@@ -34,36 +33,36 @@
                       formControlName="apellidos"
                       [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
                     <div *ngIf="(submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted)">
-                        <strong class="validate-error">El campo requerido</strong>
+                        <p class="validate-error">El campo requerido</p>
                     </div>
                     <div *ngIf="formControls.apellidos.errors?.minlength">
-                        <strong class="validate-error" >Minimo 5 caracteres</strong>
+                        <p class="validate-error" >Minimo 5 caracteres</p>
                     </div>
                     <div *ngIf="formControls.apellidos.errors?.maxlength">
-                        <strong class="validate-error" >Maximo 30 caracteres</strong>
+                        <p class="validate-error" >Maximo 30 caracteres</p>
                     </div>
                     <div *ngIf="formControls.apellidos.errors?.pattern && !formControls.apellidos.errors?.minlength">
-                        <strong class="validate-error">Caracteres no validos</strong>
+                        <p class="validate-error">Caracteres no validos</p>
                     </div>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="username">Nombre de usuario*</label>
-                    <input type="text" name="portada" class="form-control" placeholder="Username"
+                    <input type="text" name="userName" class="form-control" placeholder="Username"
                       formControlName="userName"
                       [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
                     <div *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)">
-                        <strong class="validate-error">El campo requerido</strong>
+                        <p class="validate-error">El campo requerido</p>
                     </div>
                     <div *ngIf="formControls.userName.errors?.minlength">
-                        <strong class="validate-error" >Minimo 5 caracteres</strong>
+                        <p class="validate-error" >Minimo 5 caracteres</p>
                     </div>
                     <div *ngIf="formControls.userName.errors?.maxlength">
-                        <strong class="validate-error" >Maximo 30 caracteres</strong>
+                        <p class="validate-error" >Maximo 30 caracteres</p>
                     </div>
                     <div *ngIf="formControls.userName.errors?.pattern && !formControls.userName.errors?.minlength">
-                        <strong class="validate-error">Caracteres no validos</strong>
+                        <p class="validate-error">Caracteres no validos</p>
                     </div>
                   </div>
                   <div class="form-group col-md-6">
@@ -72,20 +71,25 @@
                       formControlName="email"
                       [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
                     <div *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
-                        <strong class="validate-error">El campo requerido</strong>
+                        <p class="validate-error">El campo es requerido</p>
                     </div>
-                    <div *ngIf="formControls.email.errors?.pattern">
-                        <strong class="validate-error">email no valido</strong>
+                    <div *ngIf="formControls.email.errors?.email">
+                        <p class="validate-error">email no valido</p>
                     </div>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" placeholder="*******"
                       formControlName="password">
+                      <div *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
+                          <p class="validate-error">El campo es requerido</p>
+                      </div>
+                      <div *ngIf="formControls.password.errors?.minlength">
+                          <p class="validate-error">Minimo 5 caracteres</p>
+                      </div>
                   </div>
 
                   <div class="form-group col-md-6">
-
                       <label for="rol">Rol</label>
                       <select name="rol" class="custom-select" formControlName="rol" id="rol"
                         [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
@@ -131,26 +135,29 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="fechaNacimiento">Fecha Nacimiento*</label>
-                        <input type="date" name="fechaNacimiento" class="form-control"
-                              formControlName="fechaNacimiento"
-                              [ngClass]="{ 'is-invalid': (submitted && formControls.fechaNacimiento.errors && formControls.fechaNacimiento.errors.required) || (formControls.fechaNacimiento.errors?.required && formControls.fechaNacimiento.touched && !submitted) }">
-                        <div
-                          *ngIf="(submitted && formControls.fechaNacimiento.errors && formControls.fechaNacimiento.errors.required) || (formControls.fechaNacimiento.errors?.required && formControls.fechaNacimiento.touched && !submitted)"
-                          class="validate-error">El campo es requerido</div>
+                        <input type="date" name="fechaNacimiento" class="form-control">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="password">Telefono*</label>
-                        <input type="text" name="telefono" class="form-control" placeholder="75478976"
+                        <input type="text" name="telefono" class="form-control" placeholder="7-(6)-5555555"
                           formControlName="telefono"
                           [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
-                        <div
-                          *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)"
-                          class="validate-error">El campo es requerido</div>
+                        <div *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)">
+                          <p class="validate-error">El campo requerido</p>
+                        </div>
+                        <div *ngIf="formControls.telefono.errors?.minlength">
+                          <p class="validate-error" >Minimo 7 numeros</p>
+                      </div>
+                      <div *ngIf="formControls.telefono.errors?.maxlength">
+                          <p class="validate-error" >Maximo 8 numeros</p>
+                      </div>
+                      <div *ngIf="formControls.telefono.errors?.pattern && !formControls.telefono.errors?.minlength && !formControls.telefono.errors?.maxlength">
+                          <p class="validate-error">Todos los caracteres deben ser numeros</p>
+                      </div>
                     </div>
                     <div class="form-group col-md-6">
-
 
                     </div>
                 </div>

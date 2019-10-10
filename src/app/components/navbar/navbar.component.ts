@@ -36,4 +36,9 @@ export class NavbarComponent implements OnInit {
     this.validateUser = false;
   }
 
+  changeaccount() {
+    this.authService.logout();
+    this.router.navigate(['/user/login']);
+    this.validateUser = false;
+  }
 }

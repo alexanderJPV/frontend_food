@@ -19,23 +19,22 @@
                 <a class="nav-link" href="#"><span class="texto-boton-navbar">About Us</span></a>
             </li>
         </ul>
-        <div *ngIf="validateUser">
+        <div *ngIf="!validateUser">
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Link
-        </a>
+                    <i class="material-icons">person</i>
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" (click)="changeaccount()">Cambiar de cuenta</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
             </div>
         </div>
-        <div *ngIf="!validateUser">
+        <div *ngIf="validateUser">
             <button class="btn btn-outline-success my-2 my-sm-0 mr-1 color_boton" type="submit" routerLink="/user/register"><span class="texto-boton-navbar">Register</span></button>
         </div>
-        <div *ngIf="!validateUser">
+        <div *ngIf="validateUser">
             <button class="btn btn-outline-success my-2 my-sm-0 mr-2 color_boton" type="submit" routerLink="/user/login"><span class="texto-boton-navbar">Login</span></button>
         </div>
     </div>
