@@ -19,6 +19,9 @@ import { ItemsAdminModule } from './components/items_admin/items-admin.module';
 import { FavoriteFoodComponent } from './components/home_web/favorite-food/favorite-food.component';
 import { PromotionsComponent } from './components/home_web/promotions/promotions.component';
 import { PaginationModule } from 'ngx-bootstrap';
+import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,10 @@ import { PaginationModule } from 'ngx-bootstrap';
     BodywebComponent,
     AdminLayoutComponent,
     FavoriteFoodComponent,
-    PromotionsComponent
+    PromotionsComponent,
+    ActivateAccountComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
