@@ -83,6 +83,8 @@ export class UserCreateComponent implements OnInit {
     formData.append('genero', this.formValue.genero);
     formData.append('id', this.formValue.id);
     formData.append('telefono', this.formValue.telefono);
+    formData.append('fechaNacimiento', this.formValue.fechaNacimiento);
+    formData.append('estado', this.formValue.estado);
     if (this.id) {
       this.updateUser(formData);
     } else {
@@ -93,19 +95,19 @@ export class UserCreateComponent implements OnInit {
     /* La validacion */
     this.userFormGroup = this.formBuilder.group({
       id: [null],
-      nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      userName: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      nombres: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9 _-]*')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       imagen: [''],
       rol: ['', [Validators.required]],
       genero: ['', [Validators.required]],
       estado: [true],
       type: [''],
       name: [''],
-      fechaNacimiento: ['',[Validators.required]],
-      telefono: ['', [Validators.required,Validators.minLength(7),Validators.maxLength(8),Validators.pattern('[0-9]*')]],
+      fechaNacimiento: ['', [Validators.required]],
+      telefono: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern('[0-9]*')]],
       activate_key: [''],
       reset_key: [''],
       createdAt: [null],
@@ -124,7 +126,7 @@ export class UserCreateComponent implements OnInit {
   createUser(valueFormData: any) {
     this.userService.create(valueFormData).subscribe(
       (res) => {
-        this.showNotification('top', 'center',"Usuario añadido exitosamente!!!",2);
+        this.showNotification('top', 'center', "Usuario añadido exitosamente!!!", 2);
         this.router.navigate(['/admin/user-list']);
       },
       (err) => {
@@ -136,7 +138,7 @@ export class UserCreateComponent implements OnInit {
   updateUser(valueFormData: any) {
     this.userService.update(valueFormData).subscribe(
       (res) => {
-        this.showNotification('top','center',"Usuario editado exitosamente!!!",2);
+        this.showNotification('top', 'center', "Usuario editado exitosamente!!!", 2);
         console.log('Actualizado con exito');
         this.router.navigate(['/admin/user-list']);
       },
@@ -185,7 +187,7 @@ export class UserCreateComponent implements OnInit {
         '</div>'
     });
   }
-  cancelar(){
+  cancelar() {
     this.router.navigate(['/admin/user-list']);
   }
 }

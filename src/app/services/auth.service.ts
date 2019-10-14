@@ -34,6 +34,14 @@ export class AuthService {
     return sessionStorage.getItem('food-token') ? sessionStorage.getItem('food-token') : (localStorage.getItem('food-token') ? localStorage.getItem('food-token') : '');
   }
 
+  activateAccount(key: any) {
+    const URL = SERVER.URL_BASE + '/activate-account';
+    // const data = new FormData();
+    // data.append('key', key);
+    console.log('---------------------------', key);
+    return this.webService.post(URL, key, this.webService.defaultOptions());
+  }
+
   // getTokenExpirationDate(token: string): Date {
   //   const decoded = jwt_decode(token);
   //   if (decoded['exp'] === undefined) {

@@ -6,6 +6,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -30,6 +33,18 @@ const routes: Routes = [
   {
     path: 'user/login',
     component: LoginComponent
+  },
+  {
+    path: 'activate-account',
+    component: ActivateAccountComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
   {
     path: 'admin',
