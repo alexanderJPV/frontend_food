@@ -90,13 +90,6 @@ export class UserCreateComponent implements OnInit {
     }
   }
   initialData() {
-   /*  Validators.compose([
-      Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(10),
-      Validators.pattern('/^[1-9]\d{6,10}$/')
-  ]) */
-
     /* La validacion */
     this.userFormGroup = this.formBuilder.group({
       id: [null],
@@ -111,7 +104,7 @@ export class UserCreateComponent implements OnInit {
       estado: [true],
       type: [''],
       name: [''],
-      fechaNacimiento: [null],
+      fechaNacimiento: ['',[Validators.required]],
       telefono: ['', [Validators.required,Validators.minLength(7),Validators.maxLength(8),Validators.pattern('[0-9]*')]],
       activate_key: [''],
       reset_key: [''],

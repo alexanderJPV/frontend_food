@@ -135,7 +135,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="fechaNacimiento">Fecha Nacimiento*</label>
-                        <input type="date" name="fechaNacimiento" class="form-control">
+                        <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" class="form-control">
                     </div>
                 </div>
                 <div class="form-row">
@@ -158,13 +158,15 @@
                       </div>
                     </div>
                     <div class="form-group col-md-6">
-
+                      <label for="estado">Estado</label>
+                      <div>
+                        <input formControlName="estado">
+                      </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
                 <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
               </form>
-
             </div>
           </div>
         </div>
