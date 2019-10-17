@@ -21,7 +21,8 @@ export const SERVER = (function () {
         RESET_PASSWORD_INIT: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_INIT}`,
         RESET_PASSWORD_FINISH: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_FINISH}`,
         COURSES: `${URL.BASE}/${COURSES}`,
-        ROLES: `${URL.BASE}/${ROLES}`
+        ROLES: `${URL.BASE}/${ROLES}`,
+        LISTROLES: `${URL.BASE}/${USERS}/${ROLES}`
     };
 })();
 

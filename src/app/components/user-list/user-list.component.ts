@@ -11,10 +11,11 @@ declare var $: any;
 })
 export class UserListComponent implements OnInit {
   public users: any[];
+  public usersrol: any[];
   receivedChildMessage: any;
 
   // page = 1;
-  pageSize = 10;
+  pageSize = 2;
   totalItems = 0;
   currentPage = 1;
   rotate = true;
@@ -24,6 +25,14 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.getListUser();
+    this.getListUserRols();
+  }
+  getListUserRols(){
+    console.log("-------aqui........");
+    this.userService.getlistRoles('ROL_PROPIETARIO').subscribe( usersrol => {
+      this.usersrol = usersrol;
+      console.log(this.usersrol);
+    });
   }
   getListUser() {
     this.userService.getAll(this.currentPage - 1, this.pageSize).subscribe(users => {

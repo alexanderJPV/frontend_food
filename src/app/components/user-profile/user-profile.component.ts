@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  private user: any;
+  public  user: any = {};
   constructor(private userService: UserService, private authService: AuthService , private router: Router) { }
 
   ngOnInit() {
