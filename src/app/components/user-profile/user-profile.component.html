@@ -42,7 +42,8 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-center">
-                                      <img src="{{user.imagen}}" alt="" height="80" width="100">
+                                      <img *ngIf="user.imagen" src="{{user.imagen}}" alt="img1" height="100" width="100">
+                                      <img *ngIf="!user.imagen" class="img" src="/assets/img/faces/sincuenta.png" alt="img1" height="100" width="100">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +78,8 @@
                 <div class="card card-profile">
                     <div class="card-avatar">
                         <a href="javascript:void(0)">
-                            <img class="img" src="{{user.imagen}}"/>
+                            <img *ngIf="user.imagen" class="img" alt="img1" src="{{user.imagen}}">
+                            <img *ngIf="!user.imagen" class="img" alt="img1" src="/assets/img/faces/sincuenta.png">
                         </a>
                     </div>
                     <div class="card-body">

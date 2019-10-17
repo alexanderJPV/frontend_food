@@ -14,8 +14,8 @@ export class UserListComponent implements OnInit {
   public usersrol: any[];
   receivedChildMessage: any;
 
-  // page = 1;
-  pageSize = 2;
+  // valores por defecto;
+  pageSize = 10;
   totalItems = 0;
   currentPage = 1;
   rotate = true;
@@ -27,8 +27,12 @@ export class UserListComponent implements OnInit {
     this.getListUser();
     this.getListUserRols();
   }
+  configpagination(nropages: any){
+    this.pageSize = nropages;
+    this.getListUser();
+  }
   getListUserRols(){
-    console.log("-------aqui........");
+    console.log("...................................aqui........");
     this.userService.getlistRoles('ROL_PROPIETARIO').subscribe( usersrol => {
       this.usersrol = usersrol;
       console.log(this.usersrol);

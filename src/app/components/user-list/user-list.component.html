@@ -29,12 +29,13 @@
                         </div>
                             <div class="dropdown ordena float-md-right mr-3">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      10
+                                      {{pageSize}}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" href="#">25</a>
-                                      <a class="dropdown-item" href="#">50</a>
-                                      <a class="dropdown-item" href="#">100</a>
+                                      <a class="dropdown-item" (click)="configpagination(10)" >10</a>
+                                      <a class="dropdown-item" (click)="configpagination(25)" >25</a>
+                                      <a class="dropdown-item" (click)="configpagination(50)" >50</a>
+                                      <a class="dropdown-item" (click)="configpagination(100)" >100</a>
                                     </div>
                             </div>
                     </div>
@@ -45,7 +46,7 @@
                                     <th>
                                         ID
                                     </th>
-                                    <th>
+                                    <th>f
                                         Nombre
                                     </th>
                                     <th>
@@ -89,8 +90,8 @@
                                         </td>
                                         <th>
                                             <img *ngIf="user.imagen" [src]="user.imagen" alt="" height="50" width="50">
-                                            <img *ngIf="!user.imagen" src="/assets/img/cover.jpeg" alt="" height="50"
-                                                width="50">
+                                            <img *ngIf="!user.imagen" src="/assets/img/faces/sincuenta.png" alt="" height="60"
+                                                width="60">
                                         </th>
                                         <td>
                                             <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->

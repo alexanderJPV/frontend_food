@@ -12,9 +12,10 @@ export class UserService {
     private webService: WebService,
     private authService: AuthService
   ) { }
-  getlistRoles(rols: any){
+  getlistRoles(rols: any, page?: any, pageSize?: any){
     const URL = SERVER.LISTROLES + '/' + rols;
-    return this.webService.getUserRol(URL);
+    const headers = this.webService.JSONOptions(this.authService.getToken());
+    return this.webService.getUserRol(URL, headers);
   }
   getAll(page?: any, pageSize?: any) {
     const URL = SERVER.USERS + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc`;

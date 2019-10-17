@@ -11,8 +11,9 @@ export class WebService {
   constructor(
     private http: HttpClient) {
   }
-  getUserRol(url?: any){
-    return this.http.get<any>(url);
+  getUserRol(url?: any, options?: any): Observable<any>{
+    options = options ? options : this.defaultOptions();
+    return this.http.get<any>(url, options);
   }
   get(url?: any, options?: any): Observable<any> {
     options = options ? options : this.defaultOptions();
