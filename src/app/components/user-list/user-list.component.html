@@ -21,8 +21,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="#">Todos</a>
-                                  <a class="dropdown-item" href="#">Administradores</a>
-                                  <a class="dropdown-item" href="#">Propietarios</a>
+                                  <a class="dropdown-item" (click)="getListUser('ROL_ADMIN')">Administradores</a>
+                                  <a class="dropdown-item" (click)="getListUser('ROL_PROPIETARIO')">Propietarios</a>
                                   <a class="dropdown-item" href="#">Colaboradores</a>
                                   <a class="dropdown-item" href="#">Clientes</a>
                                 </div>

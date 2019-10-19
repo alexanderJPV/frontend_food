@@ -11,7 +11,6 @@ declare var $: any;
 })
 export class UserListComponent implements OnInit {
   public users: any[];
-  public usersrol: any[];
   receivedChildMessage: any;
 
   // valores por defecto;
@@ -25,24 +24,23 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.getListUser();
-    this.getListUserRols();
   }
   configpagination(nropages: any){
     this.pageSize = nropages;
     this.getListUser();
   }
-  getListUserRols(){
-    console.log("...................................aqui........");
-    this.userService.getlistRoles('ROL_PROPIETARIO').subscribe( usersrol => {
-      this.usersrol = usersrol;
-      console.log(this.usersrol);
-    });
-  }
-  getListUser() {
-    this.userService.getAll(this.currentPage - 1, this.pageSize).subscribe(users => {
-      this.totalItems = users.elements;
-      this.users = users.usuario.rows;
-    });
+  getListUser(rols?: any) {
+     if(rols == null){
+        this.userService.getAll(this.currentPage - 1, this.pageSize).subscribe(users => {
+          this.totalItems = users.elements;
+          this.users = users.usuario.rows;
+        });
+     }else{
+        this.userService.getlistRoles(rols ,this.currentPage - 1, this.pageSize).subscribe( usersrol => {
+          this.totalItems = usersrol.elements;
+          this.users = usersrol.usuario.rows;
+        });
+     }
   }
   onDeleteUser(id: number): void {
     if (confirm('Esta seguro que quiere eliminar?')) {
