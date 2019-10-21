@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   userFromGroup: FormGroup
   submitted: any = false;
-
+  public loginError: any;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
@@ -74,7 +74,10 @@ export class LoginComponent implements OnInit {
         );
       },
       (err) => {
-        console.log('Hay un error');
+        // console.log(err.error.details);
+        this.loginError = err.error.details;
+        console.log(this.loginError);
+        console.log('------------------Hay un error-----------------');
       }
     );
   }
