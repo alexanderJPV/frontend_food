@@ -16,55 +16,22 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="userName" type="text" class="form-control" placeholder="username*" formControlName="userName" [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)">
-                            <p class="error-message">campo requerido</p>
-                        </div>
-                        <div *ngIf="formControls.userName.errors?.minlength">
-                            <p class="error-message">Minimo 5 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.userName.errors?.maxlength">
-                            <p class="error-message">Maximo 30 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.userName.errors?.pattern && !formControls.userName.errors?.minlength">
-                            <p class="error-message">Caracteres no validos</p>
-                        </div>
+                        <input name="nombres" type="text" class="form-control" placeholder="Nombres*"
+                            formControlName="nombres">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres" [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
-                            <p class="error-message">Campo requerido</p>
-                        </div>
-                        <div *ngIf="formControls.nombres.errors?.minlength">
-                            <p class="error-message">Minimo 5 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.nombres.errors?.maxlength">
-                            <p class="error-message">Maximo 30 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.nombres.errors?.pattern && !formControls.nombres.errors?.minlength">
-                            <p class="error-message">Caracteres no validos</p>
-                        </div>
+                        <input name="apellidos" type="text" class="form-control" placeholder="Apellidos*"
+                            formControlName="apellidos">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="apellidos" class="form-control" placeholder="Apellidos" formControlName="apellidos" [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted)">
-                            <p class="error-message">El campo requerido</p>
-                        </div>
-                        <div *ngIf="formControls.apellidos.errors?.minlength">
-                            <p class="error-message">Minimo 5 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.apellidos.errors?.maxlength">
-                            <p class="error-message">Maximo 30 caracteres</p>
-                        </div>
-                        <div *ngIf="formControls.apellidos.errors?.pattern && !formControls.apellidos.errors?.minlength">
-                            <p class="error-message">Caracteres no validos</p>
-                        </div>
+                        <input name="username" type="text" class="form-control" placeholder="Username*"
+                            formControlName="username">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

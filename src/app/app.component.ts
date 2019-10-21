@@ -13,7 +13,8 @@ export class AppComponent {
     return ((this.router.url !== '/user/login') &&
             (this.router.url !== '/user/register') &&
             (this.router.url.includes('/admin') !== true) &&
-            (this.router.url.includes('/forgot-password') !== true)
+            (this.router.url.includes('/forgot-password') !== true) &&
+            (this.router.url.includes('/activate-account') !== true)
             );
   }
 }
