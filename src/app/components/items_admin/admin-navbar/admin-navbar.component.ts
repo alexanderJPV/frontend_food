@@ -132,4 +132,7 @@ export class AdminNavbarComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/user/login']);
   }
+  home_web() {
+    this.router.navigate(['/home_web/bodyweb']);
+  }
 }

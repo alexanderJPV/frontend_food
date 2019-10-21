@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 /* You can add global styles to this file, and also import other style files */
-.container{
+
+.container {
     height: 100%;
     align-content: center;
 }
@@ -10,17 +13,18 @@
     margin-bottom: auto;
     width: 500px;
 }
+
 .card-header {
-    background-color: #E8E2E7 !important;
+    background-color: rgb(102, 9, 9) !important;
 }
 
 .card-footer {
-    background-color: #E8E2E7 !important;
+    background-color: rgb(102, 9, 9) !important;
     display: block;
 }
 
 .card-body {
-    background-color: #EFEDF1 !important;
+    background-color: #9A9981 !important;
 }
 
 .card .card-footer {
@@ -32,7 +36,7 @@
     align-items: center;
 }
 
-.social_icon span{
+.social_icon span {
     font-size: 60px;
     margin-left: 10px;
     color: #998995;
@@ -42,23 +46,30 @@
     float: left;
 }
 
-.social_icon span:hover{
+.social_icon span:hover {
     color: #493C46;
     cursor: pointer;
 }
-    
+
 .apply-color {
     background-color: #EFEDF1;
     color: #493C46;
 }
+
 .color-button {
     background-color: #493C46 !important;
     border: 0;
     color: #EFEDF1 !important;
 }
+
 .color-text {
     color: #493C46;
 }
+
+.color-text-title {
+    color: #FFBF00 !important;
+}
+
 .color-text:hover {
     text-decoration: none;
     color: #998995;
@@ -71,11 +82,11 @@
     margin-right: 5px;
 }
 
-.input-group-prepend span{
+.input-group-prepend span {
     /* width: 50px; */
     background-color: #493C46;
     color: #EFEDF1;
-    border:0 !important;
+    border: 0 !important;
 }
 
 .error-message {
@@ -86,6 +97,7 @@
     margin: 5px 0 0;
     width: 100%;
 }
+
 .card {
     margin-top: 10%;
     margin-bottom: auto;
@@ -116,6 +128,7 @@
     display: inline-block;
     margin: 5px 0 0;
 }
+
 .is-invalid {
     border-color: red;
 }

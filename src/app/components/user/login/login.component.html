@@ -1,56 +1,54 @@
 <div class="container">
-  <div class="d-flex justify-content-center h-100">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="d-flex justify-content-start">Login</h3>
-        <div class="d-flex justify-content-end social_icon">
-          <span><i class="fab fa-facebook-square"></i></span>
-          <span><i class="fab fa-google-plus-square"></i></span>
-          <span><i class="fab fa-twitter-square"></i></span>
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="d-flex justify-content-start color-text-title">Login</h3>
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="fab fa-facebook-square"></i></span>
+                    <span><i class="fab fa-google-plus-square"></i></span>
+                    <span><i class="fab fa-twitter-square"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form name="form" [formGroup]="userFromGroup" (ngSubmit)="onSubmit()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
+                            Email es requerido
+                        </div>
+                        <div class="error-message d-flex" *ngIf="(formControls.email.errors?.email)">
+                            Email no valido
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                        </div>
+                        <input name="password" type="password" class="form-control" placeholder="password" formControlName="password" [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
+                            Password es requerido
+                        </div>
+                    </div>
+                    <div class="input-group form-group row aling-items-center remember">
+                        <input name="rememberMe" type="checkbox" formControlName="rememberMe"> Remember Me
+                    </div>
+                    <div class="input-group form-group">
+                        <button class="form-control color-button" type="submit">LOGIN</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account?
+                    <a routerLink="/user/register">Sign Up</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a class="color-text" routerLink="/forgot-password">Forgot password?</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card-body">
-        <form name="form" [formGroup]="userFromGroup" (ngSubmit)="onSubmit()">
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <input name="email" type="email" class="form-control" placeholder="email@example.com" formControlName="email"
-            [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
-            <div class="error-message d-flex" *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
-                Email es requerido
-            </div>
-            <div class="error-message d-flex" *ngIf="(formControls.email.errors?.email)">
-                Email no valido
-            </div>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
-            </div>
-            <input name="password" type="password" class="form-control" placeholder="password" formControlName="password"
-            [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }">
-            <div class="error-message d-flex" *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
-                Password es requerido
-            </div>
-          </div>
-          <div class="input-group form-group row aling-items-center remember">
-            <input name="rememberMe" type="checkbox" formControlName="rememberMe"> Remember Me
-          </div>
-          <div class="input-group form-group">
-            <button class="form-control color-button" type="submit">LOGIN</button>
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <div class="d-flex justify-content-center links">
-          Don't have an account?
-          <a routerLink="/user/register">Sign Up</a>
-        </div>
-        <div class="d-flex justify-content-center">
-          <a class="color-text" routerLink="/forgot-password">Forgot password?</a>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

@@ -41,4 +41,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/user/login']);
     this.validateUser = false;
   }
+  dashboard(){
+    this.router.navigate(['/admin/dashboard']);
+  }
 }
