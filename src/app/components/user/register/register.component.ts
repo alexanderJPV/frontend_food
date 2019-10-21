@@ -26,11 +26,11 @@ export class RegisterComponent implements OnInit {
 
   initialData() {
     this.userFormGroup = this.formBuilder.group({
-      nombres: ['', [Validators.required]],
-      apellidos: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
+      userName: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]]
     });
   }
 
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
     const data = Object.assign({}, this.formValue);
     this.authService.register(data).subscribe(
       (res) => {
-        console.log('Resgistro con Exito');
+        console.log('Registro con Exito');
       },
       (err) => {
         console.log('Error al crear un Usuario', err);

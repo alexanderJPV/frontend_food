@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
   initialFroms() {
     this.userFromGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       rememberMe: [true]
     });
   }
-
   onSubmit() {
     this.submitted = true;
     if (this.userFromGroup.invalid) {
