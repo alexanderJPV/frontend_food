@@ -82,7 +82,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input type="password" name="password" class="form-control" placeholder="*******" formControlName="password">
+                        <input type="password" name="password" class="form-control" placeholder="*******" formControlName="password" [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }">
                         <div *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
                             <p class="error-message">El campo es requerido</p>
                         </div>
