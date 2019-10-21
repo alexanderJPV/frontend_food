@@ -1,183 +1,161 @@
 <div class="main-content">
-  <div class="container-fluid align-content-center">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-danger">
-            <h4 class="card-title">{{ id?  'Editar Usuario' : 'Nuevo Usuario'}}
-              <strong>{{ formValue.nombres+" "+formValue.apellidos }} </strong></h4>
-            <p class="card-category">Complete los campos</p>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="nombres">Nombres*</label>
-                  <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
-                  <div
-                    *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
-                    <p class="validate-error">El campo requerido</p>
-                  </div>
-                  <div *ngIf="formControls.nombres.errors?.minlength">
-                    <p class="validate-error">Minimo 5 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.nombres.errors?.maxlength">
-                    <p class="validate-error">Maximo 30 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.nombres.errors?.pattern && !formControls.nombres.errors?.minlength">
-                    <p class="validate-error">Caracteres no validos</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="apellidos">Apellidos*</label>
-                  <input type="text" name="autor" class="form-control" placeholder="Apellidos"
-                    formControlName="apellidos"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
-                  <div
-                    *ngIf="(submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted)">
-                    <p class="validate-error">El campo requerido</p>
-                  </div>
-                  <div *ngIf="formControls.apellidos.errors?.minlength">
-                    <p class="validate-error">Minimo 5 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.apellidos.errors?.maxlength">
-                    <p class="validate-error">Maximo 30 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.apellidos.errors?.pattern && !formControls.apellidos.errors?.minlength">
-                    <p class="validate-error">Caracteres no validos</p>
-                  </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="username">Nombre de usuario*</label>
-                  <input type="text" name="userName" class="form-control" placeholder="Username"
-                    formControlName="userName"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
-                  <div
-                    *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)">
-                    <p class="validate-error">El campo requerido</p>
-                  </div>
-                  <div *ngIf="formControls.userName.errors?.minlength">
-                    <p class="validate-error">Minimo 5 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.userName.errors?.maxlength">
-                    <p class="validate-error">Maximo 30 caracteres</p>
-                  </div>
-                  <div *ngIf="formControls.userName.errors?.pattern && !formControls.userName.errors?.minlength">
-                    <p class="validate-error">Caracteres no validos</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="email">email*</label>
-                  <input type="email" name="email" class="form-control" placeholder="email@example.com"
-                    formControlName="email"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
-                  <div
-                    *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
-                    <p class="validate-error">El campo es requerido</p>
-                  </div>
-                  <div *ngIf="formControls.email.errors?.email">
-                    <p class="validate-error">email no valido</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" class="form-control" placeholder="*******"
-                    formControlName="password">
-                  <div
-                    *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
-                    <p class="validate-error">El campo es requerido</p>
-                  </div>
-                  <div *ngIf="formControls.password.errors?.minlength">
-                    <p class="validate-error">Minimo 5 caracteres</p>
-                  </div>
-                </div>
+    <div class="container-fluid align-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">{{ id? 'Editar Usuario' : 'Nuevo Usuario'}}
+                            <strong>{{ formValue.nombres+" "+formValue.apellidos }} </strong></h4>
+                        <p class="card-category">Complete los campos</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombres">Nombres*</label>
+                                    <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres" [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.nombres.errors?.minlength">
+                                        <p class="validate-error">Minimo 5 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.nombres.errors?.maxlength">
+                                        <p class="validate-error">Maximo 30 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.nombres.errors?.pattern && !formControls.nombres.errors?.minlength">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="apellidos">Apellidos*</label>
+                                    <!-- porque autor alex -->
+                                    <input type="text" name="autor" class="form-control" placeholder="Apellidos" formControlName="apellidos" [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.apellidos.errors?.minlength">
+                                        <p class="validate-error">Minimo 5 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.apellidos.errors?.maxlength">
+                                        <p class="validate-error">Maximo 30 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.apellidos.errors?.pattern && !formControls.apellidos.errors?.minlength">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="username">Nombre de usuario*</label>
+                                    <input type="text" name="userName" class="form-control" placeholder="Username" formControlName="userName" [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.userName.errors?.minlength">
+                                        <p class="validate-error">Minimo 5 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.userName.errors?.maxlength">
+                                        <p class="validate-error">Maximo 30 caracteres</p>
+                                    </div>
+                                    <div *ngIf="formControls.userName.errors?.pattern && !formControls.userName.errors?.minlength">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                    <!-- aqui -->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">email*</label>
+                                    <input type="email" name="email" class="form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
+                                        <p class="validate-error">El campo es requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.email.errors?.email">
+                                        <p class="validate-error">email no valido</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="*******" formControlName="password">
+                                    <div *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
+                                        <p class="validate-error">El campo es requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.password.errors?.minlength">
+                                        <p class="validate-error">Minimo 5 caracteres</p>
+                                    </div>
+                                </div>
 
-                <div class="form-group col-md-6">
-                  <label for="rol">Rol</label>
-                  <select name="rol" class="custom-select" formControlName="rol" id="rol"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
+                                <div class="form-group col-md-6">
+                                    <label for="rol">Rol</label>
+                                    <select name="rol" class="custom-select" formControlName="rol" id="rol" [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
                     <option value="0" disabled="true">- Selecionar rol -</option>
                     <option *ngFor="let rols of roles; let i = index" [value]="rols">
                       {{rols}}
                     </option>
                     <!--<option value="0">Cliente</option> -->
                   </select>
-                  <div
-                    *ngIf="(submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted)"
-                    class="validate-error">El campo es requerido
-                  </div>
+                                    <div *ngIf="(submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted)" class="validate-error">El campo es requerido
+                                    </div>
 
-                </div>
-              </div>
+                                </div>
+                            </div>
 
-              <div class="form-row">
-                <div class="col-md-6">
-                  <label for="imagen">Imagen</label>
-                  <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput
-                    (change)="fileProgress($event)">
-                </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="imagen">Imagen</label>
+                                    <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput (change)="fileProgress($event)">
+                                </div>
 
-                <div class="col-md-6">
-                  <div class="d-flex justify-content-center">
-                    <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
-                  </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="genero">Genero</label>
-                  <select name="oferta" class="custom-select" formControlName="genero"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted) }">
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center">
+                                        <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="genero">Genero</label>
+                                    <select name="oferta" class="custom-select" formControlName="genero" [ngClass]="{ 'is-invalid': (submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted) }">
                     <option value="0" disabled="true">- Selecionar genero -</option>
                     <option value="FEMENINO">Femenino</option>
                     <option value="MASCULINO">Masculino</option>
                   </select>
-                  <div
-                    *ngIf="(submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted)"
-                    class="validate-error">El campo es requerido</div>
+                                    <div *ngIf="(submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted)" class="validate-error">El campo es requerido</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fechaNacimiento">Fecha Nacimiento*</label>
+                                    <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="password">Telefono*</label>
+                                    <input type="text" name="telefono" class="form-control" placeholder="7-(6)-5555555" formControlName="telefono" [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.telefono.errors?.minlength">
+                                        <p class="validate-error">Minimo 7 numeros</p>
+                                    </div>
+                                    <div *ngIf="formControls.telefono.errors?.maxlength">
+                                        <p class="validate-error">Maximo 8 numeros</p>
+                                    </div>
+                                    <div *ngIf="formControls.telefono.errors?.pattern && !formControls.telefono.errors?.minlength && !formControls.telefono.errors?.maxlength">
+                                        <p class="validate-error">Todos los caracteres deben ser numeros</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="estado">Estado(Activo/Inactivo)</label>
+                                    <div>
+                                        <input type="checkbox" formControlName="estado">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
+                            <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="fechaNacimiento">Fecha Nacimiento*</label>
-                  <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" class="form-control">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="password">Telefono*</label>
-                  <input type="text" name="telefono" class="form-control" placeholder="7-(6)-5555555"
-                    formControlName="telefono"
-                    [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
-                  <div
-                    *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)">
-                    <p class="validate-error">El campo requerido</p>
-                  </div>
-                  <div *ngIf="formControls.telefono.errors?.minlength">
-                    <p class="validate-error">Minimo 7 numeros</p>
-                  </div>
-                  <div *ngIf="formControls.telefono.errors?.maxlength">
-                    <p class="validate-error">Maximo 8 numeros</p>
-                  </div>
-                  <div
-                    *ngIf="formControls.telefono.errors?.pattern && !formControls.telefono.errors?.minlength && !formControls.telefono.errors?.maxlength">
-                    <p class="validate-error">Todos los caracteres deben ser numeros</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="estado">Estado(Activo/Inactivo)</label>
-                  <div>
-                    <input type="checkbox" formControlName="estado">
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-success float-right">Guardar Usario</button>
-              <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

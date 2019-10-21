@@ -89,15 +89,6 @@
     border: 0 !important;
 }
 
-.error-message {
-    color: #cc0033;
-    display: inline-block;
-    font-size: 12px;
-    line-height: 15px;
-    margin: 5px 0 0;
-    width: 100%;
-}
-
 .card {
     margin-top: 10%;
     margin-bottom: auto;
@@ -121,12 +112,22 @@
     color: #EFEDF1 !important;
 }
 
-.error-message {
+
+/* .error-message {
     width: 100%;
     color: red;
     font-size: 12px;
     display: inline-block;
     margin: 5px 0 0;
+} */
+
+.error-message {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+    width: 100%;
 }
 
 .is-invalid {
