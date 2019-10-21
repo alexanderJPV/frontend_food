@@ -19,28 +19,29 @@ export class UserListComponent implements OnInit {
   currentPage = 1;
   rotate = true;
   maxSize = 10;
+  keyword: any = '';
+  role: any = '';
 
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.getListUser();
   }
-  configpagination(nropages: any){
+  configpagination(nropages: any) {
     this.pageSize = nropages;
-    this.getListUser();
+    if (this.keyword || this.role) {
+      this.searchByKeyword();
+    } else {
+      this.getListUser();
+    }
   }
   getListUser(rols?: any) {
-     if(rols == null){
-        this.userService.getAll(this.currentPage - 1, this.pageSize).subscribe(users => {
-          this.totalItems = users.elements;
-          this.users = users.usuario.rows;
-        });
-     }else{
-        this.userService.getlistRoles(rols ,this.currentPage - 1, this.pageSize).subscribe( usersrol => {
-          this.totalItems = usersrol.elements;
-          this.users = usersrol.usuario.rows;
-        });
-     }
+    this.keyword = '';
+    this.role = '';
+    this.userService.getAll(this.currentPage - 1, this.pageSize).subscribe(users => {
+      this.totalItems = users.elements;
+      this.users = users.usuario.rows;
+    });
   }
   onDeleteUser(id: number): void {
     if (confirm('Esta seguro que quiere eliminar?')) {
@@ -85,6 +86,27 @@ export class UserListComponent implements OnInit {
 
   changePage(event: any): void {
     this.currentPage = event.page;
-    this.getListUser();
+    if (this.keyword || this.role) {
+      this.searchByKeyword();
+    } else {
+      this.getListUser();
+    }
   }
+
+  searchByKeyword() {
+    console.log('-------------1 pase pasdsldklskdor aqui ', this.keyword);
+    this.userService.getlistRoles(this.currentPage - 1, this.pageSize, this.role, this.keyword).subscribe(usersrol => {
+      this.totalItems = usersrol.elements;
+      this.users = usersrol.usuario.rows;
+    });
+  }
+
+  searchByRoles(rol?: any) {
+    this.role = rol
+    this.userService.getlistRoles(this.currentPage - 1, this.pageSize, this.role, this.keyword).subscribe(usersrol => {
+      this.totalItems = usersrol.elements;
+      this.users = usersrol.usuario.rows;
+    });
+  }
+
 }
