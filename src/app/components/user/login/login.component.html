@@ -17,7 +17,7 @@
                         </div>
                         <input name="email" type="email" class="form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
 
-                        <div class="error-message d-flex" *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
+                        <div class="error-message " *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
                             <p>El campo es requerido</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.email.errors?.email">
@@ -44,7 +44,7 @@
                     </div>
                 </form>
                 <div class="error-message d-flex justify-content-center">
-                       <h4> {{loginError}}</h4>
+                    <h4> {{loginError}}</h4>
                 </div>
             </div>
             <div class="card-footer">

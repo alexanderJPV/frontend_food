@@ -16,33 +16,66 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="nombres" type="text" class="form-control" placeholder="Nombres*"
-                            formControlName="nombres">
+                        <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres" [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
+                            <p>El campo requerido</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.minlength">
+                            <p>Minimo 5 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.maxlength">
+                            <p>Maximo 30 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.pattern && !formControls.nombres.errors?.minlength">
+                            <p>Caracteres no validos</p>
+                        </div>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="apellidos" type="text" class="form-control" placeholder="Apellidos*"
-                            formControlName="apellidos">
+                        <input type="text" name="apellidos" class="form-control" placeholder="Apellidos" formControlName="apellidos" [ngClass]="{ 'is-invalid': (submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted) }">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.apellidos.errors && formControls.apellidos.errors.required) || (formControls.apellidos.errors?.required && formControls.apellidos.touched && !submitted)">
+                            <p>El campo requerido</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.apellidos.errors?.minlength">
+                            <p>Minimo 5 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.apellidos.errors?.maxlength">
+                            <p>Maximo 30 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.apellidos.errors?.pattern && !formControls.apellidos.errors?.minlength">
+                            <p>Caracteres no validos</p>
+                        </div>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="username" type="text" class="form-control" placeholder="Username*"
-                            formControlName="username">
+                        <input type="text" name="userName" class="form-control" placeholder="Username" formControlName="userName" [ngClass]="{ 'is-invalid': (submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted) }">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.userName.errors && formControls.userName.errors.required) || (formControls.userName.errors?.required && formControls.userName.touched && !submitted)">
+                            <p>El campo requerido</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.userName.errors?.minlength">
+                            <p>Minimo 5 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.userName.errors?.maxlength">
+                            <p>Maximo 30 caracteres</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.userName.errors?.pattern && !formControls.userName.errors?.minlength">
+                            <p>Caracteres no validos</p>
+                        </div>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                         <input type="email" name="email" class="form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
-                            <p class="error-message">El campo es requerido</p>
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
+                            <p>El campo es requerido</p>
                         </div>
-                        <div *ngIf="formControls.email.errors?.email">
-                            <p class="error-message">email no valido</p>
+                        <div class="error-message d-flex" *ngIf="formControls.email.errors?.email">
+                            <p>email no valido</p>
                         </div>
                     </div>
                     <div class="input-group form-group">
@@ -50,11 +83,11 @@
                             <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                         </div>
                         <input type="password" name="password" class="form-control" placeholder="*******" formControlName="password" [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
-                            <p class="error-message">El campo es requerido</p>
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
+                            <p>El campo es requerido</p>
                         </div>
-                        <div *ngIf="formControls.password.errors?.minlength">
-                            <p class="error-message">Minimo 5 caracteres</p>
+                        <div class="error-message d-flex" *ngIf="formControls.password.errors?.minlength">
+                            <p>Minimo 5 caracteres</p>
                         </div>
                     </div>
 
