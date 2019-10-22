@@ -92,7 +92,7 @@ export class UserCreateComponent implements OnInit {
     }
   }
   initialData() {
-    /* La validacion */
+    /* La validacion aqui*/
     this.userFormGroup = this.formBuilder.group({
       id: [null],
       nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
