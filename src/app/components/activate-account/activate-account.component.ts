@@ -19,7 +19,7 @@ export class ActivateAccountComponent implements OnInit {
       (params) => {
         console.log('El parametro', params['params'].key);
         const key = params['params'].key;
-        console.log('----------------____?????????????? ', key);
+        console.log('----------------?????????????? ', key);
         if (key) {
           this.authService.activateAccount({ 'key': key }).subscribe(
             (res) => {
