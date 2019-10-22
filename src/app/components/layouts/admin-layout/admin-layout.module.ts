@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.component';
 import { UserListComponent } from '../../user-list/user-list.component';
 import { ModalsModule } from  '../../modals/modals.module';
+import { SucursalComponent } from '../../sucursal/sucursal.component';
+// import { SucursalComponent } from '../../sucursal/sucursal.component';
 
 import {
   MatButtonModule,
@@ -22,7 +24,8 @@ import { PaginationModule } from 'ngx-bootstrap';
   declarations: [
     DashboardAdminComponent,
     UserListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SucursalComponent
   ],
   imports: [
     CommonModule,

@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   userFormGroup: FormGroup;
   submitted: any = false;
-
+  public correo: any;
   constructor(
     private userService: UserService,
     private authService: AuthService,
@@ -52,8 +52,10 @@ export class RegisterComponent implements OnInit {
 
   register() {
     const data = Object.assign({}, this.formValue);
+    // console.log(data.email);
     this.authService.register(data).subscribe(
       (res) => {
+        this.correo = data.email;
         console.log('Registro con Exito');
       },
       (err) => {

@@ -25,6 +25,12 @@ export const ROUTES: RouteInfo[] = [
     icon: 'content_paste',
     class: ''
   },
+  {
+    path: '/admin/sucursal-list',
+    title: 'Lista Sucursales',
+    icon: 'restaurant',
+    class: ''
+  },
   { path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
   { path: '/maps', title: 'Maps', icon: 'location_on', class: '' },
   { path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },

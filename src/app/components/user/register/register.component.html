@@ -17,7 +17,7 @@
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                         <input type="text" name="nombres" class="form-control" placeholder="Nombres" formControlName="nombres" [ngClass]="{ 'is-invalid': (submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted) }">
-                        <div class="error-message d-flex" *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) && formControls.nombres.dirty || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.nombres.errors && formControls.nombres.errors.required) || (formControls.nombres.errors?.required && formControls.nombres.touched && !submitted)">
                             <p>El campo requerido</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.minlength">
@@ -95,6 +95,15 @@
                         <button class="form-control color-button" type="submit">SIGNUP</button>
                     </div>
                 </form>
+                <div *ngIf="correo">
+                    <div class="alert alert-success alert-with-icon" data-notify="container">
+                        <i class="material-icons" data-notify="icon">add_alert</i>
+                        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <span data-notify="message">Ha sido enviado un mensaje de activacion a su correo <strong>{{correo}}</strong></span>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">

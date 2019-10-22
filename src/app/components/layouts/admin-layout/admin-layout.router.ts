@@ -3,6 +3,7 @@ import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.c
 import { UserListComponent } from '../../user-list/user-list.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { UserCreateComponent } from './../../formsparts/user-create/user-create.component';
+import { SucursalComponent } from '../../sucursal/sucursal.component';
 
 export const AdminLayoutRoutes: Routes = [
     {
@@ -24,5 +25,9 @@ export const AdminLayoutRoutes: Routes = [
     {
         path: 'edit-user/:id',
         component: UserCreateComponent
+    },
+    {
+        path: 'sucursal-list',
+        component: SucursalComponent
     }
 ];
