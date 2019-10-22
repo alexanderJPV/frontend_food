@@ -1,7 +1,12 @@
 <div class="main-content">
     <div class="container-fluid align-content-center">
         <div class="row">
+<<<<<<< Updated upstream
             <div class="col-md-12">
+=======
+            <div class="col-md-8">
+
+>>>>>>> Stashed changes
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title">{{ id? 'Editar Usuario' : 'Nuevo Usuario'}}
@@ -84,17 +89,23 @@
                                     </div>
                                 </div>
 
+<<<<<<< Updated upstream
                                 <div class="form-group col-md-6">
                                     <label for="rol">Rol</label>
                                     <select name="rol" class="custom-select" formControlName="rol" id="rol" [ngClass]="{ 'is-invalid': (submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted) }">
-                    <option value="0" disabled="true">- Selecionar rol -</option>
-                    <option *ngFor="let rols of roles; let i = index" [value]="rols">
-                      {{rols}}
-                    </option>
-                    <!--<option value="0">Cliente</option> -->
-                  </select>
+                                      <option value="0" disabled="true">- Selecionar rol -</option>
+                                      <option *ngFor="let rols of roles; let i = index" [value]="rols">
+                                        {{rols}}
+                                      </option>
+                                      <!--<option value="0">Cliente</option> -->
+                                    </select>
                                     <div *ngIf="(submitted && formControls.rol.errors && formControls.rol.errors.required) || (formControls.rol.errors?.required && formControls.rol.touched && !submitted)" class="validate-error">El campo es requerido
                                     </div>
+=======
+<!--      <form class="form-book" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+-->
+          <form>
+>>>>>>> Stashed changes
 
                                 </div>
                             </div>
@@ -115,10 +126,10 @@
                                 <div class="form-group col-md-6">
                                     <label for="genero">Genero</label>
                                     <select name="oferta" class="custom-select" formControlName="genero" [ngClass]="{ 'is-invalid': (submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted) }">
-                    <option value="0" disabled="true">- Selecionar genero -</option>
-                    <option value="FEMENINO">Femenino</option>
-                    <option value="MASCULINO">Masculino</option>
-                  </select>
+                                        <option value="0" disabled="true">- Selecionar genero -</option>
+                                        <option value="FEMENINO">Femenino</option>
+                                        <option value="MASCULINO">Masculino</option>
+                                    </select>
                                     <div *ngIf="(submitted && formControls.genero.errors && formControls.genero.errors.required) || (formControls.genero.errors?.required && formControls.genero.touched && !submitted)" class="validate-error">El campo es requerido</div>
                                 </div>
                                 <div class="form-group col-md-6">

@@ -22,6 +22,7 @@ import { PaginationModule } from 'ngx-bootstrap';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { SucursalComponent } from './components/sucursal/sucursal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     PromotionsComponent,
     ActivateAccountComponent,
     ResetPasswordComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SucursalComponent
   ],
   imports: [
     BrowserModule,

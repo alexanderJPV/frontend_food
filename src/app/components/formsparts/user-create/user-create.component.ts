@@ -73,6 +73,7 @@ export class UserCreateComponent implements OnInit {
       formData.append('type', this.fileData.type);
       formData.append('name', this.fileData.name);
     }
+
     formData.append('userName', this.formValue.userName);
     formData.append('email', this.formValue.email);
     formData.append('nombres', this.formValue.nombres);
@@ -131,6 +132,9 @@ export class UserCreateComponent implements OnInit {
       },
       (err) => {
         console.log('Create Error............................................');
+        const erromensaje = err.error.details.message;
+        // console.log(err.error.details.message);
+        this.showNotification('top', 'center',erromensaje,4);
       }
     );
   }
@@ -144,6 +148,9 @@ export class UserCreateComponent implements OnInit {
       },
       (err) => {
         console.log('Update Error.....................................');
+        const erromensaje = err.error.details.message;
+        // console.log(err.error.details.message);
+        this.showNotification('top', 'center',erromensaje,4);
       }
     );
   }

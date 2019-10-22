@@ -13,31 +13,34 @@
                             data-target="#modalUser">Nuevo</button>
                         -->
                         <a routerLink="/admin/create-user" routerLinkActive="router-link-active"
-                        class="ordena btn btn-success float-right mb-3">Nuevo</a>
-                        <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search...">
+                            class="ordena btn btn-success float-right mb-3">Nuevo</a>
+                        <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search..."
+                            [(ngModel)]="keyword" (ngModelChange)="searchByKeyword()">
                         <div class="dropdown ordena float-md-right mr-3">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  SHOW ROLES
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">Todos</a>
-                                  <a class="dropdown-item" (click)="getListUser('ROL_ADMIN')">Administradores</a>
-                                  <a class="dropdown-item" (click)="getListUser('ROL_PROPIETARIO')">Propietarios</a>
-                                  <a class="dropdown-item" href="#">Colaboradores</a>
-                                  <a class="dropdown-item" href="#">Clientes</a>
-                                </div>
-                        </div>
-                            <div class="dropdown ordena float-md-right mr-3">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      {{pageSize}}
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" (click)="configpagination(10)" >10</a>
-                                      <a class="dropdown-item" (click)="configpagination(25)" >25</a>
-                                      <a class="dropdown-item" (click)="configpagination(50)" >50</a>
-                                      <a class="dropdown-item" (click)="configpagination(100)" >100</a>
-                                    </div>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{role? role: 'SHOW ROLES'}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="searchByRoles('')">Todos</a>
+                                <a class="dropdown-item" (click)="searchByRoles('ROL_ADMIN')">Administradores</a>
+                                <a class="dropdown-item" (click)="searchByRoles('ROL_PROPIETARIO')">Propietarios</a>
+                                <a class="dropdown-item" (click)="searchByRoles('ROL_COLABORADOR')">Colaboradores</a>
+                                <a class="dropdown-item" (click)="searchByRoles('ROL_CLIENTE')">Clientes</a>
                             </div>
+                        </div>
+                        <div class="dropdown ordena float-md-right mr-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{pageSize}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="configpagination(10)">10</a>
+                                <a class="dropdown-item" (click)="configpagination(25)">25</a>
+                                <a class="dropdown-item" (click)="configpagination(50)">50</a>
+                                <a class="dropdown-item" (click)="configpagination(100)">100</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -46,7 +49,7 @@
                                     <th>
                                         ID
                                     </th>
-                                    <th>f
+                                    <th>
                                         Nombre
                                     </th>
                                     <th>
@@ -90,8 +93,8 @@
                                         </td>
                                         <th>
                                             <img *ngIf="user.imagen" [src]="user.imagen" alt="" height="50" width="50">
-                                            <img *ngIf="!user.imagen" src="/assets/img/faces/sincuenta.png" alt="" height="60"
-                                                width="60">
+                                            <img *ngIf="!user.imagen" src="/assets/img/faces/sincuenta.png" alt=""
+                                                height="60" width="60">
                                         </th>
                                         <td>
                                             <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->

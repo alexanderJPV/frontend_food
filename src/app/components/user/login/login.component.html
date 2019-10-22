@@ -16,24 +16,24 @@
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                         <input name="email" type="email" class="form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': (submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
-                            <p class="error-message">El campo es requerido</p>
-                        </div>
-                        <div *ngIf="formControls.email.errors?.email">
-                            <p class="error-message">email no valido</p>
-                        </div>
 
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.email.errors && formControls.email.errors.required) || (formControls.email.errors?.required && formControls.email.touched && !submitted)">
+                            <p>El campo es requerido</p>
+                        </div>
+                        <div class="error-message d-flex" *ngIf="formControls.email.errors?.email">
+                            <p>email no valido</p>
+                        </div>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                         </div>
                         <input name="password" type="password" class="form-control" placeholder="********" formControlName="password" [ngClass]="{ 'is-invalid': (submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted) }">
-                        <div *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
-                            <p class="error-message">El campo es requerido</p>
+                        <div class="error-message d-flex" *ngIf="(submitted && formControls.password.errors && formControls.password.errors.required) || (formControls.password.errors?.required && formControls.password.touched && !submitted)">
+                            <p>El campo es requerido</p>
                         </div>
-                        <div *ngIf="formControls.password.errors?.minlength">
-                            <p class="error-message">Minimo 5 caracteres</p>
+                        <div class="error-message d-flex" *ngIf="formControls.password.errors?.minlength">
+                            <p>Minimo 5 caracteres</p>
                         </div>
                     </div>
                     <div class="input-group form-group row aling-items-center remember">
@@ -43,6 +43,9 @@
                         <button class="form-control color-button" type="submit">LOGIN</button>
                     </div>
                 </form>
+                <div class="error-message d-flex justify-content-center">
+                       <h4> {{loginError}}</h4>
+                </div>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
