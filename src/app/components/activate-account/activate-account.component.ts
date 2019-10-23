@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ActivateAccountComponent implements OnInit {
 
+  msg: any = '';
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private authService: AuthService
@@ -19,18 +21,17 @@ export class ActivateAccountComponent implements OnInit {
       (params) => {
         console.log('El parametro', params['params'].key);
         const key = params['params'].key;
-        console.log('----------------?????????????? ', key);
         if (key) {
           this.authService.activateAccount({ 'key': key }).subscribe(
             (res) => {
-              console.log('El resultado fue exitoso');
+              this.msg = 'Su cuenta fue activada con Exito';
             },
             (err) => {
-              console.log('La llave a expirado', err);
+              this.msg = err.error.details;
             }
           )
         } else {
-          console.log('No esxite el params');
+          this.msg = 'La clave de acticacion no existe'
         }
       }
     );
