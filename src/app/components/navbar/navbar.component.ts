@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/home_web/bodyweb']);
     this.validateUser = false;
+    this.router.navigate(['/home_web/bodyweb']);
   }
 
   changeaccount() {

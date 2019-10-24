@@ -4,7 +4,7 @@ import { UserListComponent } from '../../user-list/user-list.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { UserCreateComponent } from './../../formsparts/user-create/user-create.component';
 import { SucursalComponent } from '../../sucursal/sucursal.component';
-// import { SucursalCreateComponent } from '../../formsparts/sucursal-create/sucursal-create.component';
+import { SucursalCreateComponent } from '../../formsparts/sucursal-create/sucursal-create.component';
 
 export const AdminLayoutRoutes: Routes = [
     {
@@ -30,9 +30,9 @@ export const AdminLayoutRoutes: Routes = [
     {
         path: 'sucursal-list',
         component: SucursalComponent
+    },
+    {
+        path: 'create-sucursal',
+        component: SucursalCreateComponent
     }
-    // {
-    //     path: 'create-sucursal',
-    //     component: SucursalCreateComponent
-    // }
 ];
