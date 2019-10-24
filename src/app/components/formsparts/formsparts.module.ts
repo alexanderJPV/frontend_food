@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { UserCreateComponent } from './user-create/user-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { SucursalCreateComponent } from './sucursal-create/sucursal-create.component';
 
 @NgModule({
   declarations: [
-    UserCreateComponent
+    UserCreateComponent,
+    SucursalCreateComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    UserCreateComponent
+    UserCreateComponent,
+    SucursalCreateComponent
   ]
 })
 export class FormspartsModule { }

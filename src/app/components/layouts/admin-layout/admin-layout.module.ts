@@ -6,8 +6,8 @@ import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.c
 import { UserListComponent } from '../../user-list/user-list.component';
 import { ModalsModule } from  '../../modals/modals.module';
 import { SucursalComponent } from '../../sucursal/sucursal.component';
+import { SucursalCreateComponent } from '../../formsparts/sucursal-create/sucursal-create.component';
 // import { SucursalComponent } from '../../sucursal/sucursal.component';
-
 import {
   MatButtonModule,
   MatInputModule,
@@ -25,7 +25,8 @@ import { PaginationModule } from 'ngx-bootstrap';
     DashboardAdminComponent,
     UserListComponent,
     UserProfileComponent,
-    SucursalComponent
+    SucursalComponent,
+    SucursalCreateComponent
   ],
   imports: [
     CommonModule,
