@@ -34,5 +34,9 @@ export const AdminLayoutRoutes: Routes = [
     {
         path: 'create-sucursal',
         component: SucursalCreateComponent
+    },
+    {
+        path: 'edit-sucursal/:id',
+        component: SucursalCreateComponent
     }
 ];

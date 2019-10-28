@@ -1,0 +1,8 @@
+.is-invalid {
+    border-color: red;
+}
+
+.validate-error {
+    color: red;
+    position: absolute;
+}
