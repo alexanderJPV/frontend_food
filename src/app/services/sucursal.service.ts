@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { WebService } from './web.service';
-import { AuthService } from './auth.service';
 import { SERVER } from '../config/server.config';
+import { AuthorizationService } from './authorization.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SucursalService {
 
-  constructor( private webService: WebService, private authService: AuthService ) { }
-  getAll(page?: any, pageSize?: any){
+  constructor(private webService: WebService, private authService: AuthorizationService) { }
+  getAll(page?: any, pageSize?: any) {
     const URL = SERVER.SUCURSALES + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc`;
     // const URL = SERVER.USERS;
     const headers = this.webService.JSONOptions(this.authService.getToken());
