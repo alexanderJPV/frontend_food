@@ -9,19 +9,21 @@
                         <p class="card-category"> </p>
                     </div>
                     <div class="card-body">
-                        <!-- <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+                        <form [formGroup]="sucursalFormGroup" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="razon_social">Razon social*</label>
                                     <input type="text" name="razon_social" class="form-control" placeholder="Razon social" formControlName="razon_social" [ngClass]="{ 'is-invalid': (submitted && formControls.razon_social.errors && formControls.razon_social.errors.required) || (formControls.razon_social.errors?.required && formControls.razon_social.touched && !submitted) }">
                                     <div *ngIf="(submitted && formControls.razon_social.errors && formControls.razon_social.errors.required) && formControls.razon_social.dirty || (formControls.razon_social.errors?.required && formControls.razon_social.touched && !submitted)">
                                         <p class="validate-error">El campo requerido</p>
                                     </div>
-                                </div> -->
-<!--                                 <div class="form-group col-md-6">
+                                </div>
+
+                                 <div class="form-group col-md-6">
                                     <label for="telefono">Telefono/Celular</label>
                                     <input name="telefono" class="form-control" placeholder="Telefono" formControlName="telefono" [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
                                     <div *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)">
-                                        <p class="validate-error">El campo requerido</p>
+                                        <p class="validate-error">El campo es requerido</p>
                                     </div>
                                     <div *ngIf="formControls.telefono.errors?.pattern">
                                         <p class="validate-error">Caracteres no validos</p>
@@ -35,20 +37,27 @@
                                     <div *ngIf="(submitted && formControls.descripcion.errors && formControls.descripcion.errors.required) || (formControls.descripcion.errors?.required && formControls.descripcion.touched && !submitted)">
                                         <p class="validate-error">El campo requerido</p>
                                     </div>
-                                    <div *ngIf="formControls.userName.errors?.pattern">
+                                    <div *ngIf="formControls.descripcion.errors?.pattern">
                                         <p class="validate-error">Caracteres no validos</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tipo">Tipo</label>
-                                    <input type="text" name="tipo" class="form-control" placeholder="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }">
+                                    <!-- <input type="text" name="tipo" class="form-control" placeholder="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }"> -->
+                                    <select name="tipo" class="custom-select" id="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }" >
+                                            <option value="0" disabled="true">- Selecionar tipo -</option>
+                                            <!-- <option *ngFor="let rols of roles; let i = index" [value]="rols">
+                                              {{rols}}
+                                            </option> -->
+                                            <option value="1">nacional</option>
+                                            <option value="1">vegetariana</option>
+                                            <option value="1">internacional</option>
+                                    </select>
                                     <div *ngIf="(submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted)">
                                         <p class="validate-error">El campo es requerido</p>
                                     </div>
-                                    <div *ngIf="formControls.tipo.errors?.pattern">
-                                        <p class="validate-error">Caracteres no validos</p>
-                                    </div>
                                 </div>
+
                                 <div class="form-group col-md-6">
                                     <label for="nit">NIT</label>
                                     <input name="nit" class="form-control" placeholder="nit" formControlName="nit">
@@ -57,6 +66,38 @@
                                     </div>
                                     <div *ngIf="formControls.nit.errors?.pattern">
                                         <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="hora_apertura">Hora Apertura</label>
+                                    <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
+                                    <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
+                                        <p class="validate-error">El campo es requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.hora_apertura.errors?.pattern">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="hora_cierre">Hora Cierre</label>
+                                    <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
+                                    <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
+                                        <p class="validate-error">El campo es requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.hora_cierre.errors?.pattern">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="dias">Dias de atencion</label>
+                                    <div>
+                                        <input type="checkbox" formControlName="dias"> lunes
+                                        <input type="checkbox" formControlName="dias"> martes
+                                        <input type="checkbox" formControlName="dias"> miercoles
+                                        <input type="checkbox" formControlName="dias"> jueves
+                                        <input type="checkbox" formControlName="dias"> viernes
+                                        <input type="checkbox" formControlName="dias"> sabado
+                                        <input type="checkbox" formControlName="dias"> domingo
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -69,6 +110,7 @@
                                         <p class="validate-error">Caracteres no validos</p>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="form-group col-md-6">
                                     <label for="latitud">Latitud</label>
                                     <input type="text" name="latitud" class="form-control" placeholder="latitud" formControlName="latitud" [ngClass]="{ 'is-invalid': (submitted && formControls.latitud.errors && formControls.latitud.errors.required) || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted) }">
@@ -82,9 +124,10 @@
                                     <div *ngIf="(submitted && formControls.longitud.errors && formControls.longitud.errors.required) && formControls.longitud.dirty || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted)">
                                         <p class="validate-error">El campo requerido</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-
+                            
+<!--
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="imagen">Imagen</label>
@@ -98,9 +141,9 @@
                                 </div>
                             </div>
  -->
-                            <!-- <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
+                            <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
                             <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>
