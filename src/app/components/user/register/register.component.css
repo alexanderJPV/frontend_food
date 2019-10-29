@@ -11,7 +11,7 @@
 .card {
     margin-top: 5% !important;
     margin-bottom: auto;
-    width: 500px;
+    width: 500px !important;
 }
 
 .card-header {

@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ActivateAccountComponent implements OnInit {
 
-  msg: any = '';
+  msgExito: any;
+  msgError: any;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -24,14 +25,14 @@ export class ActivateAccountComponent implements OnInit {
         if (key) {
           this.authService.activateAccount({ 'key': key }).subscribe(
             (res) => {
-              this.msg = 'Su cuenta fue activada con Exito';
+              this.msgExito = 'Su cuenta fue activada con Exito';
             },
             (err) => {
-              this.msg = err.error.details;
+              this.msgError = err.error.details;
             }
           )
         } else {
-          this.msg = 'La clave de acticacion no existe'
+          this.msgError = 'La clave de acticacion no existe'
         }
       }
     );

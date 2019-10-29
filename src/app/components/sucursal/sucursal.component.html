@@ -31,10 +31,10 @@
                                 10
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">10</a>
-                                <a class="dropdown-item">25</a>
-                                <a class="dropdown-item">50</a>
-                                <a class="dropdown-item">100</a>
+                                <a class="dropdown-item" (click)="configpagination(10)">10</a>
+                                <a class="dropdown-item" (click)="configpagination(25)">25</a>
+                                <a class="dropdown-item" (click)="configpagination(50)">50</a>
+                                <a class="dropdown-item" (click)="configpagination(100)">100</a>
                             </div>
                         </div>
                     </div>
@@ -58,44 +58,66 @@
                                         Tipo
                                     </th>
                                     <th>
-                                        Imagen
+                                        Nit
                                     </th>
                                     <th>
-                                        Nit
+                                        Apertura
+                                    </th>
+                                    <th>
+                                        Cierre
+                                    </th>
+                                    <th>
+                                        Dias
+                                    </th>
+                                    <th>
+                                        Direccion
+                                    </th>
+                                    <th>
+                                        Imagen
                                     </th>
                                     <th>
                                         Operaciones
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let user of users index as i">
+                                    <tr *ngFor="let sucursal of sucursales index as i">
                                         <td scope="row">
-
+                                            {{i+1}}
                                         </td>
                                         <td>
-
+                                            {{sucursal.razon_social}}
                                         </td>
                                         <td>
-
+                                            {{sucursal.telefono}}
                                         </td>
                                         <td>
-
+                                            {{sucursal.descripcion}}
                                         </td>
                                         <td>
-
+                                            {{sucursal.tipo}}
                                         </td>
                                         <td class="text-primary">
-
+                                            {{sucursal.nit}}
+                                        </td>
+                                        <td>
+                                            {{sucursal.hora_apertura}}
+                                        </td>
+                                        <td>
+                                            {{sucursal.hora_cierre}}
+                                        </td>
+                                        <td>
+                                            {{sucursal.dias}}
+                                        </td>
+                                        <td>
+                                            {{sucursal.direccion}}
                                         </td>
                                         <th>
-                                            <img alt="" height="50" width="50">
-                                            <img src="/assets/img/faces/sincuenta.png" alt="" height="60" width="60">
+                                            <img src="/assets/img/restaurante/res2.jpg" alt="" height="60" width="60">
                                         </th>
                                         <td>
-                                            <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->
-                                            <button type="button" class="btn btn-info" routerLink="/admin/edit-user/{{user.id}}"><span><i
+                                            <button type="button" class="btn btn-info" routerLink="/admin/edit-sucursal/{{sucursal.id}}"><span><i
                                                         class="fa fa-pen"></i></span></button>
-                                            <button type="button" routerLinkActive="router-link-active" class="btn btn-danger" (click)="onDeleteUser(user.id)"><span><i
+                                            <button type="button" routerLinkActive="router-link-active" class="btn btn-danger" (click)="onDeleteUser(sucursal.id)"><span><i
                                                         class="fa fa-trash"></i></span></button>
                                         </td>
                                     </tr>
@@ -103,10 +125,12 @@
                             </table>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
-                                <pagination class="pagination-sm">
-                                </pagination>
-                            </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
+                                        <pagination [totalItems]="totalItems" [(ngModel)]="currentPage"
+                                            [itemsPerPage]="pageSize" [maxSize]="maxSize" (pageChanged)="changePage($event)"
+                                            class="pagination-sm">
+                                        </pagination>
+                                </div>
                         </div>
                     </div>
                 </div>

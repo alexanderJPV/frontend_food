@@ -1,7 +1,43 @@
+<div *ngIf="msgError != null" class="jumbotron d-flex align-items-center min-vh-100">
+        <div class="container text-center">
+                <h1 class="cover-heading colortexto">Ocurrio un problema!!!.</h1>
+                <p class="lead"> <strong>{{msgError}}</strong></p>
+                <p class="lead">
+                    <a class="btn btn-lg btn-secondary" href="/user/register"> <strong> Volver </strong></a>
+                </p>
+                <footer class="mastfoot mt-5 pt-5">
+                        <div class="inner">
+                            <p>Primero la comida luegola comida creado por <a href="#">startup</a>, por <a href="#">food-bolivia@gmail.com</a>.</p>
+                        </div>
+                </footer>
+                <div>
+                        <i class="material-icons bg-warning">restaurant</i>
+                </div>
+        </div>
+</div>
+
+<div *ngIf="msgExito != null" class="jumbotron d-flex align-items-center min-vh-100">
+        <div class="container text-center">
+                <h1 class="cover-heading colortexto">Te damos la bienvenida!!!.</h1>
+                <p class="lead"> <strong>{{msgExito}}</strong> </p>
+                <p class="lead">
+                    <a class="btn btn-lg btn-secondary" href="home_web/bodyweb"> <strong>Ir a la pagina</strong></a>
+                </p>
+                <footer class="mastfoot mt-5 pt-5">
+                        <div class="inner">
+                            <p>Primero la comida luegola comida creado por <a href="#">startup</a>, por <a href="#">food-bolivia@gmail.com</a>.</p>
+                        </div>
+                </footer>
+                <div>
+                        <i class="material-icons bg-warning">restaurant</i>
+                </div>
+        </div>
+</div>
+<!--
 <div class="container">
     <div class="card">
         <div class="card-body">
             <h1 class="d-flex justify-content-center">{{msg}}</h1>
         </div>
     </div>
-</div>
+</div> -->

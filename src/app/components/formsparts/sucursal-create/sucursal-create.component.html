@@ -9,16 +9,15 @@
                         <p class="card-category"> </p>
                     </div>
                     <div class="card-body">
-                        <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
-                            <div class="form-row">
+                        <!-- <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
                                 <div class="form-group col-md-6">
                                     <label for="razon_social">Razon social*</label>
                                     <input type="text" name="razon_social" class="form-control" placeholder="Razon social" formControlName="razon_social" [ngClass]="{ 'is-invalid': (submitted && formControls.razon_social.errors && formControls.razon_social.errors.required) || (formControls.razon_social.errors?.required && formControls.razon_social.touched && !submitted) }">
                                     <div *ngIf="(submitted && formControls.razon_social.errors && formControls.razon_social.errors.required) && formControls.razon_social.dirty || (formControls.razon_social.errors?.required && formControls.razon_social.touched && !submitted)">
                                         <p class="validate-error">El campo requerido</p>
                                     </div>
-                                </div>
-                                <div class="form-group col-md-6">
+                                </div> -->
+<!--                                 <div class="form-group col-md-6">
                                     <label for="telefono">Telefono/Celular</label>
                                     <input name="telefono" class="form-control" placeholder="Telefono" formControlName="telefono" [ngClass]="{ 'is-invalid': (submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted) }">
                                     <div *ngIf="(submitted && formControls.telefono.errors && formControls.telefono.errors.required) || (formControls.telefono.errors?.required && formControls.telefono.touched && !submitted)">
@@ -98,10 +97,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
+ -->
+                            <!-- <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
                             <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>

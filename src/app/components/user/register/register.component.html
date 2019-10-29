@@ -21,7 +21,7 @@
                             <p>El campo requerido</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.minlength">
-                            <p>Minimo 5 caracteres</p>
+                            <p>Minimo 3 caracteres</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.nombres.errors?.maxlength">
                             <p>Maximo 30 caracteres</p>
@@ -57,7 +57,7 @@
                             <p>El campo requerido</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.userName.errors?.minlength">
-                            <p>Minimo 5 caracteres</p>
+                            <p>Minimo 3 caracteres</p>
                         </div>
                         <div class="error-message d-flex" *ngIf="formControls.userName.errors?.maxlength">
                             <p>Maximo 30 caracteres</p>
@@ -104,14 +104,25 @@
                         <span data-notify="message">Ha sido enviado un mensaje de activacion a su correo <strong>{{correo}}</strong></span>
                     </div>
                 </div>
+                <div *ngIf="registerError">
+                        <div class="alert alert-danger alert-with-icon" data-notify="container">
+                            <i class="material-icons" data-notify="icon">add_alert</i>
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <div class="d-flex justify-content-center">
+                                <span data-notify="message"><strong>{{registerError}}</strong></span>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account?
-                    <a routerLink="/signup">Sign Up</a>
+                    Ya tiene una cuenta?
+                    <a routerLink="/user/login">Logeate</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="#" class="color-text">Forgot password?</a>
+                    <a href="#" class="color-text">Olvidaste tu password?</a>
                 </div>
             </div>
         </div>

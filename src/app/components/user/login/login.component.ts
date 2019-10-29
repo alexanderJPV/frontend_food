@@ -73,8 +73,11 @@ export class LoginComponent implements OnInit {
         );
       },
       (err) => {
-        // console.log(err.error.details);
-        this.loginError = err.error.details;
+        if(err.error.details){
+          this.loginError = err.error.details;
+        }else{
+          this.loginError = err.error.msg;
+        }
         console.log(this.loginError);
         console.log('------------------Hay un error-----------------');
       }

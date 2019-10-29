@@ -9,7 +9,7 @@ export const SERVER = (function () {
     const RESET_PASSWORD_INIT = 'reset-password/init';
     const RESET_PASSWORD_FINISH = 'reset-password/finish';
     const USERS = 'usuarios';
-    const COURSES = 'courses';
+    const SUCURSALES = 'sucursales';
     const ROLES = 'roles';
     return {
         URL_BASE: URL.BASE,
@@ -20,7 +20,7 @@ export const SERVER = (function () {
         USERS: `${URL.BASE}/${USERS}`,
         RESET_PASSWORD_INIT: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_INIT}`,
         RESET_PASSWORD_FINISH: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_FINISH}`,
-        COURSES: `${URL.BASE}/${COURSES}`,
+        SUCURSALES: `${URL.BASE}/${SUCURSALES}`,
         ROLES: `${URL.BASE}/${ROLES}`,
         LISTROLES: `${URL.BASE}/${USERS}/${ROLES}`
     };
