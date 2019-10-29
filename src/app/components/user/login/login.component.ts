@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted: any = false;
   public loginError: any;
   constructor(
-    private authService: AuthService,
+    private authService: AuthorizationService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {

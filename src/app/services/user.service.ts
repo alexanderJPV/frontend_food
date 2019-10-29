@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { WebService } from './web.service';
-import { AuthService } from './auth.service';
 import { SERVER } from '../config/server.config';
+import { AuthorizationService } from './authorization.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(
     private webService: WebService,
-    private authService: AuthService
+    private authService: AuthorizationService
   ) { }
   getlistRoles(page?: any, pageSize?: any, rols?: any, keyword?: any) {
     const URL = SERVER.LISTROLES + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc&rol=${rols}&keyword=${keyword}`;
@@ -53,4 +53,13 @@ export class UserService {
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.get(URL, headers);
   }
+
+  register(user: any) {
+    return this.webService.post(SERVER.REGISTER, user, this.webService.defaultOptions());
+  }
+
+  registerSocial(userSocial: any) {
+    return this.webService.post(SERVER.URL_BASE + '/register-social', userSocial, this.webService.defaultOptions());
+  }
+
 }

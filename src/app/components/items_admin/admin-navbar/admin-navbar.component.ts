@@ -1,8 +1,8 @@
-import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../admin-sidebar/admin-sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -16,7 +16,7 @@ export class AdminNavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(location: Location,  private element: ElementRef, private router: Router, private authService: AuthService) {
+  constructor(location: Location,  private element: ElementRef, private router: Router, private authService: AuthorizationService) {
     this.location = location;
         this.sidebarVisible = false;
   }

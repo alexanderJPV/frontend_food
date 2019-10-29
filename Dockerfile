@@ -1,8 +1,9 @@
 FROM node:10.16.3 AS builder
-WORKDIR /app
-COPY ./ /app/
+COPY . ./frontend-restaurante
+WORKDIR /frontend-restaurante
 RUN npm install
-RUN npm run build -- --prod
+RUN $(npm bin)/ng build --prod
 
 FROM nginx:alpine
-COPY --from=node /app/dist/frontend-restaurante /user/share/nginx/html && rm -r /frontend-restaurante/
+COPY --from=builder /frontend-restaurante/dist/frontend-restaurante/ /usr/share/nginx/html
+COPY --from=builder /frontend-restaurante/nginx.conf /etc/nginx/conf.d/default.conf
