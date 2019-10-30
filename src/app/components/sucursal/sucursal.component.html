@@ -100,13 +100,19 @@
                                             {{sucursal.nit}}
                                         </td>
                                         <td>
-                                            {{sucursal.hora_apertura}}
+                                            <p *ngFor="let ha of sucursal.hora_apertura">
+                                                {{ha}}
+                                            </p>
                                         </td>
                                         <td>
-                                            {{sucursal.hora_cierre}}
+                                            <p *ngFor="let hc of sucursal.hora_cierre">
+                                                {{hc}}
+                                            </p>
                                         </td>
                                         <td>
-                                            {{sucursal.dias}}
+                                            <p *ngFor="let dia of sucursal.dias">
+                                                {{dia}}
+                                            </p>
                                         </td>
                                         <td>
                                             {{sucursal.direccion}}

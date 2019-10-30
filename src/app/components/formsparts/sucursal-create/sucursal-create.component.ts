@@ -69,7 +69,8 @@ export class SucursalCreateComponent implements OnInit {
     formData.append('descripcion', this.formValue.descripcion);
     formData.append('hora_apertura', this.formValue.hora_apertura);
     formData.append('hora_cierre', this.formValue.hora_cierre);
-
+    console.log('< ================================================ >');
+    console.log(this.formValue.razon_social);
     // if (this.id) {
     //   this.updateUser(formData);
     // } else {

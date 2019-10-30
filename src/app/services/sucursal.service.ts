@@ -13,7 +13,7 @@ export class SucursalService {
     const URL = SERVER.SUCURSALES + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc`;
     // const URL = SERVER.USERS;
     const headers = this.webService.JSONOptions(this.authService.getToken());
-    return this.webService.get(URL);
+    return this.webService.get(URL,headers);
   }
   create(sucursal: any) {
     const URL = SERVER.SUCURSALES;

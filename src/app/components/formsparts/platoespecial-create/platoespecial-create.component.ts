@@ -20,8 +20,9 @@ export class PlatoespecialCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
-
+  ) { 
+    this.initialData();
+  }
   ngOnInit() {
   }
   onSubmit() {
@@ -43,7 +44,7 @@ export class PlatoespecialCreateComponent implements OnInit {
     this.platoespecialFormGroup = this.formBuilder.group({
       id_plato: [null],
       id: [null],
-      nombre: ['', [Validators.required, Validators.pattern('[a-zA-Z _-]*')]],      
+      nombre: ['', [Validators.required, Validators.pattern('[a-zA-Z _-]*')]],
       precio:['', [Validators.required]],
       descripcion: ['', [Validators.required, Validators.pattern('[a-zA-Z _-]*')]],
       imagen: ['']
