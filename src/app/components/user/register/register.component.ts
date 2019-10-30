@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { AuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+import { AuthorizationService } from 'src/app/services/authorization.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,37 +14,71 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  user: SocialUser;
+  loggedIn: boolean;
+
   userFormGroup: FormGroup;
   submitted: any = false;
   public correo: any;
   public registerError: any;
   constructor(
     private userService: UserService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authServiceSocial: AuthService,
+    private authApp: AuthorizationService,
+    private router: Router
   ) {
     this.initialData();
   }
 
   ngOnInit() {
+    this.authServiceSocial.authState.subscribe(async (user) => {
+      console.log('Este es el usuario --> ', user);
+      this.user = await user;
+      await this.authApp.registerSocial(this.user).subscribe(
+        (res) => {
+          console.log('PASO el registtro');
+          this.logout();
+          localStorage.setItem('food-token', res.token);
+          this.authApp.getAccount().subscribe(
+            (res) => {
+              const data = res.rol.includes('ROL_ADMIN');
+              if (data) {
+                this.router.navigate(['/admin/dashboard']);
+              } else {
+                this.router.navigate(['/home_web/bodyweb']);
+              }
+            },
+            (err) => {
+              console.log(err);
+            }
+          );
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          console.log('ESTE ES UN ERROR', err);
+        }
+      );
+      this.loggedIn = (user != null);
+    });
   }
 
   initialDataVoice() {
     this.userFormGroup = this.formBuilder.group({
-      nombres: ['', [Validators.minLength(3),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      apellidos: ['', [Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      userName: ['', [Validators.minLength(3),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      nombres: ['', [Validators.minLength(3), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.minLength(5), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      userName: ['', [Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9 _-]*')]],
       email: ['', [Validators.email]],
-      password: ['',[Validators.minLength(5),Validators.maxLength(100)]]
+      password: ['', [Validators.minLength(5), Validators.maxLength(100)]]
     });
   }
   initialData() {
     this.userFormGroup = this.formBuilder.group({
-      nombres: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      userName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      nombres: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9 _-]*')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]]
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
     });
   }
 
@@ -63,7 +101,7 @@ export class RegisterComponent implements OnInit {
   register() {
     const data = Object.assign({}, this.formValue);
     // console.log(data.email);
-    this.authService.register(data).subscribe(
+    this.userService.register(data).subscribe(
       (res) => {
         this.correo = data.email;
         this.initialDataVoice();
@@ -71,16 +109,34 @@ export class RegisterComponent implements OnInit {
       },
       (err) => {
         // console.log('Error al registrar un Usuario', err);
-        if(err.error.details){
+        if (err.error.details) {
           this.registerError = err.error.details.message;
           // console.log(err.error.details.errors['0'].message);
           console.log(this.registerError);
-        }else{
+        } else {
           this.registerError = err.error;
           console.log(this.registerError);
         }
       }
     );
+  }
+
+  // Register with login social
+
+  signInWithGoogle(): void {
+    this.authServiceSocial.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  // signInWithFB(): void {
+  //   this.authServiceSocial.signIn(FacebookLoginProvider.PROVIDER_ID);
+  // }
+
+  signOut(): void {
+    this.authServiceSocial.signOut();
+  }
+
+  logout() {
+    this.authApp.logout();
   }
 
 }

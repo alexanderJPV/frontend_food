@@ -8,14 +8,14 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'frontend-restaurante';
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
   public hideNavbarOutlet() {
     return ((this.router.url !== '/user/login') &&
-            (this.router.url !== '/user/register') &&
-            (this.router.url.includes('/admin') !== true) &&
-            (this.router.url.includes('/forgot-password') !== true) &&
-            (this.router.url.includes('/activate-account') !== true)
-            );
+      (this.router.url !== '/user/register') &&
+      (this.router.url.includes('/admin') !== true) &&
+      (this.router.url.includes('/forgot-password') !== true) &&
+      (this.router.url.includes('/activate-account') !== true)
+    );
   }
 }
 

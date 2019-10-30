@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-activate-account',
@@ -14,7 +14,7 @@ export class ActivateAccountComponent implements OnInit {
 
   constructor(
     private activatedRouter: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthorizationService
   ) { }
 
   ngOnInit() {

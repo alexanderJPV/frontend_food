@@ -13,8 +13,13 @@
                             data-target="#modalUser">Nuevo</button>
                         -->
                         <a routerLink="/admin/create-sucursal" routerLinkActive="router-link-active" class="ordena btn btn-success float-right mb-3">Nuevo</a>
+<<<<<<< HEAD
                             <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search..." [(ngModel)]="keyword" (ngModelChange)="searchByKeyword()">
                             <div class="dropdown ordena float-md-right mr-3">
+=======
+                        <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search...">
+                        <div class="dropdown ordena float-md-right mr-3">
+>>>>>>> ef80d15794b0e10b104d745cd8f61f03c7404e79
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 TIPO
                             </button>
@@ -125,12 +130,12 @@
                             </table>
                         </div>
                         <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
+                                <!-- <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
                                         <pagination [totalItems]="totalItems" [(ngModel)]="currentPage"
                                             [itemsPerPage]="pageSize" [maxSize]="maxSize" (pageChanged)="changePage($event)"
                                             class="pagination-sm">
                                         </pagination>
-                                </div>
+                                </div> -->
                         </div>
                     </div>
                 </div>

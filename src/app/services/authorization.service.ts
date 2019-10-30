@@ -6,7 +6,8 @@ import { SERVER } from '../config/server.config';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthorizationService {
+
 
   constructor(
     private webService: WebService,
@@ -23,6 +24,10 @@ export class AuthService {
 
   getAccount() {
     return this.webService.get(SERVER.ACCOUNT, this.webService.JSONOptions(this.getToken()));
+  }
+
+  registerSocial(userSocial: any) {
+    return this.webService.post(SERVER.URL_BASE + '/register-social', userSocial, this.webService.JSONOptions(this.getToken()));
   }
 
   logout() {
@@ -81,5 +86,4 @@ export class AuthService {
   //     }
   //   }));
   // }
-
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   validateUser: any = false;
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthorizationService,
     private router: Router
   ) {
     this.showDropDown();
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/user/login']);
     this.validateUser = false;
   }
-  dashboard(){
+  dashboard() {
     this.router.navigate(['/admin/dashboard']);
   }
 }
