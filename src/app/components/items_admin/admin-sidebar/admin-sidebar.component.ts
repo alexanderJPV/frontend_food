@@ -31,6 +31,12 @@ export const ROUTES: RouteInfo[] = [
     icon: 'restaurant',
     class: ''
   },
+  {
+    path: '/admin/plato-especial',
+    title: 'Platos especiales',
+    icon: 'room_service',
+    class: ''
+  },
   { path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
   { path: '/maps', title: 'Maps', icon: 'location_on', class: '' },
   { path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },

@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="container-fluid align-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <!-- <h4 class="card-title">{{ id? 'Editar Usuario' : 'Nuevo Usuario'}}
+                            <strong>{{ formValue.nombres+" "+formValue.apellidos }} </strong></h4> -->
+                        <p class="card-category">Complete los campos</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="platoespecialFormGroup" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" class="form-control" formControlName="nombre" [ngClass]="{ 'is-invalid': (submitted && formControls.nombre.errors && formControls.nombre.errors.required) || (formControls.nombre.errors?.required && formControls.nombre.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.nombre.errors && formControls.nombre.errors.required) && formControls.nombre.dirty || (formControls.nombre.errors?.required && formControls.nombre.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.nombre.errors?.pattern">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="precio">Precio Bs.</label>
+                                    <input type="number" class="form-control" formControlName="precio" [ngClass]="{ 'is-invalid': (submitted && formControls.precio.errors && formControls.precio.errors.required) || (formControls.precio.errors?.required && formControls.precio.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.precio.errors && formControls.precio.errors.required) || (formControls.precio.errors?.required && formControls.precio.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="descripcion">Descripcion</label>
+                                    <textarea name="descripcion" id="descripcion" cols="10" rows="4" class="form-control" formControlName="descripcion" [ngClass]="{ 'is-invalid': (submitted && formControls.descripcion.errors && formControls.descripcion.errors.required) || (formControls.descripcion.errors?.required && formControls.descripcion.touched && !submitted) }"></textarea>
+                                    <!-- <input type="text" name="descripcion" class="form-control" formControlName="descripcion" [ngClass]="{ 'is-invalid': (submitted && formControls.descripcion.errors && formControls.descripcion.errors.required) || (formControls.descripcion.errors?.required && formControls.descripcion.touched && !submitted) }"> -->
+                                    <div *ngIf="(submitted && formControls.descripcion.errors && formControls.descripcion.errors.required) || (formControls.descripcion.errors?.required && formControls.descripcion.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
+                                    </div>
+                                    <div *ngIf="formControls.descripcion.errors?.pattern">
+                                        <p class="validate-error">Caracteres no validos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="imagen">Imagen</label>
+                                    <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput (change)="fileProgress($event)">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center">
+                                        <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success float-right">Guardar Plato</button>
+                            <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import { DashboardAdminComponent } from '../../dashboard-admin/dashboard-admin.c
 import { UserListComponent } from '../../user-list/user-list.component';
 import { ModalsModule } from  '../../modals/modals.module';
 import { SucursalComponent } from '../../sucursal/sucursal.component';
+import {PlatoEspecialComponent} from '../../plato-especial/plato-especial.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -23,7 +24,8 @@ import { PaginationModule } from 'ngx-bootstrap';
     DashboardAdminComponent,
     UserListComponent,
     UserProfileComponent,
-    SucursalComponent
+    SucursalComponent,
+    PlatoEspecialComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,113 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div class="ordena">
+                            <h4 class="card-title ">Tabla Platos Especiales</h4>
+                            <p class="card-category"> Informacion Platos Especiales</p>
+                        </div>
+                        <!--
+                            <button class="ordena btn btn-success float-right mb-3" type="button" data-toggle="modal"
+                            data-target="#modalUser">Nuevo</button>
+                        -->
+                        <a routerLink="/admin/create-platoespecial" routerLinkActive="router-link-active" class="ordena btn btn-success float-right mb-3">Nuevo</a>
+                        <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search..." [(ngModel)]="keyword" (ngModelChange)="searchByKeyword()">
+                        <div class="dropdown ordena float-md-right mr-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- {{role? role: 'SHOW ROLES'}} -->
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="searchByRoles('')">Todos</a>
+                                <a class="dropdown-item" (click)="searchByRoles('')">Restaurantes</a>
+                            </div>
+                        </div>
+                        <div class="dropdown ordena float-md-right mr-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{pageSize}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" (click)="configpagination(10)">10</a>
+                                <a class="dropdown-item" (click)="configpagination(25)">25</a>
+                                <a class="dropdown-item" (click)="configpagination(50)">50</a>
+                                <a class="dropdown-item" (click)="configpagination(100)">100</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        ID_SUCURSAL
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Precio
+                                    </th>
+                                    <th>
+                                        Descripcion
+                                    </th>
+                                    <th>
+                                        Imagen
+                                    </th>
+                                    <th>
+                                        Operaciones
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users index as i">
+                                        <!-- <td scope="row">
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{user.nombres}}
+                                        </td>
+                                        <td>
+                                            {{user.apellidos}}
+                                        </td>
+                                        <td>
+                                            {{user.userName}}
+                                        </td>
+                                        <td>
+                                            {{user.email}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{user.rol}}
+                                        </td>
+                                        <th>
+                                            <img *ngIf="user.imagen" [src]="user.imagen" alt="" height="50" width="50">
+                                            <img *ngIf="!user.imagen" src="/assets/img/faces/sincuenta.png" alt=""
+                                                height="60" width="60">
+                                        </th>-->
+                                        <!-- <td> -->
+                                        <!-- <a href="#" class="btn btn-info"><span><i class="fa fa-plus"></i></span></a> -->
+                                        <!-- <button type="button" class="btn btn-info"
+                                                routerLink="/admin/edit-user/{{user.id}}"><span><i
+                                                        class="fa fa-pen"></i></span></button>
+                                            <button type="button" routerLinkActive="router-link-active"
+                                                class="btn btn-danger" (click)="onDeleteUser(user.id)"><span><i
+                                                        class="fa fa-trash"></i></span></button>
+                                        </td>  -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
+                                <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" [itemsPerPage]="pageSize" [maxSize]="maxSize" (pageChanged)="changePage($event)" class="pagination-sm">
+                                </pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
