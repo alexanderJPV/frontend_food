@@ -35,7 +35,7 @@ export class SucursalComponent implements OnInit {
     this.sucursalService.getAll(this.currentPage - 1, this.pageSize).subscribe(sucursales => {
       this.totalItems = sucursales.elements;
       this.sucursales = sucursales.sucursal.rows;
-      console.log(this.sucursales);
+      console.log(this.sucursales['0']);
     });
   }
   onDeleteUser(id: number): void {
