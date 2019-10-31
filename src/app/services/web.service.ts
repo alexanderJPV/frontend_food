@@ -21,6 +21,7 @@ export class WebService {
   }
 
   post(url, body, options?): Observable<any> {
+    console.log(body.get('telefono'));
     options = options ? options : this.defaultOptions();
     return this.http.post<any>(url, body, options);
   }

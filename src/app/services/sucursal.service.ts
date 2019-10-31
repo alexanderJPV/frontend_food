@@ -16,9 +16,10 @@ export class SucursalService {
     return this.webService.get(URL,headers);
   }
   create(sucursal: any) {
+    console.log(sucursal.get('telefono'));
     const URL = SERVER.SUCURSALES;
     const headers = this.webService.imageFileHeaders(this.authService.getToken());
-    return this.webService.post(URL, sucursal);
+    return this.webService.post(URL, sucursal, headers);
   }
   update(sucursal: any) {
     const URL = SERVER.SUCURSALES;

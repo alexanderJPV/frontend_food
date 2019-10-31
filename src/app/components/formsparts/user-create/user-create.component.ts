@@ -85,7 +85,7 @@ export class UserCreateComponent implements OnInit {
     formData.append('id', this.formValue.id);
     formData.append('telefono', this.formValue.telefono);
     formData.append('fechaNacimiento', this.formValue.fechaNacimiento);
-
+    console.log(formData);
     if (this.id) {
       this.updateUser(formData);
     } else {
