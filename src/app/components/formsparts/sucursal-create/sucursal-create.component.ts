@@ -49,54 +49,28 @@ export class SucursalCreateComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    if (this.sucursalFormGroup.invalid) {
-      console.log("error de validacion.............................");
-      return;
-    }
-    const formData = new FormData();
-    // if (this.fileData === null || this.fileData === undefined) {
-    //   formData.append('imageUpload', null);
-    //   formData.append('type', this.formValue.type);
-    //   formData.append('name', this.formValue.name);
-    // } else {
-    //   formData.append('imageUpload', this.fileData);
-    //   formData.append('type', this.fileData.type);
-    //   formData.append('name', this.fileData.name);
+    // if (this.sucursalFormGroup.invalid) {
+    //   console.log("error de validacion.............................");
+    //   return;
     // }
-
+    const formData = new FormData();
     formData.append('razon_social', this.formValue.razon_social);
     formData.append('telefono', this.formValue.telefono);
     formData.append('descripcion', this.formValue.descripcion);
-    // formData.append('hora_apertura', this.formValue.hora_apertura);
-    // formData.append('hora_cierre', this.formValue.hora_cierre);
-    // console.log('< ================================================ >');
-    // console.log(this.formValue.razon_social);
-    // if (this.id) {
-    //   this.updateUser(formData);
-    // } else {
-      // console.log(formData.get('razon_social'));
-      // console.log(formData.get('telefono'));
-      // console.log(formData.get('descripcion'));
-
-      this.createSucursal(formData);
-    // }
+    console.log('--------------------------------');
+    console.log(formData);
+    console.log('--------------------------------');
+    this.createSucursal(formData);
   }
   initialData() {
     this.sucursalFormGroup = this.formBuilder.group({
       id: [null],
       razon_social: ['', [Validators.required]],
-      telefono:['', [Validators.required, Validators.pattern('[0-9]*')]],
+      telefono: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       descripcion: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 _-]*')]]
-      // tipo: ['', [Validators.required]],
-      // nit: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      // hora_apertura: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9: _-]*')]],
-      // hora_cierre: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9: _-]*')]],
-      // dias: [''],
-      // direccion: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 #.-]*')]],
-      // latitud: ['', [Validators.required]],
-      // longitud: ['', [Validators.required]]
     });
   }
+
   get formControls() {
     return this.sucursalFormGroup.controls;
   }
@@ -105,38 +79,18 @@ export class SucursalCreateComponent implements OnInit {
   }
 
   createSucursal(valueFormData: any) {
-     console.log(valueFormData.get('telefono'));
     this.sucursalService.create(valueFormData).subscribe(
       (res) => {
-        // this.showNotification('top', 'center',"Usuario añadido exitosamente!!!",2);
-        this.router.navigate(['/admin/sucursal-list']);
+        // this.router.navigate(['/admin/sucursal-list']);
+        console.log('Exito al crear');
       },
       (err) => {
         console.log('Create Error............................................');
-        // const erromensaje = err.error.details.message;
-        // console.log(err.error.details.message);
-        // this.showNotification('top', 'center',erromensaje,4);
       }
     );
   }
 
-  // updateUser(valueFormData: any) {
-  //   this.userService.update(valueFormData).subscribe(
-  //     (res) => {
-  //       this.showNotification('top','center',"Usuario editado exitosamente!!!",2);
-  //       console.log('Actualizado con exito');
-  //       this.router.navigate(['/admin/user-list']);
-  //     },
-  //     (err) => {
-  //       console.log('Update Error.....................................');
-  //       const erromensaje = err.error.details.message;
-  //       // console.log(err.error.details.message);
-  //       this.showNotification('top', 'center',erromensaje,4);
-  //     }
-  //   );
-  // }
-
-  cancelar(){
+  cancelar() {
     this.router.navigate(['/admin/sucursal-list']);
   }
 }
