@@ -20,7 +20,8 @@
             </li>
         </ul>
         <div *ngIf="!validateUser">
-            <div class="dropdown">
+
+            <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="material-icons">person</i>
                 </a>
@@ -30,7 +31,22 @@
                     <a class="dropdown-item" (click)="dashboard()">Dashboard</a>
                     <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
+            </div> -->
+            <div class="nav-item dropdown">
+                <a class="nav-link colortexto" href="javascript:void(0)" id="navbarDropdownMenuUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{user.userName}}</span>
+                        <i class="material-icons ml-3">person</i>
+                        <p>
+                            <span class="d-lg-none d-md-block">Account</span>
+                        </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeaccount()">Cambiar de cuenta</a>
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="dashboard()">Dashboard</a>
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a>
+                    </div>
             </div>
+
         </div>
         <div *ngIf="validateUser">
             <button class="btn btn-outline-success my-2 my-sm-0 mr-1 color_boton" type="submit" routerLink="/user/register"><span class="texto-boton-navbar">Register</span></button>

@@ -41,23 +41,23 @@
                                         <p class="validate-error">Caracteres no validos</p>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group col-md-6">
-                                    <label for="tipo">Tipo</label> -->
+                                <div class="form-group col-md-6">
+                                    <label for="tipo">Tipo</label>
                                     <!-- <input type="text" name="tipo" class="form-control" placeholder="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }"> -->
-                                    <!-- <select name="tipo" class="custom-select" id="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }" >
-                                            <option value="0" disabled="true">- Selecionar tipo -</option> -->
+                                    <select name="tipo" class="custom-select" id="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }" >
+                                            <option value="0" disabled="true">- Selecionar tipo -</option>
                                             <!-- <option *ngFor="let rols of roles; let i = index" [value]="rols">
                                               {{rols}}
                                             </option> -->
-                                      <!--       <option value="1">nacional</option>
-                                            <option value="1">vegetariana</option>
-                                            <option value="1">internacional</option>
+                                            <option value="nacional">nacional</option>
+                                            <option value="vegetariana">vegetariana</option>
+                                            <option value="internacional">internacional</option>
                                     </select>
                                     <div *ngIf="(submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted)">
                                         <p class="validate-error">El campo es requerido</p>
                                     </div>
-                                </div> -->
-<!-- 
+                                </div>
+
                                 <div class="form-group col-md-6">
                                     <label for="nit">NIT</label>
                                     <input name="nit" class="form-control" placeholder="nit" formControlName="nit">
@@ -67,22 +67,19 @@
                                     <div *ngIf="formControls.nit.errors?.pattern">
                                         <p class="validate-error">Caracteres no validos</p>
                                     </div>
-                                </div> -->
-                                <!-- <div class="form-group col-md-6">
-                                        <label for="direccion">Direccion</label>
-                                        <input name="direccion" class="form-control" placeholder="direccion" formControlName="direccion">
-                                        <div *ngIf="(submitted && formControls.direccion.errors && formControls.direccion.errors.required) || (formControls.direccion.errors?.required && formControls.direccion.touched && !submitted)">
-                                            <p class="validate-error">El campo es requerido</p>
-                                        </div>
-                                        <div *ngIf="formControls.direccion.errors?.pattern">
-                                            <p class="validate-error">Caracteres no validos</p>
-                                        </div>
-                                </div> -->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="direccion">Direccion</label>
+                                    <input name="direccion" class="form-control" placeholder="direccion" formControlName="direccion">
+                                    <div *ngIf="(submitted && formControls.direccion.errors && formControls.direccion.errors.required) || (formControls.direccion.errors?.required && formControls.direccion.touched && !submitted)">
+                                        <p class="validate-error">El campo es requerido</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-row">
                                     <div class="col-md-6">
                                         <label for="imagen">Imagen</label>
-                                        <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput>
+                                        <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput (change)="fileProgress($event)">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="d-flex justify-content-center">

@@ -10,7 +10,7 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 export class NavbarComponent implements OnInit {
 
   validateUser: any = false;
-
+  public  user: any = {};
   constructor(
     private authService: AuthorizationService,
     private router: Router
@@ -20,6 +20,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.showDropDown();
+    this.authService.getAccount().subscribe(
+      (res) => {
+        const data = res;
+        this.user=data;
+        // console.log(this.user);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   showDropDown() {

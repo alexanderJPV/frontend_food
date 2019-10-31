@@ -118,7 +118,8 @@
                                             {{sucursal.direccion}}
                                         </td>
                                         <th>
-                                            <img src="/assets/img/restaurante/res2.jpg" alt="" height="60" width="60">
+                                            <img *ngIf="sucursal.imagen" [src]="sucursal.imagen" alt="" height="50" width="50">
+                                            <img *ngIf="!sucursal.imagen" src="/assets/img/restaurante/res2.jpg" alt="" height="60" width="60">
                                         </th>
                                         <td>
                                             <button type="button" class="btn btn-info" routerLink="/admin/edit-sucursal/{{sucursal.id}}"><span><i
