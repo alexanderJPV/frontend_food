@@ -1,6 +1,11 @@
+import { environment } from '../../environments/environment';
+
 export const SERVER = (function () {
+    // const URL = {
+    //     BASE: 'http://localhost:3000/api'
+    // };
     const URL = {
-        BASE: 'http://localhost:3000/api'
+        BASE: environment.baseUrl
     };
     const AUTHENTICATE = 'authenticate';
     const ACCOUNT = 'account';
