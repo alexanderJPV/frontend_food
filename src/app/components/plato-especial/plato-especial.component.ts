@@ -27,9 +27,9 @@ export class PlatoEspecialComponent implements OnInit {
     this.tipo = '';
     this.platoespService.getAll(this.currentPage - 1, this.pageSize).subscribe(platos => {
       console.log('-------------------');
-      console.log(platos);
-      // this.totalItems = platos.elements;
-      // this.platos = platos.sucursal.rows;
+      this.totalItems = platos.elements;
+      this.platos = platos.plato.rows;
+      console.log(this.platos);
     });
   }
 }

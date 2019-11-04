@@ -8,27 +8,27 @@
                             <h4 class="card-title ">Tabla Sucursales</h4>
                             <p class="card-category"> Informacion Usuarios</p>
                         </div>
-                        <!--
-                            <button class="ordena btn btn-success float-right mb-3" type="button" data-toggle="modal"
-                            data-target="#modalUser">Nuevo</button>
-                        -->
+
                         <a routerLink="/admin/create-sucursal" routerLinkActive="router-link-active" class="ordena btn btn-success float-right mb-3">Nuevo</a>
+
                             <input type="text" value="" class=" float-md-right mr-3 mt-2" placeholder="Search...">
+
                             <div class="dropdown ordena float-md-right mr-3">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                TIPO
+                                {{tipo? tipo : 'SHOW TIPO'}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">Todos</a>
-                                <a class="dropdown-item">Comida nacional</a>
-                                <a class="dropdown-item">Comida internacional</a>
-                                <a class="dropdown-item">Vegetariana</a>
-                                <a class="dropdown-item">Vegana</a>
+                                <a class="dropdown-item" (click)="searchByTipo('')">Todos</a>
+                                <a class="dropdown-item" (click)="searchByTipo('NACIONAL')">Nacional</a>
+                                <a class="dropdown-item" (click)="searchByTipo('INTERNACIONAL')">Internacional</a>
+                                <a class="dropdown-item" (click)="searchByTipo('VEGETARIANA')">Vegetariana</a>
+                                <a class="dropdown-item" (click)="searchByTipo('VEGANA')">Vegana</a>
+                                <a class="dropdown-item" (click)="searchByTipo('RAPIDA')">Rapida</a>
                             </div>
                         </div>
                         <div class="dropdown ordena float-md-right mr-3">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                10
+                                {{pageSize}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" (click)="configpagination(10)">10</a>
@@ -132,12 +132,12 @@
                             </table>
                         </div>
                         <div class="row">
-                            <!-- <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
+                            <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
                                     <pagination [totalItems]="totalItems" [(ngModel)]="currentPage"
                                         [itemsPerPage]="pageSize" [maxSize]="maxSize" (pageChanged)="changePage($event)"
                                         class="pagination-sm">
                                     </pagination>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>

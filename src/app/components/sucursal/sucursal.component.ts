@@ -14,8 +14,8 @@ export class SucursalComponent implements OnInit {
   currentPage = 1;
   rotate = true;
   maxSize = 10;
-  keyword: any = '';
   tipo: any = '';
+  keyword: any = '';
   constructor(private router: Router, private sucursalService: SucursalService) { }
 
   ngOnInit() {
@@ -48,6 +48,30 @@ export class SucursalComponent implements OnInit {
       });
     }
   }
+  changePage(event: any): void {
+    this.currentPage = event.page;
+    if (this.keyword || this.tipo) {
+      // this.searchByKeyword();
+    } else {
+      this.getLisSucursal();
+    }
+  }
+  searchByTipo(tipo?: any){
+    this.tipo = tipo;
+    this.sucursalService.getlisTipos(this.currentPage - 1, this.pageSize, this.tipo, this.keyword).subscribe(sucursalTipo => {
+      this.totalItems = sucursalTipo.elements;
+      this.sucursales = sucursalTipo.sucursal.rows;
+      // console.log(sucursalTipo.sucursal.rows);
+    });
+  }
+  // searchByKeyword(){
+  //   console.log('===============>', this.keyword);
+  //   this.sucursalService.getlisTipos(this.currentPage - 1, this.pageSize, this.tipo, this.keyword).subscribe(sucursalTipo => {
+  //     this.totalItems = sucursalTipo.elements;
+  //     this.sucursales = sucursalTipo.sucursal.rows;
+  //     // console.log(sucursalTipo.sucursal.rows);
+  //   });
+  // }
   // searchByKeyword() {
   //   console.log('-------------1 pase pasdsldklskdor aqui ', this.keyword);
   //   this.sucursalService.getlistRoles(this.currentPage - 1, this.pageSize, this.role, this.keyword).subscribe(usersrol => {

@@ -12,6 +12,7 @@ export const SERVER = (function () {
     const SUCURSALES = 'sucursales';
     const PLATOS = 'platos';
     const ROLES = 'roles';
+    const TIPOS = 'tipos';
     return {
         URL_BASE: URL.BASE,
         AUTHENTICATE: `${URL.BASE}/${AUTHENTICATE}`,
@@ -21,10 +22,11 @@ export const SERVER = (function () {
         USERS: `${URL.BASE}/${USERS}`,
         RESET_PASSWORD_INIT: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_INIT}`,
         RESET_PASSWORD_FINISH: `${URL.BASE}/${ACCOUNT}/${RESET_PASSWORD_FINISH}`,
-        SUCURSALES: `${URL.BASE}/${SUCURSALES}`,
-        PLATOS: `${URL.BASE}/${PLATOS}`,
         ROLES: `${URL.BASE}/${ROLES}`,
-        LISTROLES: `${URL.BASE}/${USERS}/${ROLES}`
+        LISTROLES: `${URL.BASE}/${USERS}/${ROLES}`,
+        SUCURSALES: `${URL.BASE}/${SUCURSALES}`,
+        LISTTIPOS: `${URL.BASE}/${SUCURSALES}/${TIPOS}`,
+        PLATOS: `${URL.BASE}/${PLATOS}`
     };
 })();
 

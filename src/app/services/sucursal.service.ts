@@ -9,6 +9,12 @@ import { AuthorizationService } from './authorization.service';
 export class SucursalService {
 
   constructor(private webService: WebService, private authService: AuthorizationService) { }
+  getlisTipos(page?: any, pageSize?: any, tipo?: any, keyword?: any){
+    const URL = SERVER.LISTTIPOS + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc&tipo=${tipo}&keyword=${keyword}`;
+    console.log(URL);
+    const headers = this.webService.JSONOptions(this.authService.getToken());
+    return this.webService.getSucursalTipo(URL);
+  }
   getAll(page?: any, pageSize?: any) {
     const URL = SERVER.SUCURSALES + `?page=${page}&pageSize=${pageSize}&sort=id&type=asc`;
     // const URL = SERVER.USERS;
@@ -36,5 +42,7 @@ export class SucursalService {
     const URL = SERVER.SUCURSALES + '/' + id;
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.delete(URL);
+  }
+  tipos(){
   }
 }

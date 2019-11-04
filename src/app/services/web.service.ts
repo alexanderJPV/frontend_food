@@ -11,6 +11,10 @@ export class WebService {
   constructor(
     private http: HttpClient) {
   }
+  getSucursalTipo(url?: any,options?: any): Observable<any>{
+    options = options ? options: this.defaultOptions();
+    return this.http.get<any>(url, options);
+  }
   getUserRol(url?: any, options?: any): Observable<any> {
     options = options ? options : this.defaultOptions();
     return this.http.get<any>(url, options);
