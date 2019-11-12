@@ -24,7 +24,7 @@ export class SucursalComponent implements OnInit {
   configpagination(nropages: any) {
     this.pageSize = nropages;
     if (this.keyword || this.tipo) {
-      // this.searchByKeyword();
+      this.searchByKeyword();
     } else {
       this.getLisSucursal();
     }
@@ -51,7 +51,7 @@ export class SucursalComponent implements OnInit {
   changePage(event: any): void {
     this.currentPage = event.page;
     if (this.keyword || this.tipo) {
-      // this.searchByKeyword();
+      this.searchByKeyword();
     } else {
       this.getLisSucursal();
     }
@@ -64,19 +64,12 @@ export class SucursalComponent implements OnInit {
       // console.log(sucursalTipo.sucursal.rows);
     });
   }
-  // searchByKeyword(){
-  //   console.log('===============>', this.keyword);
-  //   this.sucursalService.getlisTipos(this.currentPage - 1, this.pageSize, this.tipo, this.keyword).subscribe(sucursalTipo => {
-  //     this.totalItems = sucursalTipo.elements;
-  //     this.sucursales = sucursalTipo.sucursal.rows;
-  //     // console.log(sucursalTipo.sucursal.rows);
-  //   });
-  // }
-  // searchByKeyword() {
-  //   console.log('-------------1 pase pasdsldklskdor aqui ', this.keyword);
-  //   this.sucursalService.getlistRoles(this.currentPage - 1, this.pageSize, this.role, this.keyword).subscribe(usersrol => {
-  //     this.totalItems = usersrol.elements;
-  //     this.users = usersrol.usuario.rows;
-  //   });
-  // }
+  searchByKeyword(){
+    // console.log('===============>', this.keyword);
+    this.sucursalService.getlisTipos(this.currentPage - 1, this.pageSize, this.tipo, this.keyword).subscribe(sucursalTipo => {
+      this.totalItems = sucursalTipo.elements;
+      this.sucursales = sucursalTipo.sucursal.rows;
+      // console.log(this.sucursales);
+    });
+  }
 }

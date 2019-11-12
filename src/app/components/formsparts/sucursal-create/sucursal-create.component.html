@@ -89,183 +89,151 @@
                             </div>
                             <div class="border mt-4">
                                 <div class="form-row">
-                                    <!-- <div class="form-group col-md-2">
+                                    <div class="form-group col-md-2">
                                         <label for="dias">Dias de atencion</label>
                                         <div class="d-inline d-flex">
                                              <p  class="ml-4">Lunes</p>
                                              <div class="ml-3 pl-3">
-                                                 <input type="checkbox" formControlName="dia1">
+                                                 <input type="checkbox" formControlName="lunes">
                                              </div>
                                         </div>
-                                    </div> -->
-                                    <!-- <div class="form-group col-md-4">
+                                    </div>
+                                    <p>{{lunes}}</p>
+
+                                    <div class="form-group col-md-4">
                                         <label for="hora_apertura">Hora Apertura</label>
-                                        <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
-                                        <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
-                                            <p class="validate-error">El campo es requerido</p>
-                                        </div>
-                                        <div *ngIf="formControls.hora_apertura.errors?.pattern">
+                                        <input name="lunesha" class="form-control" placeholder="00:00 am" formControlName="lunesha">
+                                        <div *ngIf="formControls.lunesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="hora_cierre">Hora Cierre</label>
-                                        <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
-                                        <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
-                                            <p class="validate-error">El campo es requerido</p>
-                                        </div>
-                                        <div *ngIf="formControls.hora_cierre.errors?.pattern">
+                                        <label for="luneshc">Hora Cierre</label>
+                                        <input name="luneshc" class="form-control" placeholder="00:00 pm" formControlName="luneshc">
+                                        <div *ngIf="formControls.luneshc.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
-                                    </div> -->
+                                    </div>
                                </div>
                                <div class="form-row">
-                                    <!-- <div class="form-group col-md-2">
+                                    <div class="form-group col-md-2">
+                                       <div class="d-inline d-flex">
+                                           <p class="ml-3">Martes</p>
+                                           <div class="ml-3 pl-3">
+                                               <input type="checkbox" formControlName="martes">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input name="martesha" class="form-control" placeholder="00:00 am" formControlName="martesha">
+                                        <div *ngIf="formControls.martesha.errors?.pattern">
+                                            <p class="validate-error">Caracteres no validos</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input name="marteshc" class="form-control" placeholder="00:00 pm" formControlName="marteshc">
+                                        <div *ngIf="formControls.marteshc.errors?.pattern">
+                                            <p class="validate-error">Caracteres no validos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
                                         <div class="d-inline d-flex">
-                                             <p class="ml-3">Martes</p>
-                                             <div class="ml-3 pl-3">
-                                                 <input type="checkbox" formControlName="dias">
-                                             </div>
+                                            <p class="ml-3">Miercoles</p>
+                                            <div class="ml-2 pl-2">
+                                                <input type="checkbox" formControlName="miercoles">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
-                                        <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
-                                            <p class="validate-error">El campo es requerido</p>
-                                        </div>
-                                        <div *ngIf="formControls.hora_apertura.errors?.pattern">
+                                        <input name="miercolesha" class="form-control" placeholder="00:00 am" formControlName="miercolesha">
+                                        <div *ngIf="formControls.miercolesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
-                                        <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
-                                            <p class="validate-error">El campo es requerido</p>
-                                        </div>
-                                        <div *ngIf="formControls.hora_cierre.errors?.pattern">
-                                            <p class="validate-error">Caracteres no validos</p>
-                                        </div>
-                                    </div> -->
-                                </div>
-                                <div class="form-row">
-                                     <!--    <div class="form-group col-md-2">
-                                            <div class="d-inline d-flex">
-                                                 <p class="ml-3">Miercoles</p>
-                                                 <div class="ml-2 pl-2">
-                                                     <input type="checkbox" formControlName="dias">
-                                                 </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group col-md-4">
-                                            <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
-                                            <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_apertura.errors?.pattern">
+                                            <input name="miercoleshc" class="form-control" placeholder="00:00 pm" formControlName="miercoleshc">
+                                            <div *ngIf="formControls.miercoleshc.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
-                                            <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_cierre.errors?.pattern">
-                                                <p class="validate-error">Caracteres no validos</p>
-                                            </div>
-                                        </div> -->
                                 </div>
                                 <div class="form-row">
-                                        <!-- <div class="form-group col-md-2">
+                                        <div class="form-group col-md-2">
                                             <div class="d-inline d-flex">
                                                  <p class="ml-3">Jueves</p>
                                                  <div class="ml-3 pl-3">
-                                                     <input type="checkbox" formControlName="dias">
+                                                     <input type="checkbox" formControlName="jueves">
                                                  </div>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
-                                            <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_apertura.errors?.pattern">
+                                            <input name="juevesha" class="form-control" placeholder="00:00 am" formControlName="juevesha">
+                                            <div *ngIf="formControls.juevesha.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
-                                            <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_cierre.errors?.pattern">
+                                            <input name="jueveshc" class="form-control" placeholder="00:00 pm" formControlName="jueveshc">
+                                            <div *ngIf="formControls.jueveshc.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
-                                        </div> -->
+                                        </div>
                                 </div>
                                 <div class="form-row">
-                                        <!-- <div class="form-group col-md-2">
-                                            <div class="d-inline d-flex">
-                                                 <p class="ml-3">Viernes</p>
-                                                 <div class="ml-3 pl-3">
-                                                     <input type="checkbox" formControlName="dias">
-                                                 </div>
+                                    <div class="form-group col-md-2">
+                                        <div class="d-inline d-flex">
+                                            <p class="ml-3">Viernes</p>
+                                            <div class="ml-3 pl-3">
+                                                <input type="checkbox" formControlName="viernes">
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <input name="hora_apertura" class="form-control" placeholder="00:00 am" formControlName="hora_apertura">
-                                            <div *ngIf="(submitted && formControls.hora_apertura.errors && formControls.hora_apertura.errors.required) || (formControls.hora_apertura.errors?.required && formControls.hora_apertura.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_apertura.errors?.pattern">
-                                                <p class="validate-error">Caracteres no validos</p>
-                                            </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input name="viernesha" class="form-control" placeholder="00:00 am" formControlName="viernesha">
+                                        <div *ngIf="formControls.viernesha.errors?.pattern">
+                                            <p class="validate-error">Caracteres no validos</p>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <input name="hora_cierre" class="form-control" placeholder="00:00 am" formControlName="hora_cierre">
-                                            <div *ngIf="(submitted && formControls.hora_cierre.errors && formControls.hora_cierre.errors.required) || (formControls.hora_cierre.errors?.required && formControls.hora_cierre.touched && !submitted)">
-                                                <p class="validate-error">El campo es requerido</p>
-                                            </div>
-                                            <div *ngIf="formControls.hora_cierre.errors?.pattern">
-                                                <p class="validate-error">Caracteres no validos</p>
-                                            </div>
-                                        </div> -->
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input name="vierneshc" class="form-control" placeholder="00:00 pm" formControlName="vierneshc">
+                                        <div *ngIf="formControls.vierneshc.errors?.pattern">
+                                            <p class="validate-error">Caracteres no validos</p>
+                                        </div>
+                                    </div>
                                 </div>
                         </div>
 
-                            <div class="form-row">
-                                <!--
-                                    <div class="form-group col-md-6">
-                                    <label for="latitud">Latitud</label>
-                                    <input type="text" name="latitud" class="form-control" placeholder="latitud" formControlName="latitud" [ngClass]="{ 'is-invalid': (submitted && formControls.latitud.errors && formControls.latitud.errors.required) || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted) }">
-                                    <div *ngIf="(submitted && formControls.latitud.errors && formControls.latitud.errors.required) && formControls.latitud.dirty || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted)">
-                                        <p class="validate-error">El campo requerido</p>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="longitud">Longitud</label>
-                                    <input type="text" name="longitud" class="form-control" placeholder="longitud" formControlName="longitud" [ngClass]="{ 'is-invalid': (submitted && formControls.longitud.errors && formControls.longitud.errors.required) || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted) }">
-                                    <div *ngIf="(submitted && formControls.longitud.errors && formControls.longitud.errors.required) && formControls.longitud.dirty || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted)">
-                                        <p class="validate-error">El campo requerido</p>
-                                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="direccion">Latitud</label>
+                                <input type="text" name="latitud" class="form-control" placeholder="latitud" formControlName="latitud" [ngClass]="{ 'is-invalid': (submitted && formControls.latitud.errors && formControls.latitud.errors.required) || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted) }">
+                                <!-- <div *ngIf="(submitted && formControls.latitud.errors && formControls.latitud.errors.required) && formControls.latitud.dirty || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted)">
+                                    <p class="validate-error">El campo requerido</p>
                                 </div> -->
                             </div>
-<!--
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label for="imagen">Imagen</label>
-                                    <input type="file" name="imagen" class="form-control-file" accept=".png, .jpg, .jpeg" #fileInput (change)="fileProgress($event)">
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="relacion_usuario">Longitud</label>
+                                <input type="text" name="longitud" class="form-control" placeholder="longitud" formControlName="longitud" [ngClass]="{ 'is-invalid': (submitted && formControls.longitud.errors && formControls.longitud.errors.required) || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted) }">
+                              <!--   <div *ngIf="(submitted && formControls.longitud.errors && formControls.longitud.errors.required) && formControls.longitud.dirty || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted)">
+                                    <p class="validate-error">El campo requerido</p>
+                                </div> -->
+                            </div>
+                        </div>
 
-                                <div class="col-md-6">
-                                    <div class="d-flex justify-content-center">
-                                        <img *ngIf="imageUrl" [src]="imageUrl" alt="" height="80" width="100">
+
+                        <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="relacion_usuario">Relacion usuario</label>
+                                    <input type="text" name="relacion_usuario" class="form-control" placeholder="relacion_usuario" formControlName="relacion_usuario" [ngClass]="{ 'is-invalid': (submitted && formControls.relacion_usuario.errors && formControls.relacion_usuario.errors.required) || (formControls.relacion_usuario.errors?.required && formControls.relacion_usuario.touched && !submitted) }">
+                                    <div *ngIf="(submitted && formControls.relacion_usuario.errors && formControls.relacion_usuario.errors.required) && formControls.relacion_usuario.dirty || (formControls.relacion_usuario.errors?.required && formControls.relacion_usuario.touched && !submitted)">
+                                        <p class="validate-error">El campo requerido</p>
                                     </div>
                                 </div>
-                            </div>
- -->
-                            <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
-                            <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
+                        </div>
+                        <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
+                        <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
                         </form>
                     </div>
                 </div>
