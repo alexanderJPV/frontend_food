@@ -102,14 +102,16 @@
 
                                     <div class="form-group col-md-4">
                                         <label for="hora_apertura">Hora Apertura</label>
-                                        <input name="lunesha" class="form-control" placeholder="00:00 am" formControlName="lunesha">
+                                        <input name="lunesha" class="form-control" placeholder="00:00 am"
+                                            formControlName="lunesha" [attr.disabled]="formValue.lunes? null: ''">
                                         <div *ngIf="formControls.lunesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="luneshc">Hora Cierre</label>
-                                        <input name="luneshc" class="form-control" placeholder="00:00 pm" formControlName="luneshc">
+                                        <input name="luneshc" class="form-control" placeholder="00:00 pm"
+                                            formControlName="luneshc" [attr.disabled]="formValue.lunes? null: ''">
                                         <div *ngIf="formControls.luneshc.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
