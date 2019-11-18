@@ -4,10 +4,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Nombre sucursal
-                            <strong> </strong></h4>
+                        <h4 class="card-title">{{id? 'Editar Sucursal': 'Nueva Sucursal'}}
+                            <strong>{{' : '+formValue.razon_social}}</strong></h4>
                         <p class="card-category"> </p>
                     </div>
+                    <!-- <div>
+                        <pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
+                        <input [(ngModel)]="selected" [typeahead]="states" [isAnimated]="true"
+                           class="form-control">
+                    </div> -->
                     <div class="card-body">
                         <form [formGroup]="sucursalFormGroup" (ngSubmit)="onSubmit()">
                             <div class="form-row">
@@ -46,12 +51,9 @@
                                     <!-- <input type="text" name="tipo" class="form-control" placeholder="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }"> -->
                                     <select name="tipo" class="custom-select" id="tipo" formControlName="tipo" [ngClass]="{ 'is-invalid': (submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted) }" >
                                             <option value="0" disabled="true">- Selecionar tipo -</option>
-                                            <!-- <option *ngFor="let rols of roles; let i = index" [value]="rols">
-                                              {{rols}}
-                                            </option> -->
-                                            <option value="nacional">nacional</option>
-                                            <option value="vegetariana">vegetariana</option>
-                                            <option value="internacional">internacional</option>
+                                            <option *ngFor="let tipos of tipos; let i = index" [value]="tipos">
+                                              {{tipos}}
+                                            </option>
                                     </select>
                                     <div *ngIf="(submitted && formControls.tipo.errors && formControls.tipo.errors.required) || (formControls.tipo.errors?.required && formControls.tipo.touched && !submitted)">
                                         <p class="validate-error">El campo es requerido</p>
@@ -98,20 +100,17 @@
                                              </div>
                                         </div>
                                     </div>
-                                    <p>{{lunes}}</p>
-
+                                    <!-- <p>{{formValue.lunes}} </p> -->
                                     <div class="form-group col-md-4">
                                         <label for="hora_apertura">Hora Apertura</label>
-                                        <input name="lunesha" class="form-control" placeholder="00:00 am"
-                                            formControlName="lunesha" [attr.disabled]="formValue.lunes? null: ''">
+                                        <input name="lunesha" class="form-control" placeholder="00:00 am" formControlName="lunesha" [attr.disabled]="formValue.lunes? null: ''">
                                         <div *ngIf="formControls.lunesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="luneshc">Hora Cierre</label>
-                                        <input name="luneshc" class="form-control" placeholder="00:00 pm"
-                                            formControlName="luneshc" [attr.disabled]="formValue.lunes? null: ''">
+                                        <input name="luneshc" class="form-control" placeholder="00:00 pm" formControlName="luneshc" [attr.disabled]="formValue.lunes? null: ''">
                                         <div *ngIf="formControls.luneshc.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
@@ -127,13 +126,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="martesha" class="form-control" placeholder="00:00 am" formControlName="martesha">
+                                        <input name="martesha" class="form-control" placeholder="00:00 am" formControlName="martesha" [attr.disabled]="formValue.martes? null: ''">
                                         <div *ngIf="formControls.martesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="marteshc" class="form-control" placeholder="00:00 pm" formControlName="marteshc">
+                                        <input name="marteshc" class="form-control" placeholder="00:00 pm" formControlName="marteshc" [attr.disabled]="formValue.martes? null: ''">
                                         <div *ngIf="formControls.marteshc.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
@@ -149,13 +148,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="miercolesha" class="form-control" placeholder="00:00 am" formControlName="miercolesha">
+                                        <input name="miercolesha" class="form-control" placeholder="00:00 am" formControlName="miercolesha" [attr.disabled]="formValue.miercoles? null: ''">
                                         <div *ngIf="formControls.miercolesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                         <div class="form-group col-md-4">
-                                            <input name="miercoleshc" class="form-control" placeholder="00:00 pm" formControlName="miercoleshc">
+                                            <input name="miercoleshc" class="form-control" placeholder="00:00 pm" formControlName="miercoleshc" [attr.disabled]="formValue.miercoles? null: ''">
                                             <div *ngIf="formControls.miercoleshc.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
@@ -171,13 +170,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input name="juevesha" class="form-control" placeholder="00:00 am" formControlName="juevesha">
+                                            <input name="juevesha" class="form-control" placeholder="00:00 am" formControlName="juevesha" [attr.disabled]="formValue.jueves? null: ''">
                                             <div *ngIf="formControls.juevesha.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input name="jueveshc" class="form-control" placeholder="00:00 pm" formControlName="jueveshc">
+                                            <input name="jueveshc" class="form-control" placeholder="00:00 pm" formControlName="jueveshc" [attr.disabled]="formValue.jueves? null: ''">
                                             <div *ngIf="formControls.jueveshc.errors?.pattern">
                                                 <p class="validate-error">Caracteres no validos</p>
                                             </div>
@@ -193,13 +192,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="viernesha" class="form-control" placeholder="00:00 am" formControlName="viernesha">
+                                        <input name="viernesha" class="form-control" placeholder="00:00 am" formControlName="viernesha" [attr.disabled]="formValue.viernes? null: ''">
                                         <div *ngIf="formControls.viernesha.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input name="vierneshc" class="form-control" placeholder="00:00 pm" formControlName="vierneshc">
+                                        <input name="vierneshc" class="form-control" placeholder="00:00 pm" formControlName="vierneshc" [attr.disabled]="formValue.viernes? null: ''">
                                         <div *ngIf="formControls.vierneshc.errors?.pattern">
                                             <p class="validate-error">Caracteres no validos</p>
                                         </div>
@@ -211,21 +210,20 @@
                             <div class="form-group col-md-6">
                                 <label for="direccion">Latitud</label>
                                 <input type="text" name="latitud" class="form-control" placeholder="latitud" formControlName="latitud" [ngClass]="{ 'is-invalid': (submitted && formControls.latitud.errors && formControls.latitud.errors.required) || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted) }">
-                                <!-- <div *ngIf="(submitted && formControls.latitud.errors && formControls.latitud.errors.required) && formControls.latitud.dirty || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted)">
+                                <div *ngIf="(submitted && formControls.latitud.errors && formControls.latitud.errors.required) && formControls.latitud.dirty || (formControls.latitud.errors?.required && formControls.latitud.touched && !submitted)">
                                     <p class="validate-error">El campo requerido</p>
-                                </div> -->
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="relacion_usuario">Longitud</label>
                                 <input type="text" name="longitud" class="form-control" placeholder="longitud" formControlName="longitud" [ngClass]="{ 'is-invalid': (submitted && formControls.longitud.errors && formControls.longitud.errors.required) || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted) }">
-                              <!--   <div *ngIf="(submitted && formControls.longitud.errors && formControls.longitud.errors.required) && formControls.longitud.dirty || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted)">
+                                <div *ngIf="(submitted && formControls.longitud.errors && formControls.longitud.errors.required) && formControls.longitud.dirty || (formControls.longitud.errors?.required && formControls.longitud.touched && !submitted)">
                                     <p class="validate-error">El campo requerido</p>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
 
-
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="relacion_usuario">Relacion usuario</label>
                                     <input type="text" name="relacion_usuario" class="form-control" placeholder="relacion_usuario" formControlName="relacion_usuario" [ngClass]="{ 'is-invalid': (submitted && formControls.relacion_usuario.errors && formControls.relacion_usuario.errors.required) || (formControls.relacion_usuario.errors?.required && formControls.relacion_usuario.touched && !submitted) }">
@@ -233,7 +231,7 @@
                                         <p class="validate-error">El campo requerido</p>
                                     </div>
                                 </div>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-success float-right">Guardar Sucursal</button>
                         <button class="btn btn-danger float-right" (click)="cancelar()">Cancelar</button>
                         </form>

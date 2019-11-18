@@ -28,20 +28,23 @@ export class SucursalService {
   update(sucursal: any) {
     const URL = SERVER.SUCURSALES;
     const headers = this.webService.imageFileHeaders(this.authService.getToken());
-    return this.webService.put(URL, sucursal);
+    return this.webService.put(URL, sucursal, headers);
   }
 
   get(id: any) {
     const URL = SERVER.SUCURSALES + '/' + id;
     const headers = this.webService.JSONOptions(this.authService.getToken());
-    return this.webService.get(URL);
+    return this.webService.get(URL,headers);
   }
 
   delete(id: any) {
     const URL = SERVER.SUCURSALES + '/' + id;
     const headers = this.webService.JSONOptions(this.authService.getToken());
-    return this.webService.delete(URL);
+    return this.webService.delete(URL,headers);
   }
   tipos(){
+    const URL = SERVER.TIPOS;
+    const headers = this.webService.JSONOptions(this.authService.getToken());
+    return this.webService.get(URL, headers);
   }
 }

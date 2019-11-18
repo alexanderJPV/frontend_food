@@ -31,7 +31,8 @@ export const SERVER = (function () {
         LISTROLES: `${URL.BASE}/${USERS}/${ROLES}`,
         SUCURSALES: `${URL.BASE}/${SUCURSALES}`,
         LISTTIPOS: `${URL.BASE}/${SUCURSALES}/${TIPOS}`,
-        PLATOS: `${URL.BASE}/${PLATOS}`
+        PLATOS: `${URL.BASE}/${PLATOS}`,
+        TIPOS: `${URL.BASE}/${TIPOS}`
     };
 })();
 

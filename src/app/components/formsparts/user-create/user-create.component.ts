@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
-// l
+//
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -31,6 +31,7 @@ export class UserCreateComponent implements OnInit {
     if (this.id) {
       this.userService.get(this.id).subscribe(
         (resTwo) => {
+          console.log(resTwo);
           this.imageUrl = resTwo.imagen;
           this.userFormGroup.setValue(resTwo);
           this.userFormGroup.patchValue({
@@ -73,7 +74,6 @@ export class UserCreateComponent implements OnInit {
       formData.append('type', this.fileData.type);
       formData.append('name', this.fileData.name);
     }
-
     formData.append('userName', this.formValue.userName);
     formData.append('email', this.formValue.email);
     formData.append('nombres', this.formValue.nombres);
@@ -85,7 +85,7 @@ export class UserCreateComponent implements OnInit {
     formData.append('id', this.formValue.id);
     formData.append('telefono', this.formValue.telefono);
     formData.append('fechaNacimiento', this.formValue.fechaNacimiento);
-    console.log(formData);
+    // console.log(formData);
     if (this.id) {
       this.updateUser(formData);
     } else {

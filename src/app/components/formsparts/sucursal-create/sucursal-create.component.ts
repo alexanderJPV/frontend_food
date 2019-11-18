@@ -2,7 +2,7 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SucursalService } from 'src/app/services/sucursal.service';
-
+declare var $: any;
 @Component({
   selector: 'app-sucursal-create',
   templateUrl: './sucursal-create.component.html',
@@ -15,14 +15,65 @@ export class SucursalCreateComponent implements OnInit {
   public imageUrl: any;
   public id: any;
   public lunes: boolean;
-  // public sucursalFormGroup: FormGroup;
-  // public submitted: any = false;
-  // public receivedChildMessage: string;
-  // public fileData: File = null;
-  // public imageUrl: any;
-  // public id: any;
-  // public roles: any;
-
+  public martes: boolean;
+  public miercoles: boolean;
+  public jueves: boolean;
+  public viernes: boolean;
+  public tipos: any;
+  // ----------------- example
+  // public selected: string;
+  // public states: string[] = [
+  //     'Alabama',
+  //     'Alaska',
+  //     'Arizona',
+  //     'Arkansas',
+  //     'California',
+  //     'Colorado',
+  //     'Connecticut',
+  //     'Delaware',
+  //     'Florida',
+  //     'Georgia',
+  //     'Hawaii',
+  //     'Idaho',
+  //     'Illinois',
+  //     'Indiana',
+  //     'Iowa',
+  //     'Kansas',
+  //     'Kentucky',
+  //     'Louisiana',
+  //     'Maine',
+  //     'Maryland',
+  //     'Massachusetts',
+  //     'Michigan',
+  //     'Minnesota',
+  //     'Mississippi',
+  //     'Missouri',
+  //     'Montana',
+  //     'Nebraska',
+  //     'Nevada',
+  //     'New Hampshire',
+  //     'New Jersey',
+  //     'New Mexico',
+  //     'New York',
+  //     'North Dakota',
+  //     'North Carolina',
+  //     'Ohio',
+  //     'Oklahoma',
+  //     'Oregon',
+  //     'Pennsylvania',
+  //     'Rhode Island',
+  //     'South Carolina',
+  //     'South Dakota',
+  //     'Tennessee',
+  //     'Texas',
+  //     'Utah',
+  //     'Vermont',
+  //     'Virginia',
+  //     'Washington',
+  //     'West Virginia',
+  //     'Wisconsin',
+  //     'Wyoming'
+  //   ];
   constructor(
     private sucursalService: SucursalService,
     private formBuilder: FormBuilder,
@@ -31,24 +82,45 @@ export class SucursalCreateComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.initialData();
-    // this.id = this.activatedRoute.snapshot.params['id'];
-    // if (this.id) {
-    //   this.sucursalService.get(this.id).subscribe(
-    //     (resTwo) => {
-    //       console.log(resTwo);
-    //     /*   this.imageUrl = resTwo.imagen;
-    //       this.userFormGroup.setValue(resTwo);
-    //       this.userFormGroup.patchValue({
-    //         rol: resTwo.rol[0]
-    //       }); */
-    //     }
-    //   );
-    // }
-    // console.log(this.id);
+    this.id = this.activatedRoute.snapshot.params['id'];
+    if (this.id) {
+      this.sucursalService.get(this.id).subscribe((resTwo) =>
+       {
+          // console.log(resTwo);
+          // console.log(resTwo.dias[0]);
+          this.imageUrl = resTwo.imagen;
+          this.sucursalFormGroup.patchValue({
+            razon_social: resTwo.razon_social,
+            telefono: resTwo.telefono,
+            descripcion: resTwo.descripcion,
+            tipo: resTwo.tipo[0],
+            nit: resTwo.nit,
+            direccion: resTwo.direccion,
+            lunes: resTwo.dias[0],
+            lunesha: resTwo.hora_apertura[0],
+            luneshc: resTwo.hora_cierre[0],
+            martes: resTwo.dias[1],
+            martesha: resTwo.hora_apertura[1],
+            marteshc: resTwo.hora_cierre[1],
+            miercoles: resTwo.dias[2],
+            miercoleha: resTwo.hora_apertura[2],
+            miercoleshc: resTwo.hora_cierre[2],
+            jueves: resTwo.dias[3],
+            juevesha: resTwo.hora_apertura[3],
+            jueveshc: resTwo.hora_cierre[3],
+            viernes: resTwo.dias[4],
+            viernesha: resTwo.hora_apertura[4],
+            viernesca: resTwo.hora_cierre[4],
+            latitud: resTwo.latitud,
+            longitud: resTwo.longitud
+          });
+        }
+      );
+    }
   }
 
   ngOnInit() {
-
+    this.showTipos();
   }
   fileProgress(fileInput: any) {
     let reader = new FileReader();
@@ -78,16 +150,16 @@ export class SucursalCreateComponent implements OnInit {
       formData.append('name', this.fileData.name);
     }
     this.lunes = this.formValue.lunes? true:false;
-    let martes = this.formValue.martes? true:false;
-    let miercoles = this.formValue.miercoles? true:false;
-    let jueves = this.formValue.jueves? true:false;
-    let viernes = this.formValue.viernes? true:false;
+    this.martes = this.formValue.martes? true:false;
+    this.miercoles = this.formValue.miercoles? true:false;
+    this.jueves = this.formValue.jueves? true:false;
+    this.viernes = this.formValue.viernes? true:false;
     let diasaux = {
       lunes : this.lunes,
-      martes : martes,
-      miercoles : miercoles,
-      jueves : jueves,
-      viernes : viernes
+      martes : this.martes,
+      miercoles : this.miercoles,
+      jueves : this.jueves,
+      viernes : this.viernes
     }
     let diasset = JSON.stringify(diasaux);
     let hora_aperlunes = this.formValue.lunesha? this.formValue.lunesha: '';
@@ -116,9 +188,7 @@ export class SucursalCreateComponent implements OnInit {
       hora_cierrviernes: hora_cierrviernes
     }
     let hora_cierreset = JSON.stringify(hora_cierreaux);
-    // console.log(hora_cierreset);
-    // console.log(diasaux);
-    // console.log(hora_aperturaaux);
+    formData.append('id',this.id);
     formData.append('razon_social', this.formValue.razon_social);
     formData.append('telefono', this.formValue.telefono);
     formData.append('descripcion', this.formValue.descripcion);
@@ -128,8 +198,15 @@ export class SucursalCreateComponent implements OnInit {
     formData.append('dias', diasset);
     formData.append('hora_apertura', hora_aperturaset);
     formData.append('hora_cierre', hora_cierreset);
-
-    this.createSucursal(formData);
+    formData.append('latitud',this.formValue.latitud);
+    formData.append('longitud',this.formValue.longitud);
+    // console.log('==============================================>');
+    // console.log(this.id);
+    if(this.id){
+      this.updateSucursal(formData);
+    }else{
+      this.createSucursal(formData);
+    }
   }
   initialData() {
     this.sucursalFormGroup = this.formBuilder.group({
@@ -143,8 +220,8 @@ export class SucursalCreateComponent implements OnInit {
       imagen: [''],
       type: [''],
       name: [''],
-      lunes: [''],
-      lunesha: ['',Validators.pattern('[a-zA-Z0-9 :_-]*')],
+      lunes: [false],
+      lunesha: [''],
       luneshc: ['',Validators.pattern('[a-zA-Z0-9 :_-]*')],
       martes: [''],
       martesha: ['',Validators.pattern('[a-zA-Z0-9 :_-]*')],
@@ -158,9 +235,9 @@ export class SucursalCreateComponent implements OnInit {
       viernes: [''],
       viernesha: ['',Validators.pattern('[a-zA-Z0-9 :_-]*')],
       vierneshc: ['',Validators.pattern('[a-zA-Z0-9 :_-]*')],
-      latitud: [''],
-      longitud: [''],
-      relacion_usuario: ['']
+      latitud: ['',[Validators.required]],
+      longitud: ['',[Validators.required]]
+      // relacion_usuario: ['']
       // hora_apertura:['',[Validators.required, Validators.pattern('[a-zA-Z0-9 :_-]*')]],
       // hora_cierre:['',[Validators.required, Validators.pattern('[a-zA-Z0-9 :_-]*')]]
     });
@@ -177,14 +254,64 @@ export class SucursalCreateComponent implements OnInit {
     this.sucursalService.create(valueFormData).subscribe(
       (res) => {
         console.log('Exito al crear');
+        this.showNotification('top', 'center',"Sucursal añadido exitosamente!!!",2);
         this.router.navigate(['/admin/sucursal-list']);
       },
       (err) => {
-        console.log('Create Error............................................');
+        console.log('Create Error.....................');
       }
     );
   }
+  updateSucursal(velueFormData: any){
+    this.sucursalService.update(velueFormData).subscribe(
+      (res) => {
+        console.log('Exito al actualizar');
+        this.showNotification('top', 'center',"Sucursal editado exitosamente!!!",2);
+        this.router.navigate(['/admin/sucursal-list']);
+      },
+      (err) => {
+        console.log('Update error......................');
+        console.log(err);
+        // const erromensaje = err.error.details.message;
+      }
+    );
+  }
+  showTipos(){
+    this.sucursalService.tipos().subscribe((res) => {
+      this.tipos=res;
+    });
+  }
+  showNotification(from, align, mensaje, colores) {
+    const type = ['', 'info', 'success', 'warning', 'danger'];
+    //1 => color azul
+    //2 => color verde
+    //3 => color anaranjado
+    //4 => color rojo
+    const color = colores;
 
+    $.notify({
+      icon: "notifications",
+      message: mensaje
+
+    }, {
+      type: type[color],
+      timer: 4000,
+      placement: {
+        from: from,
+        align: align
+      },
+      template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
+        '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
+        '<i class="material-icons" data-notify="icon">notifications</i> ' +
+        '<span data-notify="title">{1}</span> ' +
+        '<span data-notify="message">{2}</span>' +
+        '<div class="progress" data-notify="progressbar">' +
+        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+        '</div>' +
+        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+        '</div>'
+    });
+  }
   cancelar() {
     this.router.navigate(['/admin/sucursal-list']);
   }
