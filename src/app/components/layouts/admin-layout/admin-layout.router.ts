@@ -41,6 +41,10 @@ export const AdminLayoutRoutes: Routes = [
         component: SucursalCreateComponent
     },
     {
+        path: 'sucursal-usuario/:id/:ax',
+        component: SucursalCreateComponent
+    },
+    {
         path: 'plato-especial',
         component: PlatoEspecialComponent
     },

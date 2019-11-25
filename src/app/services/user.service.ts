@@ -23,7 +23,6 @@ export class UserService {
     const headers = this.webService.JSONOptions(this.authService.getToken());
     return this.webService.get(URL, headers);
   }
-
   create(user: any) {
     const URL = SERVER.USERS;
     const headers = this.webService.imageFileHeaders(this.authService.getToken());

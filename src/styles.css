@@ -14,3 +14,14 @@ font-family: 'Luckiest Guy', cursive;
 font-family: 'Patrick Hand', cursive;
 font-family: 'Vollkorn', serif;
 */
+.dropdown-menu {
+    display: none;
+    padding: 0.3125rem 0;
+    border: 0;
+    opacity: 1 !important;
+    transform: scale(0);
+    transform-origin: 0 0;
+    will-change: transform, opacity;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}

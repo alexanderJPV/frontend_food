@@ -2,6 +2,7 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SucursalService } from 'src/app/services/sucursal.service';
+import { UserService } from './../../../services/user.service';
 declare var $: any;
 @Component({
   selector: 'app-sucursal-create',
@@ -14,81 +15,41 @@ export class SucursalCreateComponent implements OnInit {
   public fileData: File = null;
   public imageUrl: any;
   public id: any;
+  public sw: any;
   public lunes: boolean;
   public martes: boolean;
   public miercoles: boolean;
   public jueves: boolean;
   public viernes: boolean;
   public tipos: any;
+  public usuarios: any[];
+
   // ----------------- example
-  // public selected: string;
-  // public states: string[] = [
-  //     'Alabama',
-  //     'Alaska',
-  //     'Arizona',
-  //     'Arkansas',
-  //     'California',
-  //     'Colorado',
-  //     'Connecticut',
-  //     'Delaware',
-  //     'Florida',
-  //     'Georgia',
-  //     'Hawaii',
-  //     'Idaho',
-  //     'Illinois',
-  //     'Indiana',
-  //     'Iowa',
-  //     'Kansas',
-  //     'Kentucky',
-  //     'Louisiana',
-  //     'Maine',
-  //     'Maryland',
-  //     'Massachusetts',
-  //     'Michigan',
-  //     'Minnesota',
-  //     'Mississippi',
-  //     'Missouri',
-  //     'Montana',
-  //     'Nebraska',
-  //     'Nevada',
-  //     'New Hampshire',
-  //     'New Jersey',
-  //     'New Mexico',
-  //     'New York',
-  //     'North Dakota',
-  //     'North Carolina',
-  //     'Ohio',
-  //     'Oklahoma',
-  //     'Oregon',
-  //     'Pennsylvania',
-  //     'Rhode Island',
-  //     'South Carolina',
-  //     'South Dakota',
-  //     'Tennessee',
-  //     'Texas',
-  //     'Utah',
-  //     'Vermont',
-  //     'Virginia',
-  //     'Washington',
-  //     'West Virginia',
-  //     'Wisconsin',
-  //     'Wyoming'
-  //   ];
+  public selecteduser: any;
   constructor(
     private sucursalService: SucursalService,
+    private userService: UserService,
     private formBuilder: FormBuilder,
     private cd: ChangeDetectorRef,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
     this.initialData();
+    // console.log(this.activatedRoute.snapshot.params['id']);
+    // console.log(this.activatedRoute.snapshot.params['ax']);
     this.id = this.activatedRoute.snapshot.params['id'];
+    this.sw = this.activatedRoute.snapshot.params['ax'];
     if (this.id) {
+      this.userService.getAll(0,100).subscribe(users => {
+        this.usuarios = users.usuario.rows;
+        // console.log(this.usuarios);
+      });
       this.sucursalService.get(this.id).subscribe((resTwo) =>
        {
           // console.log(resTwo);
           // console.log(resTwo.dias[0]);
           this.imageUrl = resTwo.imagen;
+          // console.log(this.imageUrl);
           this.sucursalFormGroup.patchValue({
             razon_social: resTwo.razon_social,
             telefono: resTwo.telefono,
@@ -259,6 +220,7 @@ export class SucursalCreateComponent implements OnInit {
       },
       (err) => {
         console.log('Create Error.....................');
+        this.showNotification('top', 'center',"Error al añadir Sucursal!!!",4);
       }
     );
   }
@@ -271,7 +233,8 @@ export class SucursalCreateComponent implements OnInit {
       },
       (err) => {
         console.log('Update error......................');
-        console.log(err);
+        this.showNotification('top', 'center',"Error al editar Sucursal!!!",4);
+        // console.log(err);
         // const erromensaje = err.error.details.message;
       }
     );
@@ -314,5 +277,15 @@ export class SucursalCreateComponent implements OnInit {
   }
   cancelar() {
     this.router.navigate(['/admin/sucursal-list']);
+  }
+  relacion(){
+    const userx = this.usuarios.find(userx => userx.userName==this.selecteduser);
+    // console.log(userx.id);
+    this.userService.get(userx.id).subscribe(
+      userfind =>
+      {
+          console.log(userfind);
+      }
+    );
   }
 }

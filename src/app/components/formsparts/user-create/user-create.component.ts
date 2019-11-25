@@ -96,9 +96,9 @@ export class UserCreateComponent implements OnInit {
     /* La validacion aqui*/
     this.userFormGroup = this.formBuilder.group({
       id: [null],
-      nombres: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
+      nombres: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
       apellidos: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.pattern('[a-zA-Z ]*')]],
-      userName: ['', [Validators.required,Validators.minLength(5),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
+      userName: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20),Validators.pattern('[a-zA-Z0-9 _-]*')]],
       email: ['', [Validators.required, Validators.email]],
       password: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]],
       imagen: [''],
