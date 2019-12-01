@@ -8,6 +8,7 @@ import { UserListComponent } from '../../user-list/user-list.component';
 import { ModalsModule } from  '../../modals/modals.module';
 import { SucursalComponent } from '../../sucursal/sucursal.component';
 import {PlatoEspecialComponent} from '../../plato-especial/plato-especial.component';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -19,7 +20,7 @@ import {
 import { AdminLayoutRoutes } from './admin-layout.router';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { FormspartsModule } from '../../formsparts/formsparts.module';
-import { PaginationModule } from 'ngx-bootstrap';
+import { PaginationModule, TypeaheadModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     DashboardAdminComponent,
@@ -41,7 +42,8 @@ import { PaginationModule } from 'ngx-bootstrap';
     MatTooltipModule,
     ModalsModule,
     FormspartsModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    TypeaheadModule.forRoot()
   ]
 })
 export class AdminLayoutModule { }

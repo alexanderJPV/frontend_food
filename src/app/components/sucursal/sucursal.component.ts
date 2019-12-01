@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SucursalService } from 'src/app/services/sucursal.service';
 import { Router } from '@angular/router';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+
 @Component({
   selector: 'app-sucursal',
   templateUrl: './sucursal.component.html',
@@ -21,6 +23,7 @@ export class SucursalComponent implements OnInit {
   ngOnInit() {
     this.getLisSucursal();
   }
+
   configpagination(nropages: any) {
     this.pageSize = nropages;
     if (this.keyword || this.tipo) {
@@ -35,7 +38,7 @@ export class SucursalComponent implements OnInit {
     this.sucursalService.getAll(this.currentPage - 1, this.pageSize).subscribe(sucursales => {
       this.totalItems = sucursales.elements;
       this.sucursales = sucursales.sucursal.rows;
-      // console.log(this.sucursales);
+      console.log(this.sucursales);
       // console.log(this.sucursales[0].dias);
       // console.log(this.sucursales[0].hora_apertura);
       // console.log(this.sucursales[0].hora_cierre);

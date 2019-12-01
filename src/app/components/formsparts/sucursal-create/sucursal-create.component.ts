@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SucursalService } from 'src/app/services/sucursal.service';
 import { UserService } from './../../../services/user.service';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 declare var $: any;
 @Component({
   selector: 'app-sucursal-create',
@@ -23,27 +24,24 @@ export class SucursalCreateComponent implements OnInit {
   public viernes: boolean;
   public tipos: any;
   public usuarios: any[];
-
   // ----------------- example
+  public keyword: any;
   public selecteduser: any;
+
+
   constructor(
-    private sucursalService: SucursalService,
-    private userService: UserService,
-    private formBuilder: FormBuilder,
-    private cd: ChangeDetectorRef,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
+              private sucursalService: SucursalService,
+              private userService: UserService,
+              private formBuilder: FormBuilder,
+              private cd: ChangeDetectorRef,
+              private router: Router,
+              private activatedRoute: ActivatedRoute
+             )
+  {
     this.initialData();
-    // console.log(this.activatedRoute.snapshot.params['id']);
-    // console.log(this.activatedRoute.snapshot.params['ax']);
     this.id = this.activatedRoute.snapshot.params['id'];
     this.sw = this.activatedRoute.snapshot.params['ax'];
     if (this.id) {
-      this.userService.getAll(0,100).subscribe(users => {
-        this.usuarios = users.usuario.rows;
-        // console.log(this.usuarios);
-      });
       this.sucursalService.get(this.id).subscribe((resTwo) =>
        {
           // console.log(resTwo);
@@ -82,6 +80,7 @@ export class SucursalCreateComponent implements OnInit {
 
   ngOnInit() {
     this.showTipos();
+    this.searchByKeyword();
   }
   fileProgress(fileInput: any) {
     let reader = new FileReader();
@@ -161,8 +160,6 @@ export class SucursalCreateComponent implements OnInit {
     formData.append('hora_cierre', hora_cierreset);
     formData.append('latitud',this.formValue.latitud);
     formData.append('longitud',this.formValue.longitud);
-    // console.log('==============================================>');
-    // console.log(this.id);
     if(this.id){
       this.updateSucursal(formData);
     }else{
@@ -251,7 +248,6 @@ export class SucursalCreateComponent implements OnInit {
     //3 => color anaranjado
     //4 => color rojo
     const color = colores;
-
     $.notify({
       icon: "notifications",
       message: mensaje
@@ -279,13 +275,20 @@ export class SucursalCreateComponent implements OnInit {
     this.router.navigate(['/admin/sucursal-list']);
   }
   relacion(){
-    const userx = this.usuarios.find(userx => userx.userName==this.selecteduser);
-    // console.log(userx.id);
-    this.userService.get(userx.id).subscribe(
-      userfind =>
-      {
-          console.log(userfind);
+    // const userx = this.usuarios.find(userx => userx.userName==this.selecteduser);
+    console.log('id sucursal',this.id);
+    console.log('id usuario',this.selecteduser.id);
+  }
+  searchByKeyword(){
+    this.userService.getlistRoles(0,10,'',this.keyword).subscribe(
+      users => {
+        this.usuarios = users.usuario.rows;
+        // console.log(this.usuarios);
       }
     );
+  }
+  onSelect(event: TypeaheadMatch): void {
+    this.selecteduser = event.item;
+    console.log(event.item);
   }
 }
