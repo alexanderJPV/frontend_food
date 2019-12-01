@@ -27,7 +27,7 @@ export class SucursalCreateComponent implements OnInit {
   // ----------------- example
   public keyword: any;
   public selecteduser: any;
-
+  public idusr: any;
 
   constructor(
               private sucursalService: SucursalService,
@@ -289,6 +289,6 @@ export class SucursalCreateComponent implements OnInit {
   }
   onSelect(event: TypeaheadMatch): void {
     this.selecteduser = event.item;
-    console.log(event.item);
+    console.log('====================>',event.item.id);
   }
 }
